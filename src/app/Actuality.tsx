@@ -26,7 +26,7 @@ const Actuality = () => {
     };
 
     fetchArticles();
-  }, []); // The empty array means this useEffect will run once when the component mounts
+  }, [backendUrl]); // The empty array means this useEffect will run once when the component mounts
 
 
   return (
