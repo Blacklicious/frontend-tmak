@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import Image from 'next/image';
+import axios from '../../node_modules/axios';
+import Image from '../../node_modules/next/image';
 
 const Actuality = () => {
   // Initialize articles state

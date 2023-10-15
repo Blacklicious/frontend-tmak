@@ -1,5 +1,6 @@
 import React from 'react'
-import Link from 'next/link';
+import Link from '../../node_modules/next/link';
+import Image from '../../node_modules/next/image';
 
 const Events = () => {
   return (
@@ -9,7 +10,15 @@ const Events = () => {
             <span className="block text-lg">Join Our Events</span>
             <h2 className="text-4xl font-bold">Évènements a venir !!</h2>
             <p className="my-4 ">
-              "Si vous êtes passionné par le monde de la minéralogie et que les événements communautaires vous intéressent, nos activités à venir sont faites pour vous. Préparez-vous à rencontrer des professionnels partageant les mêmes centres d'intérêt et à élargir votre réseau. La section 'ÉVÉNEMENTS À VENIR' de notre site internet est votre destination privilégiée pour rester informé sur les dernières actualités et les événements les plus marquants dans l'industrie minière. Que ce soit pour des conférences, des ateliers, ou des salons professionnels, ne manquez pas l'opportunité de vous impliquer et de rester à la pointe du secteur. Consultez cette section régulièrement pour découvrir les événements qui pourraient façonner votre avenir professionnel dans le monde minier."
+              Si vous êtes passionné par le monde de la minéralogie et que les événements
+              communautaires vous intéressent, nos activités à venir sont faites pour vous. 
+              Préparez-vous à rencontrer des professionnels partageant les mêmes centres d&apos;intérêt
+               et à élargir votre réseau. La section &apos;ÉVÉNEMENTS À VENIR&apos; de notre site internet
+                est votre destination privilégiée pour rester informé sur les dernières actualités et les
+               événements les plus marquants dans l&apos;industrie minière. Que ce soit pour des conférences,
+                des ateliers, ou des salons professionnels, ne manquez pas l&apos;opportunité de vous impliquer
+               et de rester à la pointe du secteur. Consultez cette section régulièrement pour découvrir les 
+               événements qui pourraient façonner votre avenir professionnel dans le monde minier."
             </p>
             <Link 
               href="/coming-events" ><button
@@ -21,10 +30,11 @@ const Events = () => {
 
           </div>
           <div className="md:w-1/2">
-            <img
-              src="https://smartcompany.africa/wp-content/uploads/2022/04/Indaba.jpg"
+            <Image
+              src="/foiredelacan.jpeg"
               alt="Coming Events"
               className="w-full h-full object-cover"
+              width={900} height={500}
             />
           </div>
         </div>

@@ -16,7 +16,7 @@ const Hero = () => {
         <div className="absolute inset-0 flex items-center justify-center h-full">
 					<div className='px-[9vw] md:px-[16vw]'>
 						<div className="text-3xl md:text-5xl font-bold ">
-								"CREER UN HERITAGE DURABLE POUR LES GÉNÉRATIONS FUTURES."
+            &quot;CREER UN HERITAGE DURABLE POUR LES GÉNÉRATIONS FUTURES.&quot;
 						</div>
 						<p className='flex md:justify-end md:text-lg md:px-10'>
 								Notre PDG. Nouhoum TRAORÉ

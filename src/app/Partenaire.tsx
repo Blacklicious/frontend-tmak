@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from '../../node_modules/next/image';
 
 const logos = [
   '/logos/barrick.jpeg', // replace with your logo file names or URLs
@@ -28,7 +29,8 @@ const Partenaire: React.FC = () => {
 			</div>
       <div className="animate-marquee whitespace-nowrap w-[100vw]">
         {logos.map((logo, index) => (
-          <img
+          <Image 
+            width={300} height={500} 
             key={index}
             src={logo}
             alt={`Partner ${index + 1}`}

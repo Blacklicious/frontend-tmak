@@ -52,7 +52,7 @@ const Contact: React.FC = () => {
 		}, (error) => {
 			console.error("Error getting location", error);
 		});
-	}, []);
+	}, [formData]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
