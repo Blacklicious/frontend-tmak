@@ -70,7 +70,7 @@ const Actuality = () => {
                 {/* the list of articles to select from in a carousel */}
                 <div className="flex overflow-x-auto">
                   {articles.filter(article => article.rubrique === "T-MAK actualité").map(article => (
-                    <div key={article.id} onClick={() => setSelectedArticle(article)} className='w-40 bg-white' >
+                    <div key={article.id} onClick={() => setSelectedArticle(article)} className='w-[30%] m-2 bg-gray-100/75 p-2' >
                       <Image src={article.file} alt={article.title} height={300} width={400}  />
                       <h4>{article.title}</h4>
                     </div>
