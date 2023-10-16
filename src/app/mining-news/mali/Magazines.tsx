@@ -33,7 +33,7 @@ const Magazine: React.FC = () => {
   }, [backendUrl]);
 
   const handleClick = (magazine: MagazineType) => {
-    setSelectedMagazine(magazine);
+    setSelectedMagazine(magazine); // Here, magazine is a single object
   };
 
 

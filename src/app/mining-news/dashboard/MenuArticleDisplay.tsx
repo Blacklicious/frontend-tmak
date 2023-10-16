@@ -31,7 +31,7 @@ const MenuArticleDisplay = () => {
     fetchArticles();
   }, [backendUrl]);
 
-  const toggleSelectArticle = (id) => {
+  const toggleSelectArticle = (id: string) => {
     const newSelectedArticles = new Set(selectedArticles);
     if (newSelectedArticles.has(id)) {
       newSelectedArticles.delete(id);

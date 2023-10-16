@@ -30,7 +30,7 @@ const MenuVideoDisplay = () => {
     fetchVideos();
   }, [backendUrl]);
 
-  const toggleSelectVideo = (id) => {
+  const toggleSelectVideo = (id: string) => {
     const newSelectedVideos = new Set(selectedVideos);
     if (newSelectedVideos.has(id)) {
       newSelectedVideos.delete(id);

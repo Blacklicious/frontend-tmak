@@ -31,7 +31,7 @@ const MenuPodcastDisplay = () => {
     fetchPodcasts();
   }, [backendUrl]);
 
-  const toggleSelectPodcast = (id) => {
+  const toggleSelectPodcast = (id: string) => {
     const newSelectedPodcasts = new Set(selectedPodcasts);
     if (newSelectedPodcasts.has(id)) {
       newSelectedPodcasts.delete(id);

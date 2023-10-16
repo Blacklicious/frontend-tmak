@@ -32,7 +32,7 @@ const MenuMagazineDisplay = () => {
     fetchMagazines();
   }, [backendUrl]);
 
-  const toggleSelectMagazine = (id) => {
+  const toggleSelectMagazine = (id: string) => {
     const newSelectedMagazines = new Set(selectedMagazines);
     if (newSelectedMagazines.has(id)) {
       newSelectedMagazines.delete(id);
