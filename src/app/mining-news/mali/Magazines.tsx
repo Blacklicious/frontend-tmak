@@ -57,7 +57,7 @@ const Magazine: React.FC = () => {
         <div className="bg-gray-100 w-full md:w-4/6 p-4 overflow-y-auto">
           {selectedMagazine && (
             <>
-              <iframe className="w-full h-[85vh] bg-white" src={selectedMagazine.file} alt={selectedMagazine.title} width={500} height={300} />
+              <iframe className="w-full h-[85vh] bg-white" src={selectedMagazine.file}  width={500} height={300} />
               <button onClick={() => alert('Share this magazine!')}>Share</button>
             </>
           )}
