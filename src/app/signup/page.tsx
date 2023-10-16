@@ -2,9 +2,6 @@
 import Navbar from '@/components/Navbar';
 import axios from 'axios';
 import { useState } from 'react';
-import { UserOutlined } from '@ant-design/icons';
-import { Input } from 'antd';
-
 
 const Signup: React.FC = () => {
   

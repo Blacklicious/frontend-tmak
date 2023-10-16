@@ -10,9 +10,9 @@ const Signin: React.FC = () => {
   const [password, setPassword] = useState(''); 
 
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-  
+
     e.preventDefault();
     try {
       const response = await axios.post(`${backendUrl}/accounts/api/login/`, {
