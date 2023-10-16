@@ -1,8 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Checkbox, Button } from 'antd';  // Import Checkbox and Button from antd
-import { Worker, Viewer } from '@react-pdf-viewer/core';
+import { Button } from 'antd';  // Import Checkbox and Button from antd
 
 // Define the article type
 interface MagzineType {
