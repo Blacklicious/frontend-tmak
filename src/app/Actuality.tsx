@@ -2,12 +2,22 @@ import React, { useEffect, useState } from 'react';
 import axios from '../../node_modules/axios';
 import Image from '../../node_modules/next/image';
 
+
+interface Article {
+  title: string;
+  rubrique: string;
+  // Add other properties as needed, like content, date, file, id
+  content: string;
+  date: string;
+  file: string;
+  id: string;
+} 
+
 const Actuality = () => {
-  // Initialize articles state
-  const [articles, setArticles] = useState([]);
-  // Initially, the first article is selected
-  const [selectedArticle, setSelectedArticle] = useState(null);
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+
 
   // Fetch articles when component mounts
   useEffect(() => {
@@ -24,7 +34,7 @@ const Actuality = () => {
   
     fetchArticles();
   }, [backendUrl]);
-
+  
   return (
     <div>
       {/* Our Work Section */}
