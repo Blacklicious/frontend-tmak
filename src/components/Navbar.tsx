@@ -5,17 +5,22 @@ import Link from 'next/link';
 import Image from 'next/image';
 import {UserOutlined, MenuOutlined } from '@ant-design/icons';
 
+interface UserInfo {
+  username: string;
+  // Other properties...
+}
+
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [userInfo, setUserInfo] = useState(null);
+  const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
  
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const localUserData = localStorage.getItem('User');
-      setUserInfo(localUserData ? JSON.parse(localUserData) : null);
+      setUserInfo(localUserData ? JSON.parse(localUserData) as UserInfo : null);
       setIsLoading(false);  // Set loading to false after fetching data
     }
   }, []);
