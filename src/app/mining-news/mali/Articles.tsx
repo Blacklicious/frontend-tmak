@@ -36,8 +36,8 @@ const Article: React.FC = () => {
   }, [backendUrl]);
 
   const handleClick = (article: ArticleType) => {
-  setSelectedArticle(article);
-};
+    setSelectedArticle(article);
+  };
 
   return (
     <div style={{

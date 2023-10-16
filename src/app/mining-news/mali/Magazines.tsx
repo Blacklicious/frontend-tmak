@@ -15,7 +15,6 @@ interface MagazineType {
 const Magazine: React.FC = () => {
 
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-  const [selectedContent, setSelectedContent] = useState(null);
   const [magazines, setMagazines] = useState<MagazineType[]>([]);
   const [selectedMagazine, setSelectedMagazine] = useState<MagazineType | null>(null);
 

@@ -3,11 +3,22 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 
+// Define the article type
+interface VideoType {
+  id: string;
+  title: string;
+  content: string;
+  file: string;
+  date: string;
+  // ...add other fields if needed
+}
+
 const Videos: React.FC = () => {
 
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-  const [videos, setVideos] = useState([]);
-  const [selectedVideos, setSelectedVideos] = useState(null);
+  const [videos, setVideos] = useState<VideoType[]>([]);
+
+  const [selectedVideos, setSelectedVideos] = useState<VideoType | null>(null);
 
   // Fetch Videos when component mounts
   useEffect(() => {
@@ -23,7 +34,8 @@ const Videos: React.FC = () => {
     fetchVideos();
   }, [backendUrl]);
 
-  const handleClick = (video) => {
+  
+  const handleClick = (video: VideoType) => {
     setSelectedVideos(video);
   };
 
@@ -52,7 +64,7 @@ const Videos: React.FC = () => {
         <div className="bg-gray-100 w-full md:w-4/6 p-4 overflow-y-auto">
           {selectedVideos && (
             <>
-              <iframe className="w-full h-full bg-white" src={selectedVideos.file} alt={selectedVideos.title} width={500} height={300} />
+              <iframe className="w-full h-full bg-white" src={selectedVideos.file} width={500} height={300} />
               <button onClick={() => alert('Share this Video!')}>Share</button>
             </>
           )}

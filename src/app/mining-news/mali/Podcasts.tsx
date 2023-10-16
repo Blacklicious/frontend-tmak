@@ -3,11 +3,22 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 
-const Podcasts: React.FC = () => {
+// Define the article type
+interface PodcastType {
+  id: string;
+  title: string;
+  content: string;
+  file: string;
+  date: string;
+  // ...add other fields if needed
+}
+
+
+const Podcast: React.FC = () => {
 
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-  const [podcasts, setPodcasts] = useState([]);
-  const [selectedPodcasts, setSelectedPodcasts] = useState(null);
+  const [podcasts, setPodcasts] = useState<PodcastType[]>([]);
+  const [selectedPodcasts, setSelectedPodcasts] = useState<PodcastType | null>(null);
 
   // Fetch Podcastss when component mounts
   useEffect(() => {
@@ -23,7 +34,8 @@ const Podcasts: React.FC = () => {
     fetchPodcasts();
   }, [backendUrl]);
 
-  const handleClick = (podcast) => {
+  
+  const handleClick = (podcast: PodcastType) => {
     setSelectedPodcasts(podcast);
   };
 
@@ -45,7 +57,7 @@ const Podcasts: React.FC = () => {
         <div className="bg-gray-100 w-full md:w-4/6 p-4 overflow-y-auto">
           {selectedPodcasts && (
             <>
-              <iframe className="w-full h-[85vh] bg-white" src={selectedPodcasts.file} alt={selectedPodcasts.title} width={500} height={300} />
+              <iframe className="w-full h-[85vh] bg-white" src={selectedPodcasts.file}  width={500} height={300} />
               <button onClick={() => alert('Share this Podcasts!')}>Share</button>
             </>
           )}
@@ -63,4 +75,4 @@ const Podcasts: React.FC = () => {
   );
 };
 
-export default Podcasts;
+export default Podcast;
