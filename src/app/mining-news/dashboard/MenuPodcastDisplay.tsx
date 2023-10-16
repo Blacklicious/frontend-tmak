@@ -3,14 +3,25 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Checkbox, Button } from 'antd';  // Import Checkbox and Button from antd
 
+// Define the article type
+interface PodcastType {
+  id: string;
+  title: string;
+  content: string;
+  file: string;
+  date: string;
+  // ...add other fields if needed
+}
 
 const MenuPodcastDisplay = () => {
-  const [podcasts, setPodcasts] = useState([]);
-  const [selectedPodcasts, setSelectedPodcasts] = useState(new Set());
+  // In your component
+  const [podcasts, setPodcasts] = useState<PodcastType[]>([]);
+  const [selectedPodcasts, setSelectedPodcasts] = useState<Set<string>>(new Set()); // Assuming id is a string const [showCheckboxes, setShowCheckboxes] = useState(false);
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+  // Define the showCheckboxes state
   const [showCheckboxes, setShowCheckboxes] = useState(false);
 
-  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-
+  
   
   // Fetch mPodcasts from API when component mounts
   useEffect(() => {
@@ -58,7 +69,7 @@ const MenuPodcastDisplay = () => {
     });
     
     // Refresh mPodcast list after deleting
-    const remainingPodcasts = podcasts.filter((mPodcast) => !selectedPodcasts.has(podcast.id));
+    const remainingPodcasts = podcasts.filter((podcast) => !selectedPodcasts.has(podcast.id));
     setPodcasts(remainingPodcasts);
     setSelectedPodcasts(new Set()); // Clear selection
   };

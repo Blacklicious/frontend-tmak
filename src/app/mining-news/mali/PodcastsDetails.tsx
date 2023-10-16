@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const PodcastsDetails: React.FC<{ selectedComponent: any }> = ({ selectedComponent }) => {
   if (!selectedComponent) {
-    return <div>Please select an article.</div>;
+    return <div>Please select an Podcast.</div>;
   }
 
   return (

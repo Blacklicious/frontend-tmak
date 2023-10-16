@@ -4,15 +4,24 @@ import axios from 'axios';
 import { Checkbox, Button } from 'antd';  // Import Checkbox and Button from antd
 import { Worker, Viewer } from '@react-pdf-viewer/core';
 
+// Define the article type
+interface MagzineType {
+  id: string;
+  title: string;
+  content: string;
+  file: string;
+  date: string;
+  // ...add other fields if needed
+}
 
 const MenuMagazineDisplay = () => {
-  const [magazines, setMagazines] = useState([]);
-  const [selectedMagazines, setSelectedMagazines] = useState(new Set());
+  // In your component
+  const [magazines, setMagazines] = useState<MagzineType[]>([]);
+  const [selectedMagazines, setSelectedMagazines] = useState<Set<string>>(new Set()); // Assuming id is a string const [showCheckboxes, setShowCheckboxes] = useState(false);
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+  // Define the showCheckboxes state
   const [showCheckboxes, setShowCheckboxes] = useState(false);
 
-  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-
-  
   // Fetch magazines from API when component mounts
   useEffect(() => {
     const fetchMagazines = async () => {

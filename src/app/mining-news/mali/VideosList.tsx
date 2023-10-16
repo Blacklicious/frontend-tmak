@@ -3,11 +3,20 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 
+interface VideoType {
+  id: string;
+  title: string;
+  content: string;
+  file: string;
+  date: string;
+  // ...any other properties you expect
+}
+
+
 const Videos: React.FC<{ setSelectedComponent: Function }> = ({ setSelectedComponent }) => {
 
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-  const [videos, setVideos] = useState([]);
-  const [selectedVideos, setSelectedVideos] = useState(null);
+  const [videos, setVideos] = useState<VideoType[]>([]);
 
   // Fetch Videos when component mounts
   useEffect(() => {
@@ -22,15 +31,15 @@ const Videos: React.FC<{ setSelectedComponent: Function }> = ({ setSelectedCompo
 
     fetchVideos();
   }, [backendUrl]);
-
   
-  const handleVideoClick = (video) => {
+  const handleVideoClick = (video: VideoType) => {
     setSelectedComponent(video);
   }
-  
-  function truncateToNWords(text, n) {
+
+  function truncateToNWords(text: string, n: number): string {
     return text.split(/\s+/).slice(0, n).join(' ');
   }
+
 
   return (
     <div className='flex flex-wrap text-black'>

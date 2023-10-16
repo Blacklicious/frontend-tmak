@@ -3,13 +3,23 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
 
+// Define the article type
+interface ArticleType {
+  id: string;
+  title: string;
+  content: string;
+  file: string;
+  date: string;
+  // ...add other fields if needed
+}
 
 const Article: React.FC = () => {
 
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
   const [selectedContent, setSelectedContent] = useState(null);
-  const [articles, setArticles] = useState([]);
-  const [selectedArticle, setSelectedArticle] = useState(null);
+  // Specify the type when using useState
+  const [articles, setArticles] = useState<ArticleType[]>([]);
+  const [selectedArticle, setSelectedArticle] = useState<ArticleType | null>(null);
 
   // Fetch articles when component mounts
   useEffect(() => {
@@ -25,9 +35,9 @@ const Article: React.FC = () => {
     fetchArticles();
   }, [backendUrl]);
 
-  const handleClick = (article) => {
-    setSelectedArticle(article);
-  };
+  const handleClick = (article: ArticleType) => {
+  setSelectedArticle(article);
+};
 
   return (
     <div style={{

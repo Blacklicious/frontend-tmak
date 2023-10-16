@@ -3,13 +3,25 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import {  Button } from 'antd';  // Import Checkbox and Button from antd
 
+// Define the article type
+interface VideoType {
+  id: string;
+  title: string;
+  content: string;
+  file: string;
+  date: string;
+  // ...add other fields if needed
+}
 
 const MenuVideoDisplay = () => {
-  const [videos, setVideos] = useState([]);
-  const [selectedVideos, setSelectedVideos] = useState(new Set());
-  const [showCheckboxes, setShowCheckboxes] = useState(false);
+  // In your component
+  const [videos, setVideos] = useState<VideoType[]>([]);
+  const [selectedVideos, setSelectedVideos] = useState<Set<string>>(new Set()); // Assuming id is a string const [showCheckboxes, setShowCheckboxes] = useState(false);
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+  // Define the showCheckboxes state
+  const [showCheckboxes, setShowCheckboxes] = useState(false);
 
+  
   
   // Fetch videos from API when component mounts
   useEffect(() => {

@@ -3,10 +3,18 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
 
+interface MagazineType {
+  id: string;
+  title: string;
+  content: string;
+  file: string;
+  date: string;
+  // ...any other properties you expect
+}
 
 const Magazine: React.FC<{ setSelectedComponent: Function }> = ({ setSelectedComponent }) => {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-  const [magazines, setMagazines] = useState([]);
+  const [magazines, setMagazines] =  useState<MagazineType[]>([]);
 
   // Fetch magazines when component mounts
   useEffect(() => {
@@ -22,13 +30,16 @@ const Magazine: React.FC<{ setSelectedComponent: Function }> = ({ setSelectedCom
     fetchMagazines();
   }, [backendUrl]);
 
-  const handleMagazineClick = (magasine) => {
-    setSelectedComponent(magasine);
-  }
   
-  function truncateToNWords(text, n) {
+  const handleMagazineClick = (magazine: MagazineType) => {
+    setSelectedComponent(magazine);
+  }
+
+  function truncateToNWords(text: string, n: number): string {
     return text.split(/\s+/).slice(0, n).join(' ');
   }
+
+
 
   return (
     <div className='flex flex-wrap text-black'>

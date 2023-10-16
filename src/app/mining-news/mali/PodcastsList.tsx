@@ -2,12 +2,19 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-
+interface PodcastType {
+  id: string;
+  title: string;
+  content: string;
+  file: string;
+  date: string;
+  // ...any other properties you expect
+}
+ 
 const Podcasts: React.FC<{ setSelectedComponent: Function }> = ({ setSelectedComponent }) => {
 
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-  const [podcasts, setPodcasts] = useState([]);
-  const [selectedPodcasts, setSelectedPodcasts] = useState(null);
+  const [podcasts, setPodcasts] = useState<PodcastType[]>([]);
 
   // Fetch Podcastss when component mounts
   useEffect(() => {
@@ -23,9 +30,15 @@ const Podcasts: React.FC<{ setSelectedComponent: Function }> = ({ setSelectedCom
     fetchPodcasts();
   }, [backendUrl]);
 
-  const handleClick = (podcast) => {
-    setSelectedPodcasts(podcast);
-  };
+  
+  const handlePodcastClick = (podcast: PodcastType) => {
+    setSelectedComponent(podcast);
+  }
+
+  function truncateToNWords(text: string, n: number): string {
+    return text.split(/\s+/).slice(0, n).join(' ');
+  }
+
 
   return (
     <div>
@@ -35,20 +48,10 @@ const Podcasts: React.FC<{ setSelectedComponent: Function }> = ({ setSelectedCom
         {/* Podcasts List */}
         <div className="bg-gray-300 w-full md:w-2/6 overflow-y-auto">
           {podcasts.map((podcast) => (
-            <div key={podcast.id} onClick={() => handleClick(podcast)} className="card">
+            <div key={podcast.id} onClick={() => handlePodcastClick(podcast)} className="card">
               {podcast.title}
             </div>
           ))}
-        </div>
-
-        {/* Podcasts Details */}
-        <div className="bg-gray-100 w-full md:w-4/6 p-4 overflow-y-auto">
-          {selectedPodcasts && (
-            <>
-              <iframe className="w-full h-[85vh] bg-white" src={selectedPodcasts.file} alt={selectedPodcasts.title} width={500} height={300} />
-              <button onClick={() => alert('Share this Podcasts!')}>Share</button>
-            </>
-          )}
         </div>
       </div>
     </div>
