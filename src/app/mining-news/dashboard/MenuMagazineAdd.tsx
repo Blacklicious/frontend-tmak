@@ -10,16 +10,27 @@ import type { UploadFile } from 'antd/es/upload/interface';
 
 const MenuMagazineAdd = () => {
 	const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-	const [formData, setFormData] = useState({
-			title: '',
-			content: '',
-			rubrique: '', // Add rubrique field
-			creation: '', // Add date of creation field
-			publisher: 'TMAK Corporation',
-			location: '',
-			file: null,  // Assuming this will be an uploaded file
-			status: 'inactive',
-			});
+	const [formData, setFormData] = useState<{
+		title: string;
+		content: string;
+		rubrique: string;
+		creation: string;
+		publisher: string;
+		location: string;
+		file: File | null;
+		link: string;
+		status: string;
+	}>({
+		title: '',
+		content: '',
+		rubrique: '',
+		creation: '',
+		publisher: 'TMAK Corporation',
+		location: '',
+		file: null,
+		link: '',
+		status: 'inactive',
+	});
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
