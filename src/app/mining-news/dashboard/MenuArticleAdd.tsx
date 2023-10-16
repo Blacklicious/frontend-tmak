@@ -4,7 +4,6 @@ import axios from 'axios';
 
 
 const MenuArticleAdd = () => {
-
 	const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 	const [formData, setFormData] = useState({
 			title: '',
@@ -48,7 +47,7 @@ const MenuArticleAdd = () => {
 		});
 		
 
-	}, []);
+	}, [formData]);
 
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

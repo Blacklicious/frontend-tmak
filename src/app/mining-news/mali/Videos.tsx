@@ -21,7 +21,7 @@ const Videos: React.FC = () => {
     };
 
     fetchVideos();
-  }, []);
+  }, [backendUrl]);
 
   const handleClick = (video) => {
     setSelectedVideos(video);

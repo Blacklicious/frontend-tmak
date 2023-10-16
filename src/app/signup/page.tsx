@@ -89,7 +89,6 @@ const Signup: React.FC = () => {
         <div >
           <form className=' bg-white shadow-xl rounded-md h-[80vh] w-[60vw] flex flex-col items-center justify-center   p-8' onSubmit={handleSubmit}>
             <h1 className='text-3xl font-extrabold mb-8'> Incrivez vous</h1>
-            // Input fields
             <input 
               className='w-[40vw] my-2 h-10 bg-gray-200 px-5 rounded-md' 
               type="text" 

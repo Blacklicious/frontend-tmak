@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Checkbox, Button } from 'antd';  // Import Checkbox and Button from antd
+import Image from '../../../../node_modules/next/image';
 
 
 const MenuArticleDisplay = () => {
@@ -28,7 +29,7 @@ const MenuArticleDisplay = () => {
     };
 
     fetchArticles();
-  }, []);
+  }, [backendUrl]);
 
   const toggleSelectArticle = (id) => {
     const newSelectedArticles = new Set(selectedArticles);
@@ -80,10 +81,10 @@ const MenuArticleDisplay = () => {
         {articles.map((article) => (
           <div 
             key={article.id} 
-            className={`card bg-gray-200 my-4 md:mx-4 p-2 rounded-lg h-full w-[100%] md:w-[44%] lg:w-[30%] text-sm ${selectedArticles.has(article.id) ? 'border-4 border-blue-500 shadow-lg' : ''}`}
+            className={`card bg-gray-200 my-4 md:mx-4 p-2 rounded-lg h-full w-[100%] md:w-[44%] lg:w-[29%] text-sm ${selectedArticles.has(article.id) ? 'border-4 border-blue-500 shadow-lg' : ''}`}
             onClick={() => showCheckboxes && toggleSelectArticle(article.id)}
           >  
-            <img src={article.file} alt={article.title} className=" w-full  h-[250px] object-cover rounded" />
+            <Image width={300} height={500}  src={article.file} alt={article.title} className=" w-full  h-[250px] object-cover rounded" />
             <h4 className="text-xl font-semibold mt-2">{article.title}</h4>
             <p>
               {article.content.split(" ").slice(0, 20).join(" ")}

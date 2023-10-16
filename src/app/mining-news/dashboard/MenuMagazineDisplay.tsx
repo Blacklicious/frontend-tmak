@@ -30,7 +30,7 @@ const MenuMagazineDisplay = () => {
     };
 
     fetchMagazines();
-  }, []);
+  }, [backendUrl]);
 
   const toggleSelectMagazine = (id) => {
     const newSelectedMagazines = new Set(selectedMagazines);

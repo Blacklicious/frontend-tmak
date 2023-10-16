@@ -21,7 +21,7 @@ const Videos: React.FC<{ setSelectedComponent: Function }> = ({ setSelectedCompo
     };
 
     fetchVideos();
-  }, []);
+  }, [backendUrl]);
 
   
   const handleVideoClick = (video) => {

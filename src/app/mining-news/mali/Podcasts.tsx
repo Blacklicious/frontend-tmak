@@ -21,7 +21,7 @@ const Podcasts: React.FC = () => {
     };
 
     fetchPodcasts();
-  }, []);
+  }, [backendUrl]);
 
   const handleClick = (podcast) => {
     setSelectedPodcasts(podcast);

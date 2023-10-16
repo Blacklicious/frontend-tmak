@@ -29,7 +29,7 @@ const MenuPodcastDisplay = () => {
     };
 
     fetchPodcasts();
-  }, []);
+  }, [backendUrl]);
 
   const toggleSelectPodcast = (id) => {
     const newSelectedPodcasts = new Set(selectedPodcasts);

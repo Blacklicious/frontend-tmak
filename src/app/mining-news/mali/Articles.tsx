@@ -23,7 +23,7 @@ const Article: React.FC = () => {
     };
 
     fetchArticles();
-  }, []);
+  }, [backendUrl]);
 
   const handleClick = (article) => {
     setSelectedArticle(article);

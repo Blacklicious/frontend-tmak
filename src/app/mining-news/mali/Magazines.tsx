@@ -22,7 +22,7 @@ const Magazine: React.FC = () => {
     };
 
     fetchMagazines();
-  }, []);
+  }, [backendUrl]);
 
   const handleClick = (magazine) => {
     setSelectedMagazines(magazine);

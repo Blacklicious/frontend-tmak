@@ -50,7 +50,7 @@ const Signin: React.FC = () => {
             <input className='w-[40vw] h-10 bg-gray-200 px-5 rounded-md' type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="nom d'utilisateur" />
             <input className='w-[40vw] h-10 bg-gray-200 px-5 rounded-md' type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Mot de Passe" />
             <button className='w-[40vw] h-10 bg-green-400 hover:bg-green-500 shadow-md rounded-md' type="submit">Connectez-vous</button>
-            <p>Vous n'avez pas de compte contactez "votre superviseur" </p>
+            <p>Vous n&apos;avez pas de compte contactez &quot;votre superviseur&quot; </p>
             {/* <Link  href="/signup" ><button className='w-[40vw] h-10 bg-blue-400 border hover:bg-blue-500 shadow-md rounded-md'>Inscrivez-vous</button></Link> */}
           </form>
 

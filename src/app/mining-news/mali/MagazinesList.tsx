@@ -20,7 +20,7 @@ const Magazine: React.FC<{ setSelectedComponent: Function }> = ({ setSelectedCom
     };
 
     fetchMagazines();
-  }, []);
+  }, [backendUrl]);
 
   const handleMagazineClick = (magasine) => {
     setSelectedComponent(magasine);

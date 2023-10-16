@@ -78,7 +78,7 @@ const Mali: React.FC = () => {
 			}
 	  }
     
-  }, [selectedComponent]);
+  }, [selectedComponent, defaultWidth, isDesktopOrLaptop]);
 
   return (
     <div className='w-full h-[100%]'>

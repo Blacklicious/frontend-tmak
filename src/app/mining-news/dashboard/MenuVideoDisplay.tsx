@@ -28,7 +28,7 @@ const MenuVideoDisplay = () => {
     };
 
     fetchVideos();
-  }, []);
+  }, [backendUrl]);
 
   const toggleSelectVideo = (id) => {
     const newSelectedVideos = new Set(selectedVideos);

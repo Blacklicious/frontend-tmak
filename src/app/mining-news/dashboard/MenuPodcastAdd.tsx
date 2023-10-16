@@ -4,6 +4,7 @@ import axios from 'axios';
 
 
 const MenuPodcastAdd = () => {
+	const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 	const [formData, setFormData] = useState({
 			title: '',
 			content: '',
@@ -31,8 +32,6 @@ const MenuPodcastAdd = () => {
 		});
 	};
 
-
-
 	React.useEffect(() => {
 		navigator.geolocation.getCurrentPosition((position) => {
 			const { latitude, longitude } = position.coords;
@@ -45,7 +44,7 @@ const MenuPodcastAdd = () => {
 		});
 		
 
-	}, []);
+	}, [formData]);
 
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -68,7 +67,7 @@ const MenuPodcastAdd = () => {
 		console.log('Appended author:', form.get('author')); // Debug
 		console.log('the form', form);
 		try {
-			await axios.post('http://localhost:8000/posts/api/podcasts/', form, {
+			await axios.post(`${backendUrl}:8000/posts/api/podcasts/`, form, {
 				headers: {
 					'Content-Type': 'multipart/form-data', // Required for file upload
 					'Authorization': `Bearer ${token}`,  // Authentication token

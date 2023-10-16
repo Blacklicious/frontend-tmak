@@ -57,8 +57,8 @@ const Navbar: React.FC = () => {
     <nav className="bg-white w-[100vw] shadow-md px-2 text-black">
       <div className="flex flex-wrap md:flex-row px-2 bg-white-300 justify-between">
         <div className="flex items-center shrink">
-            <Link href="/"className="flex items-center">
-                    <img src="/TMAKLOGO.jpeg" alt="Tmak Corporation Logo" className="h-20 w-30 "/>
+            <Link href="/" className="flex items-center">
+                    <Image  width={80} height={500}  src="/TMAKLOGO.jpeg" alt="Tmak Corporation Logo" className="h-20 w-30 "/>
             </Link>
         </div>
 

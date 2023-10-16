@@ -21,7 +21,7 @@ const PodcastsDetails: React.FC<{ selectedComponent: any }> = ({ selectedCompone
         ></iframe>
       )}
       {!selectedComponent.youtubeLink && (
-        <Image
+        <iframe
           className="image"
           width="560"
           height="315"

@@ -21,7 +21,7 @@ const ArticleList: React.FC<{ setSelectedComponent: Function }> = ({ setSelected
     };
 
     fetchArticles();
-  }, []);
+  }, [backendUrl]);
 
   const handleArticleClick = (article) => {
     setSelectedComponent(article);

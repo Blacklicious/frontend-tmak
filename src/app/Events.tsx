@@ -18,7 +18,7 @@ const Events = () => {
                événements les plus marquants dans l&apos;industrie minière. Que ce soit pour des conférences,
                 des ateliers, ou des salons professionnels, ne manquez pas l&apos;opportunité de vous impliquer
                et de rester à la pointe du secteur. Consultez cette section régulièrement pour découvrir les 
-               événements qui pourraient façonner votre avenir professionnel dans le monde minier."
+               événements qui pourraient façonner votre avenir professionnel dans le monde minier.
             </p>
             <Link 
               href="/coming-events" ><button

@@ -9,6 +9,7 @@ import type { UploadFile } from 'antd/es/upload/interface';
 
 
 const MenuMagazineAdd = () => {
+	const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 	const [formData, setFormData] = useState({
 			title: '',
 			content: '',
@@ -50,7 +51,7 @@ const MenuMagazineAdd = () => {
 		});
 		
 
-	}, []);
+	}, [formData]);
 
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -73,7 +74,7 @@ const MenuMagazineAdd = () => {
 		console.log('Appended author:', form.get('author')); // Debug
 		console.log('the form', form);
 		try {
-			await axios.post('http://localhost:8000/posts/api/magazines/', form, {
+			await axios.post(`${backendUrl}:8000/posts/api/magazines/`, form, {
 				headers: {
 					'Content-Type': 'multipart/form-data', // Required for file upload
 					'Authorization': `Bearer ${token}`,  // Authentication token
@@ -87,12 +88,12 @@ const MenuMagazineAdd = () => {
   };
 
   return (
-    <div className="bg-white px-10 ">
-			{/* You can add your input form for Magazines here */}
-			<form className="bg-white flex flex-wrap p-5 justify-center" onSubmit={handleSubmit}>
-				<div className='w-2/6 pr-10'>
+    <div className="bg-gray-100 " >
+			{/* You can add your input form for articles here */}
+			<form className=" flex flex-col md:flex-wrap  justify-center" onSubmit={handleSubmit}>
+				<div className='w-full '>
 					<input
-						className="w-full h-14 border-2 px-4 m-3"
+						className="w-full h-14 border-2 px-2 my-3"
 						type="text"
 						name="title"
 						placeholder="Titre"
@@ -100,7 +101,7 @@ const MenuMagazineAdd = () => {
 						onChange={handleChange}
 					/>
 					<div className='flex flex-row justify-between'>
-					{/* Add Rubrique Dropdown */}
+						{/* Add Rubrique Dropdown */}
 						<div className='w-[45%] '>
 							<select required
 								className="w-full h-14 border-2 px-2 my-3"
@@ -108,11 +109,12 @@ const MenuMagazineAdd = () => {
 								value={formData.rubrique}
 								onChange={handleChange}
 							>
-								<option value="" disabled> Rubrique</option>
+								<option value="" disabled>Select Rubrique</option>
 								<option value="T-MAK actualité">T-MAK actualité</option>
 								<option value="Mali Mining news">Mali Mining news</option>
 							</select>
 						</div>
+		
 						{/* Add Date of Creation */}
 						<div className='w-[48%] '>
 							<input required
@@ -125,22 +127,30 @@ const MenuMagazineAdd = () => {
 						</div>
 					</div>
 					<input
-						className="w-full  h-14 border-2 px-4 m-3 flex items-center justify-center text-xl py-2 "
+						className="w-full  h-14 border-2 px-2 my-3 flex items-center justify-center text-xl py-2 space-x-5 bg-white "
 						type="file"
 						name="file"
 						onChange={handleFileChange}
 					/>
 				</div>
-				<div  className='w-4/6'>
+				<div  className='w-full'>
 					<textarea
-						className="w-full h-60 border-2 py-2 px-4 m-3"
+						className="w-full h-60 border-2 py-2 px-2 my-3"
 						name="content"
-						placeholder="Magazine"
+						placeholder="description"
 						value={formData.content}
 						onChange={handleChange}
 					/>
+					<input
+					className="w-full h-14 border-2 px-2 my-3"
+					type="url"
+					name="link"
+					placeholder="lien youtube"
+					value={formData.link}
+					onChange={handleChange}
+				/>
 				</div>
-				<button className="w-full mt-6 text-lg bg-blue-400 rounded-md h-12 " type="submit">Publier</button>
+				<button className="w-full my-4 text-lg bg-blue-400 rounded-md h-12 " type="submit">Publier</button>
 			</form>
   </div>
   )

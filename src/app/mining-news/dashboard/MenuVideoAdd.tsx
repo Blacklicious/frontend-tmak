@@ -5,6 +5,7 @@ import axios from 'axios';
 
 
 const MenuVideoAdd = () => {
+	const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 	const [formData, setFormData] = useState({
 			title: '',
 			content: '',
@@ -32,8 +33,6 @@ const MenuVideoAdd = () => {
 		});
 	};
 
-
-
 	React.useEffect(() => {
 		navigator.geolocation.getCurrentPosition((position) => {
 			const { latitude, longitude } = position.coords;
@@ -44,9 +43,7 @@ const MenuVideoAdd = () => {
 		}, (error) => {
 			console.error("Error getting location", error);
 		});
-		
-
-	}, []);
+	}, [formData]);
 
 
 	// Set publisher to the session user's username before sending
@@ -71,7 +68,7 @@ const MenuVideoAdd = () => {
 		console.log('Appended author:', form.get('author')); // Debug
 		console.log('the form', form);
 		try {
-			await axios.post('http://localhost:8000/posts/api/videos/', form, {
+			await axios.post(`${backendUrl}:8000/posts/api/videos/`, form, {
 				headers: {
 					'Content-Type': 'multipart/form-data', // Required for file upload
 					'Authorization': `Bearer ${token}`,  // Authentication token
@@ -84,13 +81,13 @@ const MenuVideoAdd = () => {
 		}
   };
 
-  return (
-    <div className="bg-white px-10 " >
-			{/* You can add your input form for Videos here */}
-			<form className="bg-white flex flex-wrap p-5 justify-center" onSubmit={handleSubmit}>
-				<div className='w-2/6 pr-10'>
+	return (
+    <div className="bg-gray-100 " >
+			{/* You can add your input form for articles here */}
+			<form className=" flex flex-col md:flex-wrap  justify-center" onSubmit={handleSubmit}>
+				<div className='w-full '>
 					<input
-						className="w-full h-14 border-2 px-4 m-3"
+						className="w-full h-14 border-2 px-2 my-3"
 						type="text"
 						name="title"
 						placeholder="Titre"
@@ -124,22 +121,30 @@ const MenuVideoAdd = () => {
 						</div>
 					</div>
 					<input
-						className="w-full  h-14 border-2 px-4 m-3 flex items-center justify-center text-xl py-2 "
+						className="w-full  h-14 border-2 px-2 my-3 flex items-center justify-center text-xl py-2 space-x-5 bg-white "
 						type="file"
 						name="file"
 						onChange={handleFileChange}
 					/>
 				</div>
-				<div  className='w-4/6'>
+				<div  className='w-full'>
 					<textarea
-						className="w-full h-60 border-2 py-2 px-4 m-3"
+						className="w-full h-60 border-2 py-2 px-2 my-3"
 						name="content"
-						placeholder="description"
+						placeholder="description de la video"
 						value={formData.content}
 						onChange={handleChange}
 					/>
+					<input
+					className="w-full h-14 border-2 px-2 my-3"
+					type="url"
+					name="link"
+					placeholder="lien youtube"
+					value={formData.link}
+					onChange={handleChange}
+				/>
 				</div>
-				<button className="w-full mt-6 text-lg bg-blue-400 rounded-md h-12 " type="submit">Publier</button>
+				<button className="w-full my-4 text-lg bg-blue-400 rounded-md h-12 " type="submit">Publier</button>
 			</form>
   </div>
   )
