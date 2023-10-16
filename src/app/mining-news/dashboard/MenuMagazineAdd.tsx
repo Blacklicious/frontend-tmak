@@ -2,9 +2,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-import { UploadOutlined } from '@ant-design/icons';
-import { Button, Upload } from 'antd';
-
 
 
 const MenuMagazineAdd = () => {

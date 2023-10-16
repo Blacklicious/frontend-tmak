@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Checkbox, Button } from 'antd';  // Import Checkbox and Button from antd
+import { Button } from 'antd';  // Import Checkbox and Button from antd
 
 // Define the article type
 interface PodcastType {

@@ -17,7 +17,8 @@ const Magazine: React.FC = () => {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
   const [selectedContent, setSelectedContent] = useState(null);
   const [magazines, setMagazines] = useState<MagazineType[]>([]);
-  const [selectedMagazine, setSelectedMagazine] = useState<MagazineType[]>([]);
+  const [selectedMagazine, setSelectedMagazine] = useState<MagazineType | null>(null);
+
   // Fetch magazines when component mounts
   useEffect(() => {
     const fetchMagazines = async () => {
@@ -32,8 +33,9 @@ const Magazine: React.FC = () => {
     fetchMagazines();
   }, [backendUrl]);
 
+  
   const handleClick = (magazine: MagazineType) => {
-    setSelectedMagazine(magazine); // Here, magazine is a single object
+    setSelectedMagazine(magazine);
   };
 
 
