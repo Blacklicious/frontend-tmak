@@ -2,14 +2,22 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+// Define the article type
+interface MagazineType {
+  id: string;
+  title: string;
+  content: string;
+  file: string;
+  date: string;
+  // ...add other fields if needed
+}
 
 const Magazine: React.FC = () => {
 
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
   const [selectedContent, setSelectedContent] = useState(null);
-  const [magazines, setMagazines] = useState([]);
-  const [selectedMagazines, setSelectedMagazines] = useState(null);
-
+  const [magazines, setMagazines] = useState<MagazineType[]>([]);
+  const [selectedMagazine, setSelectedMagazine] = useState<MagazineType[]>([]);
   // Fetch magazines when component mounts
   useEffect(() => {
     const fetchMagazines = async () => {
@@ -24,9 +32,10 @@ const Magazine: React.FC = () => {
     fetchMagazines();
   }, [backendUrl]);
 
-  const handleClick = (magazine) => {
-    setSelectedMagazines(magazine);
+  const handleClick = (magazine: MagazineType) => {
+    setSelectedMagazine(magazine);
   };
+
 
   return (
     <div>
@@ -44,9 +53,9 @@ const Magazine: React.FC = () => {
 
         {/* magazine Details */}
         <div className="bg-gray-100 w-full md:w-4/6 p-4 overflow-y-auto">
-          {selectedMagazines && (
+          {selectedMagazine && (
             <>
-              <iframe className="w-full h-[85vh] bg-white" src={selectedMagazines.file} alt={selectedMagazines.title} width={500} height={300} />
+              <iframe className="w-full h-[85vh] bg-white" src={selectedMagazine.file} alt={selectedMagazine.title} width={500} height={300} />
               <button onClick={() => alert('Share this magazine!')}>Share</button>
             </>
           )}

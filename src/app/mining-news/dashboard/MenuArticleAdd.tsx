@@ -27,13 +27,13 @@ const MenuArticleAdd = () => {
 		status: 'inactive',
 	});
 
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement >) => {
 		const { name, value } = e.target;
 		setFormData({
-				...formData,
-				[name]: value,
+		  ...formData,
+		  [name]: value,
 		});
-	};
+	  };
 
 	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const file = e.target.files ? e.target.files[0] : null;
@@ -72,8 +72,10 @@ const MenuArticleAdd = () => {
 
 
     for (const [key, value] of Object.entries(formData)) {
-      form.append(key, value);
-    }
+		if (value !== null) {
+		  form.append(key, value);
+		}
+	  }
 		console.log('the userId', user.id);
 		console.log('User ID Type:', typeof user.id);	
 		console.log('User Object:', user);  // Debugging Line
