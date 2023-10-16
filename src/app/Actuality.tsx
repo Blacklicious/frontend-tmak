@@ -13,21 +13,17 @@ const Actuality = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await axios.get(`${backendUrl}/posts/api/articles`); // Replace with your API endpoint
-        setArticles(response.data);
-        // Set the first article as the selected article initially
-        const filteredArticles = response.data.filter(article => article.rubrique === 'T-MAK actualité');
+        const response = await axios.get(`${backendUrl}/posts/api/articles`);
+        const filteredArticles = response.data.filter((article: { rubrique: string }) => article.rubrique === 'T-MAK actualité');
         setArticles(filteredArticles);
-        // Set the first article as the selected article initially
         setSelectedArticle(filteredArticles[0]);
       } catch (error) {
         console.error('An error occurred while fetching data:', error);
       }
     };
-
+  
     fetchArticles();
-  }, [backendUrl]); // The empty array means this useEffect will run once when the component mounts
-
+  }, [backendUrl]);
 
   return (
     <div>
