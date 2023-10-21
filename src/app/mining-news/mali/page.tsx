@@ -67,7 +67,7 @@ const Mali: React.FC = () => {
 	} 
 	useEffect(() => {
 		if (isDesktopOrLaptop) {
-			setDefaultWidth('20');
+			setDefaultWidth('18');
 			if (selectedComponent !== null) {
 				setListWidth(defaultWidth);
 			}
@@ -99,7 +99,7 @@ const Mali: React.FC = () => {
             <button onClick={() => { console.log("Plus clicked"); setListWidth('98'); setSelectedComponent(null); }} className="bg-white ring-2  ring-gray-600  hover:bg-yellow-500 w-6 h-6 flex justify-center items-center rounded-md"><ExpandAltOutlined /></button>
           </div>
 					{/* Article List */}
-					<div className="flex flex-col">
+					<div className="flex flex-col ">
 						{ renderComponentList() }
 					</div>
 				</div>

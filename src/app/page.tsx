@@ -40,7 +40,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
-      <div className='text-gray-50 text-xs w-full px-6 z-[-1]'>
+      <div className='text-gray-50 text-xs w-full px-6 z-[-1] text-center'>
             site create by Nzirani.IO
       </div>
     </div> 

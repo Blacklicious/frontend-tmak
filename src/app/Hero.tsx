@@ -6,7 +6,7 @@ const Hero = () => {
       {/* Hero Section */}
       <div className="relative bg-gray-900 text-white h-[75vh] w-[100vw]">
         {/* Video Layer (z-0) */}
-        <iframe src="/miningvid.mp4" className="w-full h-full object-cover" allow="autoplay; muted" >
+        <iframe src="/miningvid.mp4" className="w-full h-full object-cover" allow="autoplay;" >
 				</iframe>
         {/* Black Transparent Layer (z-1) */}
         <div className="absolute inset-0 flex items-center justify-center h-full bg-black opacity-70">

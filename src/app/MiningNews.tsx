@@ -15,8 +15,9 @@ const MiningNews = () => {
             Vous êtes en quête des informations les plus fiables et actuelles sur le secteur minier en Afrique ?
              Chez T-MAK Corporation, nous sommes la référence en matière de couverture d&apos;actualités minières
              sur l&apos;ensemble du continent africain.</p>
-          <div className="flex flex-wrap justify-center space-x-2 md:space-x-5">
-          <Link href="/mining-news/mali" ><Card
+          <div className="flex flex-wrap justify-center space-x-2 md:space-x-5 ">
+          <Link href="/mining-news/mali" >
+            <Card
               hoverable
               style={{ width: 300 }}
               cover={<Image width={300} height={500} alt="Mali News" src="/mining news button/mali minings news.PNG" className='bg-black/90 p-8' />}

@@ -24,6 +24,7 @@ const Actuality = () => {
     const fetchArticles = async () => {
       try {
         const response = await axios.get(`${backendUrl}/posts/api/articles`);
+        console.log("response.data", response.data);
         const filteredArticles = response.data.filter((article: { rubrique: string }) => article.rubrique === 'T-MAK actualité');
         setArticles(filteredArticles);
         setSelectedArticle(filteredArticles[0]);
@@ -39,50 +40,51 @@ const Actuality = () => {
     <div>
       {/* Our Work Section */}
         <section className=" w-[100vw]">
-          <div className=' bg-gray-100 p-4 flex flex-wrap items-center justify-center w-[100%]'>
-            <h1 className='text-3xl md:text-5xl font-bold p-5 bg-black w-full h-full text-white'>ACTUALITÉ T-MAK</h1>
-            <div className="flex flex-col md:flex-row rounded-md w-full">
+          <div className=' bg-gray-200 p-4 flex flex-wrap items-center justify-center w-[100%] '>
+            <h1 className='text-3xl text-center md:text-5xl font-bold p-5 bg-black w-full h-full text-white  rounded-xl text-yellow-500 '>ACTUALITÉ T-MAK</h1>
+            <div className="flex flex-col lg:flex-row  w-full pt-3 justify-between">
               {/* Column 1 */}
-              <div className="w-full md:w-[33%] p-5 text-white bg-black/90 align-center">
+              <div className="w-full lg:w-[38%] p-3 text-white bg-black/90 align-center rounded-xl">
                 <div>
                   {selectedArticle ? (
-                    <>
+                    <div className='p-3'>
                       <h3 className=" text-xl md:text-4xl mb-4">{selectedArticle.title}</h3>
-                    </>
+                      <div className='text-sm'>
+                        <p>{selectedArticle.content}</p>
+                        <p>{selectedArticle.date}</p>
+                      </div>
+                    </div>
                   ) : (
                     <p>Loading...</p>
                   )}
                 </div>
               </div>
               {/* Column 2 */}
-              <div className="w-full md:w-[66%] bg-black p-5">
-                {/* the content and the selected date of the article */}
-                <div>
-                  {selectedArticle ? (
-                    <>
-                      <p>{selectedArticle.content}</p>
-                      <p>{selectedArticle.date}</p>
-                    </>
-                  ) : (
-                    <p>Loading...</p>
-                  )}
-                </div>
+              <div className="w-full lg:w-[60%] items-center justify-center ">
+              
                 {/* the selected article image comes here */}
-                <div>
+                <div className='rounded-xl'>
                   {selectedArticle ? (
-                      <>
-                        <Image src={selectedArticle.file} alt={selectedArticle.title} height={1500} width={1000} />
-                      </>
+                    <div className="relative lg:h-[60vh] ">
+                      <Image 
+                        className='rounded-xl'
+                        layout="fill" // This will make the image take the full dimensions of the parent div
+                        src={selectedArticle.file} 
+                        alt={selectedArticle.title} 
+                        objectFit="cover" // This should prevent distortion
+                      />
+                    </div>
+                    
                     ) : (
                       <p>Loading...</p>
                   )}
                 </div>
                 {/* the list of articles to select from in a carousel */}
-                <div className="flex overflow-x-auto">
+                <div className="flex overflow-x-auto rounded-xl bg-gray-300 mt-3 p-1">
                   {articles.filter(article => article.rubrique === "T-MAK actualité").map(article => (
-                    <div key={article.id} onClick={() => setSelectedArticle(article)} className='w-[30%] m-2 bg-gray-100/75 p-2' >
-                      <Image src={article.file} alt={article.title} height={300} width={400}  />
-                      <h4>{article.title}</h4>
+                    <div key={article.id} onClick={() => setSelectedArticle(article)} className=' hover:shadow-lg rounded-md w-[40%] sm:w-[22%] h-full m-2 p-1 bg-gray-100 shadow-md' >
+                      <Image src={article.file} alt={article.title} height={300} width={300}  />
+                      <div className='text-sm'>{article.title}</div>
                     </div>
                   ))}
                 </div>
