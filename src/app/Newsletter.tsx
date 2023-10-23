@@ -36,7 +36,7 @@ const Newsletter: React.FC = () => {
   };
 
   return (
-    <div className="bg-gray-100 px-8 py-4 md:py-10 md:px-44 shadow-md rounded-md w-full">
+    <div className="bg-gray-100 px-8 py-4 md:py-10 md:px-44 shadow-md rounded-md w-full text-black">
       <h2 className="text-2xl mb-4">Joindre la T-MAK Newsletter</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">

@@ -44,13 +44,13 @@ const Signin: React.FC = () => {
   
   return (
     <div>
-      <div className='h-[90vh] flex items-center justify-center'>
+      <div className=' flex items-center justify-center p-4 h-[75vh] md:h-[90vh] text-black'>
         <div >
-          <form className=' bg-white h-[50vh] w-[60vw] flex flex-col items-center justify-center  space-y-5 p-8' onSubmit={handleSubmit}>
-            <input className='w-[40vw] h-10 bg-gray-200 px-5 rounded-md' type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="nom d'utilisateur" />
-            <input className='w-[40vw] h-10 bg-gray-200 px-5 rounded-md' type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Mot de Passe" />
-            <button className='w-[40vw] h-10 bg-green-400 hover:bg-green-500 shadow-md rounded-md' type="submit">Connectez-vous</button>
-            <p>Vous n&apos;avez pas de compte contactez &quot;votre superviseur&quot; </p>
+          <form className=' bg-white h-[40vh] md:h-[30vh] md:w-[70vw] flex flex-col items-center justify-center  space-y-5 px-8 rounded-lg' onSubmit={handleSubmit}>
+            <input className='mt-8 w-[70vw] md:w-[40vw] h-10 bg-gray-200 px-5 rounded-md' type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="nom d'utilisateur" />
+            <input className='w-[70vw] md:w-[40vw] h-10 bg-gray-200 px-5 rounded-md' type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Mot de Passe" />
+            <button className='w-[70vw] md:w-[40vw] h-10 bg-green-400 hover:bg-green-500 shadow-md rounded-md' type="submit">Connectez-vous</button>
+            <div className='w-[70vw] text-center'>Vous n&apos;avez pas de compte contactez &quot;votre superviseur&quot; </div>
             {/* <Link  href="/signup" ><button className='w-[40vw] h-10 bg-blue-400 border hover:bg-blue-500 shadow-md rounded-md'>Inscrivez-vous</button></Link> */}
           </form>
 

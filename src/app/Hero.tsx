@@ -1,15 +1,18 @@
 import React from 'react'
 
 const Hero = () => {
+
   return (
     <div>
       {/* Hero Section */}
       <div className="relative bg-gray-900 text-white h-[75vh] w-[100vw]">
         {/* Video Layer (z-0) */}
-        <iframe src="/miningvid.mp4" className="w-full h-full object-cover" allow="autoplay;" >
-				</iframe>
+        <video controls className="w-full h-full object-cover" autoPlay playsInline muted loop>
+          <source src="/miningvid.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         {/* Black Transparent Layer (z-1) */}
-        <div className="absolute inset-0 flex items-center justify-center h-full bg-black opacity-70">
+        <div className="absolute inset-0 flex items-center justify-center h-full bg-black opacity-50">
         </div>
 
         {/* Heading and Paragraph (z-2) */}

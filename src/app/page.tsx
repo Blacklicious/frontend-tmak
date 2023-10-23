@@ -9,7 +9,7 @@ import Partenaire from './Partenaire';
 export default function Home() {
   return (
     <div>
-      <main className=" flex flex-col items-center justify-between bg-yellow-500">
+      <main className=" flex flex-col items-center justify-between bg-yellow-500 ">
         < Hero />
         < Actuality />
         < MiningNews />
@@ -39,8 +39,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </footer>
-      <div className='text-gray-50 text-xs w-full px-6 z-[-1] text-center'>
+      </footer >
+      <div className='bg-white text-gray-50 text-xs w-full px-6 z-[-1] text-center'>
             site create by Nzirani.IO
       </div>
     </div> 

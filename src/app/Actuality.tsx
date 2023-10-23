@@ -82,7 +82,7 @@ const Actuality = () => {
                 {/* the list of articles to select from in a carousel */}
                 <div className="flex overflow-x-auto rounded-xl bg-gray-300 mt-3 p-1">
                   {articles.filter(article => article.rubrique === "T-MAK actualité").map(article => (
-                    <div key={article.id} onClick={() => setSelectedArticle(article)} className=' hover:shadow-lg rounded-md w-[40%] sm:w-[22%] h-full m-2 p-1 bg-gray-100 shadow-md' >
+                    <div key={article.id} onClick={() => setSelectedArticle(article)} className='text-black hover:shadow-lg rounded-md w-[40%] sm:w-[22%] h-full m-2 p-1 bg-gray-100 shadow-md' >
                       <Image src={article.file} alt={article.title} height={300} width={300}  />
                       <div className='text-sm'>{article.title}</div>
                     </div>

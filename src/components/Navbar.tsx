@@ -59,8 +59,8 @@ const Navbar: React.FC = () => {
 
   // Now, userData is an object containing the user info.
   return (
-    <nav className="bg-white w-[100vw] shadow-md px-2 text-black">
-      <div className="flex flex-wrap md:flex-row px-2 bg-white-300 justify-between">
+    <nav className="navBackground  w-[100vw] shadow-md px-4 text-black border-black border-b-8">
+      <div className="flex flex-wrap md:flex-row p-2 bg-white-300 items-center justify-between">
         <div className="flex items-center shrink">
             <Link href="/" className="flex items-center">
                     <Image  width={80} height={500}  src="/TMAKLOGO.jpeg" alt="Tmak Corporation Logo" className="h-20 w-30 "/>
@@ -68,13 +68,13 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:block shrink">
-          <div className=" flex items-center justify-center h-[80px] lg:text-xl font-semibold text-black">
-            <Link href="/" className=" hover:text-gray-800 hover:border-t-[10px] mx-3 hover:border-yellow-500 h-[100%] w-20 xl:w-36 flex items-center justify-center ">Accueil</Link>
-            <Link href="/about" className=" hover:text-gray-800 hover:border-t-[10px] mx-3 hover:border-yellow-500 h-[100%] w-20 xl:w-40 flex items-center justify-center"> Notre Expertise </Link>
-            <Link href="/mining-news" className=" hover:text-gray-800 hover:border-t-[10px] mx-3 hover:border-yellow-500 h-[100%] w-20 xl:w-36 flex items-center justify-center"> Mining News</Link>
-            <Link href="/coming-events" className=" hover:text-gray-800 hover:border-t-[10px] mx-3 hover:border-yellow-500 h-[100%] w-20 xl:w-36 flex items-center justify-center"> Evenements</Link>
-            <Link href="/contact" className=" hover:text-gray-800 hover:border-t-[10px] mx-3 hover:border-yellow-500 h-[100%] w-20 xl:w-36 flex items-center justify-center"> Contacts</Link>
+        <div className="hidden md:block shrink bg-white/90">
+          <div className=" flex items-center justify-center md:h-[80px] lg:text-xl font-semibold text-black">
+            <Link href="/" className="font hover:font-black hover:text-gray-800 hover:border-t-[10px] mx-3 hover:border-yellow-500 h-[100%] w-20 xl:w-36 flex items-center justify-center ">Accueil</Link>
+            <Link href="/about" className=" hover:font-black hover:text-gray-800 hover:border-t-[10px] mx-3 hover:border-yellow-500 h-[100%] w-20 xl:w-40 flex items-center justify-center"> Notre Expertise </Link>
+            <Link href="/mining-news" className=" hover:font-black hover:text-gray-800 hover:border-t-[10px] mx-3 hover:border-yellow-500 h-[100%] w-20 xl:w-36 flex items-center justify-center"> Mining News</Link>
+            <Link href="/coming-events" className="  hover:font-black hover:text-gray-800 hover:border-t-[10px] mx-3 hover:border-yellow-500 h-[100%] w-20 xl:w-36 flex items-center justify-center"> Evenements</Link>
+            <Link href="/contact" className=" hover:font-black hover:text-gray-800 hover:border-t-[10px] mx-3 hover:border-yellow-500 h-[100%] w-20 xl:w-36 flex items-center justify-center"> Contacts</Link>
             <div className="user-info">
               {isLoading ? (
                 <div className="loading">
@@ -123,9 +123,12 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <button onClick={() => setMobileMenuOpen(!isMobileMenuOpen)} className=" md:hidden bg-green-200 w-[70%] text-3xl flex justify-end items-center px-4 ">
-          <MenuOutlined />
-        </button>
+        <div className='h-[8vh] w-[18%] flex justify-center items-center  md:hidden '>
+          <button onClick={() => setMobileMenuOpen(!isMobileMenuOpen)} className="active:ring-3 bg-gray-200/70 w-full h-full text-3xl rounded-lg shadow-lg flex justify-center items-center">
+            <MenuOutlined />
+          </button>
+        </div>
+        
         {/* Animated Mobile Menu */}
         <div 
           style={{
@@ -133,13 +136,13 @@ const Navbar: React.FC = () => {
             transition: "max-height 0.3s ease-in-out",
             overflow: "hidden"
           }} 
-          className="flex flex-col mx-auto justify-center items-center md:hidden  bg-gray-50 mb-3 rounded-md "
+          className="flex flex-col mx-auto justify-center items-center md:hidden  bg-gray-50  rounded-md "
         >
-          <Link className="w-[85vw] h-10 text-center py-2 rounded-md shadow-md  bg-white my-4 text-black " href="/">Home</Link>
-          <Link className="w-[85vw] h-10 text-center py-2 rounded-md shadow-md  bg-white mb-4 text-black " href="/about">About</Link>
-          <Link className="w-[85vw] h-10 text-center py-2 rounded-md shadow-md  bg-white mb-4 text-black " href="/mining-news">Mining News </Link>
-          <Link className="w-[85vw] h-10 text-center py-2 rounded-md shadow-md  bg-white mb-4 text-black " href="/coming-events">Évements</Link>
-          <Link className="w-[85vw] h-10 text-center py-2 rounded-md shadow-md  bg-white mb-4 text-black " href="/contact">Contact</Link>
+          <Link onClick={() => setMobileMenuOpen(false)} className="w-[85vw] h-10 text-center py-2 rounded-md shadow-md  bg-white my-4 text-black " href="/">Home</Link>
+          <Link onClick={() => setMobileMenuOpen(false)} className="w-[85vw] h-10 text-center py-2 rounded-md shadow-md  bg-white mb-4 text-black " href="/about">About</Link>
+          <Link onClick={() => setMobileMenuOpen(false)} className="w-[85vw] h-10 text-center py-2 rounded-md shadow-md  bg-white mb-4 text-black " href="/mining-news">Mining News </Link>
+          <Link onClick={() => setMobileMenuOpen(false)} className="w-[85vw] h-10 text-center py-2 rounded-md shadow-md  bg-white mb-4 text-black " href="/coming-events">Évements</Link>
+          <Link onClick={() => setMobileMenuOpen(false)} className="w-[85vw] h-10 text-center py-2 rounded-md shadow-md  bg-white mb-4 text-black " href="/contact">Contact</Link>
           {/* ... (Rest of the mobile links) */}
           {/* User info for mobile */}
           {isLoading ? (
@@ -165,7 +168,10 @@ const Navbar: React.FC = () => {
                         return (
                           <button
                             key={index}
-                            onClick={handleLogoutClick}
+                            onClick={() => {
+                              handleLogoutClick();
+                              setIsOpen(false);
+                            }}
                             className="w-[85vw] h-10 text-center py-2 rounded-md shadow-md bg-white mb-4"
                           >
                             {item}
@@ -173,7 +179,7 @@ const Navbar: React.FC = () => {
                         );
                       }
                       return (
-                        <Link key={index} href={`mining-news/${item.toLowerCase().replace(' ', '-')}`} className="w-[85vw] h-10 text-center py-2 rounded-md shadow-md bg-white mb-4">
+                        <Link key={index} onClick={() => setIsOpen(false)}  href={`mining-news/${item.toLowerCase().replace(' ', '-')}`} className="w-[85vw] h-10 text-center py-2 rounded-md shadow-md bg-white mb-4">
                             {item}
                         </Link>
                       );
