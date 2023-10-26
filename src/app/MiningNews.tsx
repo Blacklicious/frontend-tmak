@@ -49,7 +49,7 @@ const MiningNews = () => {
             <Card
               hoverable
               style={{ width: 200 }}
-              cover={<Image width={300} height={500} src="/mining news button/niger minings news.PNG" alt="Burkina Faso Mining News"  className='bg-black/90 p-8'/>}
+              cover={<Image width={300} height={500} src="/mining news button/niger minings news.PNG" alt="Niger Mining News"  className='bg-black/90 p-8'/>}
             >
               <Meta title="NIGER MINING NEWS" description="" />
             </Card>

@@ -1,34 +1,50 @@
-import React from 'react'
+import React from 'react';
 
 const Hero = () => {
+    return (
+        <div className="relative w-full h-[60vh] bg-gray-900 text-white">
 
-  return (
-    <div>
-      {/* Hero Section */}
-      <div className="relative bg-gray-900 text-white h-[75vh] w-[100vw]">
-        {/* Video Layer (z-0) */}
-        <video controls className="w-full h-full object-cover" autoPlay playsInline muted loop>
-          <source src="https://storage.cloud.google.com/nzirani_bucket-1/clients/t-mak/mininghero.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        {/* Black Transparent Layer (z-1) */}
-        <div className="absolute inset-0 flex items-center justify-center h-full bg-black opacity-50">
-        </div>
+            {/* Video Background Layer
+            <div className="flex items-center justify-center absolute w-full h-full overflow-hidden">
+                <iframe 
+                    className="absolute w-[220vw] sm:w-[100vw] h-[100vh] object-cover"
+                    src="https://www.youtube.com/embed/n1q-BhQpKt0?autoplay=1&mute=1&controls=0&loop=1&playlist=n1q-BhQpKt0" 
+                    title="YouTube video player" 
+                    frameBorder="0"
+                    allowFullScreen
+                ></iframe>
+            </div> */}
 
-        {/* Heading and Paragraph (z-2) */}
-        <div className="absolute inset-0 flex items-center justify-center h-full">
-					<div className='px-[6vw] md:px-[15vw]'>
-						<div className="text-4xl lg:text-7xl font-bold text-center font-oswald ">
-            &quot;CRÉER UN HÉRITAGE DURABLE POUR LES GÉNÉRATIONS FUTURES.&quot;
-						</div>
-						<p className='text-right md:text-md md:px-10'>
-								Notre PDG. Nouhoum TRAORÉ
-						</p>
-					</div>
+            {/* Video Background Layer */}
+            <video 
+                className="absolute top-0 left-0 w-[220vw] sm:w-[100vw] h-full object-cover"
+                autoPlay={true}
+                muted={true}
+                loop={true}
+                playsInline={true}
+                src="/mininghero720.mp4" 
+            >
+                 
+                Your browser does not support the video tag.
+            </video>
+
+            {/* Black Transparent Layer */}
+            <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+
+            {/* Heading and Paragraph */}
+            <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center md:p-[16vw]">
+                <div className="px-6 md:px-15 text-center">
+                    <div className="text-4xl lg:text-7xl font-bold font-oswald mb-4">
+                        "CRÉER UN HÉRITAGE DURABLE POUR LES GÉNÉRATIONS FUTURES."
+                    </div>
+                    <p className="text-right md:text-md md:px-10">
+                        Notre PDG. Nouhoum TRAORÉ
+                    </p>
+                </div>
+            </div>
+
         </div>
-      </div>
-    </div>
-  )
+    )
 }
 
-export default Hero
+export default Hero;

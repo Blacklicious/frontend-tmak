@@ -15,6 +15,7 @@ RUN rm package-lock.json
 
 # Install dependencies
 RUN npm install
+RUN npm install --save-dev @types/react-slick
 
 # Copy the rest of the app's files to the container
 #COPY . .
