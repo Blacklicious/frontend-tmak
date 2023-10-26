@@ -35,7 +35,7 @@ export default function Home() {
                 <li><a href="/privacy-policy">Privacy Policy</a></li>
                 <li><a href="/terms-service">Terms of Service</a></li>
               </ul>
-              <ul className="grid grid-cols-4 social-follow justify-center w-[100%] pt-4 ">
+              <ul className="grid grid-cols-2 sm:grid-cols-4 social-follow justify-center w-[100%] pt-4 ">
                 <li>
                     <a href="https://www.facebook.com/yourcompany" target="_blank" rel="noreferrer" className='flex items-center justify-center'>
                         <FacebookOutlined className='text-xl md:text-4xl mr-3'/> Facebook
