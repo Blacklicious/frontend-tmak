@@ -22,7 +22,7 @@ const Hero = () => {
                 muted={true}
                 loop={true}
                 playsInline={true}
-                src="/mininghero720.mp4" 
+                src="https://storage.googleapis.com/public-nzirani-bucket/mininghero720.mp4" 
             >
                  
                 Your browser does not support the video tag.

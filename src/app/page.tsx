@@ -38,7 +38,7 @@ export default function Home() {
               <ul className="grid grid-cols-4 social-follow justify-center w-[100%] pt-4 ">
                 <li>
                     <a href="https://www.facebook.com/yourcompany" target="_blank" rel="noreferrer" className='flex items-center justify-center'>
-                        <FacebookOutlined className='text-4xl mr-3'/> Facebook
+                        <FacebookOutlined className='text-xl md:text-4xl mr-3'/> Facebook
                     </a>
                 </li>
                 <li>
@@ -49,12 +49,12 @@ export default function Home() {
                 </li>
                 <li>
                     <a href="https://www.linkedin.com/company/yourcompany" target="_blank" rel="noreferrer" className='flex items-center justify-center'>
-                        <LinkedinOutlined className='text-4xl mr-3'/> LinkedIn
+                        <LinkedinOutlined className='text-xl md:text-4xl mr-3'/> LinkedIn
                     </a>
                 </li>
                 <li>
                     <a href="https://www.instagram.com/yourcompany" target="_blank" rel="noreferrer" className='flex items-center justify-center'>
-                        <InstagramOutlined className='text-4xl mr-3'/> Instagram
+                        <InstagramOutlined className='text-xl md:text-4xl mr-3'/> Instagram
                     </a>
                 </li>
               </ul>
