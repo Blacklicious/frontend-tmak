@@ -35,16 +35,17 @@ const ArticlesDetails: React.FC<{ selectedComponent: any }> = ({ selectedCompone
 
   return (
     <div className='bg-white rounded-md p-3 text-black'>
-      {selectedComponent.youtubeLink && (
+      {selectedComponent.link && (
         <iframe
+          className="w-full object-cover"
           width="560"
           height="315"
-          src={`https://www.youtube.com/embed/${selectedComponent.youtubeLink}`}
+          src={`${selectedComponent.link}`}
           title="YouTube video"
           allowFullScreen
         ></iframe>
       )}
-      {!selectedComponent.youtubeLink && (
+      {!selectedComponent.link && (
         <Image
           className="image"
           width="560"
@@ -54,8 +55,8 @@ const ArticlesDetails: React.FC<{ selectedComponent: any }> = ({ selectedCompone
           alt={`${selectedComponent.title}`}
         />
       )}
-      <h1>{selectedComponent.title}</h1>
-      <p>{selectedComponent.content}</p>
+      <h1 className='text-center w-full font font-bold text-2xl md:text-3xl pt-10 md:px-20 '>{selectedComponent.title}</h1>
+      <p className=' py-6 md:px-20 text-center '>{selectedComponent.content}</p>
       <button className="bg-blue-300 rounded-md w-full h-12 mt-3" onClick={handleShare}>Partagez</button>
     </div>
   );

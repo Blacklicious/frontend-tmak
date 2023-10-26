@@ -1,5 +1,7 @@
 import React from 'react';
 import Image from '../../node_modules/next/image';
+import Slider from 'react-slick';
+
 
 const logos = [
   '/logos/barrick.jpeg', // replace with your logo file names or URLs
@@ -22,35 +24,56 @@ const logos = [
 ];
 
 const Partenaire: React.FC = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000, // 5 seconds
+  };
+
+  const chunks = [];
+  for (let i = 0; i < logos.length; i += 6) {
+    chunks.push(logos.slice(i, i + 6));
+  }
+ 
   return (
-    <div className="relative overflow-hidden p-6 bg-white mt-4  w-[95vw] rounded-md  ">
-      <div className='text-4xl md:text-6xl text-gray-600 font-semibold flex justify-center mb-10 '>
-				Nos partenaires
-			</div>
-      <div className="animate-marquee whitespace-nowrap w-[100vw]">
-        {logos.map((logo, index) => (
-          <Image 
-            width={300} height={500} 
-            key={index}
-            src={logo}
-            alt={`Partner ${index + 1}`}
-            className="inline-block h-[12vh] md:h-[14vh] w-auto mx-4"
-          />
-        ))}
+    <div className="relative overflow-hidden bg-white w-[98vw] h-[60vh] rounded-md m-4 shadow-md">
+      <div className='text-3xl md:text-6xl text-black font-semibold flex justify-center m-10 font-oswald '>
+        NOS PARTENAIRES
       </div>
-      <style jsx>{`
-        .animate-marquee {
-          animation: marquee 40s linear infinite;
-        }
-        @keyframes marquee {
-          0% {
-            transform: translateX(100%);
-          }
-          100% {
-            transform: translateX(-100%);
-          }
-        }
-      `}</style>
+      <Slider {...settings}>
+        {chunks.map((chunk, index) => (
+          <div key={index}>
+            <div className="flex justify-around mb-14">
+              {chunk.slice(0, 3).map((logo, logoIndex) => (
+                <Image 
+                    width={150} height={250}  // Adjust as needed
+                    key={logoIndex}
+                    src={logo}
+                    alt={`Partner ${logoIndex + 1}`}
+                    className="h-[10vh] md:h-[14vh] w-auto"
+                  />
+              ))}
+            </div>
+
+            <div className="flex justify-around mb-4">
+              {chunk.slice(3, 6).map((logo, logoIndex) => (
+                <Image 
+                    width={150} height={250}  // Adjust as needed
+                    key={logoIndex}
+                    src={logo}
+                    alt={`Partner ${logoIndex + 4}`}  // Adjusted index for alt text
+                    className="h-[12vh] md:h-[14vh] w-auto"
+                  />
+              ))}
+            </div>
+
+          </div>
+        ))}
+      </Slider>
     </div>
   );
 };

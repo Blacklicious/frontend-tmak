@@ -41,7 +41,7 @@ const Actuality = () => {
       {/* Our Work Section */}
         <section className=" w-[100vw]">
           <div className=' bg-gray-200 p-4 flex flex-wrap items-center justify-center w-[100%] '>
-            <h1 className='text-3xl text-center md:text-5xl font-bold p-5 bg-black w-full h-full text-white  rounded-xl text-yellow-500 '>ACTUALITÉ T-MAK</h1>
+            <h1 className='text-3xl text-center md:text-6xl  p-5  w-full h-full text-black  rounded-xl font font-black font-oswald '>NOTRE ACTUALITÉ</h1>
             <div className="flex flex-col lg:flex-row  w-full pt-3 justify-between">
               {/* Column 1 */}
               <div className="w-full lg:w-[38%] p-3 text-white bg-black/90 align-center rounded-xl">

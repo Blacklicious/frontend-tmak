@@ -1,6 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "~slick-carousel/slick/slick.css"; 
+@import "~slick-carousel/slick/slick-theme.css";
+
+/* Oswald font */
+@font-face {
+  font-family: 'Oswald';
+  src: url('/fonts/Oswald/Oswald-VariableFont_wght.ttf') format('truetype'); /* Adjust the path and format if necessary */
+  font-weight: 400; /* Regular weight */
+  font-style: normal;
+}
+
+/* Add other styles for Oswald (e.g., bold, italic) if you have them */
+
+/* Roboto Condensed font */
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('/fonts/Roboto_Condensed/RobotoCondensed-VariableFont_wght.ttf') format('truetype'); /* Adjust the path and format if necessary */
+  font-weight: 400; /* Regular weight */
+  font-style: normal;
+}
+
+/* Add other styles for Roboto Condensed (e.g., bold, italic) if you have them */
+
+
 
 :root {
   --foreground-rgb: 0, 0, 0;

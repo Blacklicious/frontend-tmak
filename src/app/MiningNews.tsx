@@ -10,7 +10,7 @@ const MiningNews = () => {
     <div>
         {/* Minings News Section */}
         <div className="w-full  flex flex-col justify-center items-center p-4  bg-white text-black">
-          <h1 className="text-5xl font-bold m-5 ">MINING NEWS</h1>
+          <h1 className="text-3xl md:text-6xl font-bold m-5 font-oswald ">MINING NEWS</h1>
           <p className="text-lg mb-5 px-[12vw] ">
             Vous êtes en quête des informations les plus fiables et actuelles sur le secteur minier en Afrique ?
              Chez T-MAK Corporation, nous sommes la référence en matière de couverture d&apos;actualités minières
@@ -44,6 +44,13 @@ const MiningNews = () => {
               cover={<Image width={300} height={500} src="/mining news button/bkminingnews.PNG" alt="Burkina Faso Mining News"  className='bg-black/90 p-8'/>}
             >
               <Meta title="BURKINA MINING NEWS" description="" />
+            </Card>
+            <Card
+              hoverable
+              style={{ width: 300 }}
+              cover={<Image width={300} height={500} src="/mining news button/niger minings news.PNG" alt="Burkina Faso Mining News"  className='bg-black/90 p-8'/>}
+            >
+              <Meta title="NIGER MINING NEWS" description="" />
             </Card>
           </div>
         </div>

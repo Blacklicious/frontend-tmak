@@ -27,6 +27,9 @@ yarn-error.log*
 # local env files
 .env*.local
 
+# Ignore nextjs-env folder
+next-env/
+
 # vercel
 .vercel
 

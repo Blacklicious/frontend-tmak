@@ -47,10 +47,10 @@ const MenuVideoAdd = () => {
 	React.useEffect(() => {
 		navigator.geolocation.getCurrentPosition((position) => {
 			const { latitude, longitude } = position.coords;
-			setFormData({
-				...formData,
+			setFormData(prevFormData => ({
+				...prevFormData,
 				location: `Lat: ${latitude}, Lon: ${longitude}`
-			});
+			}));
 		}, (error) => {
 			console.error("Error getting location", error);
 		});
@@ -81,7 +81,7 @@ const MenuVideoAdd = () => {
 		console.log('Appended author:', form.get('author')); // Debug
 		console.log('the form', form);
 		try {
-			await axios.post(`${backendUrl}:8000/posts/api/videos/`, form, {
+			await axios.post(`${backendUrl}/posts/api/videos/`, form, {
 				headers: {
 					'Content-Type': 'multipart/form-data', // Required for file upload
 					'Authorization': `Bearer ${token}`,  // Authentication token

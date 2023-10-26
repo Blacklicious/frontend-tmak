@@ -5,19 +5,26 @@ import MenuPodcastDisplay from './MenuPodcastDisplay';
 const MenuPodcast = () => {
   const [showPodcastAdd, setShowPodcastAdd] = useState(false);
 
+  
   return (
-    <div className="flex flex-col">
-      <div className="bg-gray-100 py-2 px-5 flex flex-wrap w-full justify-between items-center">
-        <div className="text-lg font-semibold w-[60%] h-14 p-4 items-center">Podcasts</div>
-        <button 
-          onClick={() => setShowPodcastAdd(!showPodcastAdd)}
-          className="p-2 bg-gray-900 text-white text-4xl text-center font-extrabold rounded w-[15%] h-14 items-center">
-          {showPodcastAdd ? 'x' : '+'}
-        </button>
-      </div>
-      
-      {showPodcastAdd && <MenuPodcastAdd />}
-      
+    <div className="p-5">
+      <div className=" bg-gray-100 shadow-md rounded-sm">
+        <div className="flex flex-col p-1 ">
+          {/* Row for Filtering */}
+          <div className=" px-5 flex flex-wrap w-full justify-between items-center py-2 ">
+            <div className="text-3xl font-semibold w-[60%] flex items-center "> Podcasts</div>
+            {/* You can add your filter form or controls here */}
+            <button 
+              onClick={() => setShowPodcastAdd(!showPodcastAdd)}
+              className=" bg-gray-900 hover:ring hover:bg-gray-600 text-white text-3xl text-center font-extrabold rounded w-[15%] flex justify-center items-center">
+              {showPodcastAdd ? 'x' : '+'}
+            </button>
+          </div>
+          {/* Conditionally render the Row for Inputting Podcasts */}
+          {showPodcastAdd && <MenuPodcastAdd />}
+        </div>
+      </div>  
+      {/* Row for Displaying Podcasts */}
       <MenuPodcastDisplay />
     </div>
   );

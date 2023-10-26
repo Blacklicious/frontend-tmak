@@ -43,8 +43,8 @@ const Mali: React.FC = () => {
 				return <ArticlesList setSelectedComponent={setSelectedComponent} />;
 			case 'Magazines':
 				return <MagazinesList setSelectedComponent={setSelectedComponent} />;
-			case 'Podcasts':
-				return <PodcastsList setSelectedComponent={setSelectedComponent} />;
+			//case 'Podcasts':
+			//	return <PodcastsList setSelectedComponent={setSelectedComponent} />;
 			case 'Videos':
 				return <VideosList setSelectedComponent={setSelectedComponent} />;
 			default:
@@ -57,8 +57,8 @@ const Mali: React.FC = () => {
 				return <ArticlesDetails selectedComponent={selectedComponent}/>;
 			case 'Magazines':
 				return <MagazinesDetails selectedComponent={selectedComponent}/>;
-			case 'Podcasts':
-				return <PodcastsDetails selectedComponent={selectedComponent}/>;
+			//case 'Podcasts':
+			//	return <PodcastsDetails selectedComponent={selectedComponent}/>;
 			case 'Videos':
 				return <VideosDetails selectedComponent={selectedComponent}/>;
 			default:
@@ -87,7 +87,7 @@ const Mali: React.FC = () => {
         <button onClick={() => {setActiveComponent('Article') ; setListWidth('98'); setSelectedComponent(null);}} className=" w-full h-11 bg-yellow-400 hover:border-gray-800 hover:border-b-8 shadow-md ">Articles</button>
         <button onClick={() => {setActiveComponent('Magazines'); setListWidth('98'); setSelectedComponent(null); }} className=" w-full h-11 bg-yellow-400 hover:border-gray-800 hover:border-b-8 shadow-md ">Magazines</button>
         <button onClick={() => {setActiveComponent('Videos') ; setListWidth('98'); setSelectedComponent(null);}} className=" w-full h-11 bg-yellow-400 hover:border-gray-800 hover:border-b-8 shadow-md ">Emission TV</button>
-        <button onClick={() => {setActiveComponent('Podcasts') ; setListWidth('98'); setSelectedComponent(null);}} className=" w-full h-11 bg-yellow-400 hover:border-gray-800 hover:border-b-8 shadow-md ">Podcast</button>
+        {/*<button onClick={() => {setActiveComponent('Podcasts') ; setListWidth('98'); setSelectedComponent(null);}} className=" w-full h-11 bg-yellow-400 hover:border-gray-800 hover:border-b-8 shadow-md ">Podcast</button>*/}
       </section>	
 			<div className=" bg-black flex items-center justify-center font-bold   text-xl three-color-gradient shadow-lg h-3"> 
 			</div> 

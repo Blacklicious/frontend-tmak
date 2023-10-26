@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="relative bg-gray-900 text-white h-[75vh] w-[100vw]">
         {/* Video Layer (z-0) */}
         <video controls className="w-full h-full object-cover" autoPlay playsInline muted loop>
-          <source src="/miningvid.mp4" type="video/mp4" />
+          <source src="/mininghero.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         {/* Black Transparent Layer (z-1) */}
@@ -17,11 +17,11 @@ const Hero = () => {
 
         {/* Heading and Paragraph (z-2) */}
         <div className="absolute inset-0 flex items-center justify-center h-full">
-					<div className='px-[9vw] md:px-[16vw]'>
-						<div className="text-3xl md:text-5xl font-bold ">
-            &quot;CREER UN HERITAGE DURABLE POUR LES GÉNÉRATIONS FUTURES.&quot;
+					<div className='px-[6vw] md:px-[15vw]'>
+						<div className="text-4xl lg:text-7xl font-bold text-center font-oswald ">
+            &quot;CRÉER UN HÉRITAGE DURABLE POUR LES GÉNÉRATIONS FUTURES.&quot;
 						</div>
-						<p className='flex md:justify-end md:text-lg md:px-10'>
+						<p className='text-right md:text-md md:px-10'>
 								Notre PDG. Nouhoum TRAORÉ
 						</p>
 					</div>

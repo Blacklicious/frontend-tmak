@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Input } from 'antd';
 
 
 const MenuArticleAdd = () => {
@@ -48,10 +49,10 @@ const MenuArticleAdd = () => {
 	React.useEffect(() => {
 		navigator.geolocation.getCurrentPosition((position) => {
 			const { latitude, longitude } = position.coords;
-			setFormData({
-				...formData,
+			setFormData(prevFormData => ({
+				...prevFormData,
 				location: `Lat: ${latitude}, Lon: ${longitude}`
-			});
+			}));
 		}, (error) => {
 			console.error("Error getting location", error);
 		});
@@ -100,7 +101,7 @@ const MenuArticleAdd = () => {
 			{/* You can add your input form for articles here */}
 			<form className=" flex flex-col md:flex-wrap  justify-center" onSubmit={handleSubmit}>
 				<div className='w-full '>
-					<input
+					< Input
 						className="w-full h-14 border-2 px-2 my-3"
 						type="text"
 						name="title"
@@ -134,7 +135,7 @@ const MenuArticleAdd = () => {
 							/>
 						</div>
 					</div>
-					<input
+					<Input
 						className="w-full  h-14 border-2 px-2 my-3 flex items-center justify-center text-xl py-2 space-x-5 bg-white "
 						type="file"
 						name="file"
@@ -149,7 +150,7 @@ const MenuArticleAdd = () => {
 						value={formData.content}
 						onChange={handleChange}
 					/>
-					<input
+					<Input
 					className="w-full h-14 border-2 px-2 my-3"
 					type="url"
 					name="link"

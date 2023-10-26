@@ -56,7 +56,7 @@ const Newsletter: React.FC = () => {
             checked={consent} 
             onChange={() => setConsent(!consent)} 
           />
-          <label htmlFor="consent" className="ml-2">
+          <label htmlFor="consent" className="ml-2 font-oswald font font-bold">
             je donne mon consentement pour rejoindre la newsletters.
           </label>
         </div>
