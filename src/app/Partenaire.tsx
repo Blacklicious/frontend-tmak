@@ -18,8 +18,8 @@ const logos = [
   '/logos/shantabana.jpeg',
   '/logos/cnscom.jpeg',
   '/logos/somifi.jpeg',
-  '/logos/unicef.jpeg',
-  '/logos/worldbank.png',
+  '/logos/unicef.png',
+  '/logos/banquemond.png',
   // Add more logos here
 ];
 

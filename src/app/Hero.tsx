@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="relative bg-gray-900 text-white h-[75vh] w-[100vw]">
         {/* Video Layer (z-0) */}
         <video controls className="w-full h-full object-cover" autoPlay playsInline muted loop>
-          <source src="/mininghero.mp4" type="video/mp4" />
+          <source src="https://storage.cloud.google.com/nzirani_bucket-1/clients/t-mak/mininghero.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         {/* Black Transparent Layer (z-1) */}
