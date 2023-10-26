@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from '../../node_modules/next/image';
-import Slider from '../../node_modules/react-slick';
+import Slider from 'react-slick';
 
 const logos = [
   '/logos/barrick.jpeg', // replace with your logo file names or URLs
