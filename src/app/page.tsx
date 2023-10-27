@@ -6,7 +6,7 @@ import Events from './Events';
 import Newsletter from './Newsletter';
 import Partenaire from './Partenaire';
 import Head from 'next/head';
-import { FacebookOutlined, LinkedinOutlined, InstagramOutlined } from '@ant-design/icons';
+import { FacebookOutlined, LinkedinOutlined, InstagramOutlined, YoutubeOutlined } from '@ant-design/icons';
 import Image from 'next/image';
 
 export default function Home() {
@@ -37,7 +37,7 @@ export default function Home() {
               </ul>
               <ul className="grid grid-cols-2 sm:grid-cols-4 social-follow justify-center w-[100%] pt-4 ">
                 <li>
-                    <a href="https://www.facebook.com/yourcompany" target="_blank" rel="noreferrer" className='flex items-center justify-center'>
+                    <a href="https://www.facebook.com/miningnewsmagazine" target="_blank" rel="noreferrer" className='flex items-center justify-center'>
                         <FacebookOutlined className='text-xl md:text-4xl mr-3'/> Facebook
                     </a>
                 </li>
@@ -48,13 +48,18 @@ export default function Home() {
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.linkedin.com/company/yourcompany" target="_blank" rel="noreferrer" className='flex items-center justify-center'>
+                    <a href="https://www.linkedin.com/company/mining-news-magazine/" target="_blank" rel="noreferrer" className='flex items-center justify-center'>
                         <LinkedinOutlined className='text-xl md:text-4xl mr-3'/> LinkedIn
                     </a>
                 </li>
                 <li>
                     <a href="https://www.instagram.com/yourcompany" target="_blank" rel="noreferrer" className='flex items-center justify-center'>
                         <InstagramOutlined className='text-xl md:text-4xl mr-3'/> Instagram
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/@t-makmali2915" target="_blank" rel="noreferrer" className='flex items-center justify-center'>
+                        <YoutubeOutlined className='text-xl md:text-4xl mr-3'/> Youtube
                     </a>
                 </li>
               </ul>

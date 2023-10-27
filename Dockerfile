@@ -4,22 +4,18 @@ FROM node:16
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the package.json and package-lock.json files to the container
-#COPY package*.json ./
+# Install git
+RUN apt-get update && apt-get install -y git
 
-# Clone your GitHub repository
+# Clone the GitHub repository
 RUN git clone https://github.com/Blacklicious/frontend-tmak.git .
 
-# Regenerate the package-lock.json:
+# Remove package-lock.json
 RUN rm package-lock.json
 
 # Install dependencies
 RUN npm install
 RUN npm install --save-dev @types/react-slick
-
-# Copy the rest of the app's files to the container
-#COPY . .
-
 
 # Set the environment variable for the backend URL
 ENV NEXT_PUBLIC_BACKEND_URL=https://api.nzirani.com
