@@ -38,7 +38,7 @@ const Hero = () => {
                     &quot;CRÉER UN HÉRITAGE DURABLE POUR LES GÉNÉRATIONS FUTURES.&quot;
                     </div>
                     <p className="text-right md:text-md md:px-10">
-                        Notre PDG. Nouhoum TRAORÉ
+                        Notre PDG, Nouhoum TRAORÉ
                     </p>
                 </div>
             </div>

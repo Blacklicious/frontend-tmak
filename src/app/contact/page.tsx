@@ -76,14 +76,14 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div>
-      <section className="mb-32 text-center bg-black/50">
+    <div className='bg-white'>
+      <section className="mb-32 text-center h-[100vh]">
         <div className="py-5 md:px-12">
           <div className="container mx-auto xl:px-32">
             <div className="grid items-center lg:grid-cols-2">
-              <div className="mb-12 md:mt-12 lg:mt-0 lg:mb-0">
+              <div className="mb-12 md:mt-6 lg:mt-20 lg:mb-0">
                 <div className="relative z-[1] block rounded-lg bg-[hsla(0,0%,100%,0.55)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] backdrop-blur-[30px] dark:bg-[hsla(0,0%,5%,0.7)] dark:shadow-black/20 md:px-12 lg:-mr-14">
-                  <h2 className="mb-12 text-3xl font-bold">Contact us</h2>
+                  <h2 className="mb-12 text-3xl font-bold">Contactez-nous</h2>
                   <form onSubmit={handleSubmit} >
                     {/* add dropdown to select professional or personnal default beeing personnal */}
                     <Select defaultValue="personal" className=" mb-2 w-full"  value={formData.category}  onChange={handleCategoryChange} >
@@ -96,7 +96,7 @@ const Contact: React.FC = () => {
                         name="name"
                         className="w-full p-2 pl-10 border rounded" 
                         value={formData.name} 
-                        placeholder="Nom et Prenom" 
+                        placeholder="Nom et Prénom" 
                         onChange={handleChange}
                       />
                     </div>
@@ -106,7 +106,7 @@ const Contact: React.FC = () => {
                         name="email"
                         className="w-full p-2 pl-10 border rounded" 
                         value={formData.email} 
-                        placeholder="votre e-mail" 
+                        placeholder="Votre e-mail" 
                         onChange={handleChange}
                       />
                     </div>
@@ -156,7 +156,7 @@ const Contact: React.FC = () => {
                       <Input name="subject" size="large"  value={formData.subject} placeholder="  Sujet" onChange={handleChange} />
                     </div>
                     <div className="relative mb-4 " data-te-input-wrapper-init>
-                      <TextArea className="h-[25vh]"  name="message" value={formData.message} placeholder="Message (nous essayerons de vous repondre dans un delai maximum de 72 h)" allowClear onChange={handleChange} />
+                      <TextArea className="h-[25vh]"  name="message" value={formData.message} placeholder="Message (nous essaierons de vous répondre dans un délai maximum de 72 h)" allowClear onChange={handleChange} />
                     </div>
                     <button
                       type="submit"
@@ -167,13 +167,14 @@ const Contact: React.FC = () => {
                 </div>
               </div>
               <div className="md:mb-12 lg:mb-0">
-                <div className="relative h-[700px] rounded-lg shadow-lg dark:shadow-black/20">
-                  <iframe
-                    src="https://maps.google.com/maps?q=sotuba&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                    className="absolute left-0 top-0 h-full w-full rounded-lg"
-                    frameBorder="0"
-                    allowFullScreen>
-                  </iframe>
+                <div className="relative bg-yellow-500/90 h-[25vh] rounded-lg shadow-lg dark:shadow-black/20 p-8 mt-40">
+                  <div className=' text-left  w-[100%] flex flex-col justify-center py-8  pl-10 text-black rounded-md '>
+                    <h1 className=' text-left  w-[100%] text-7xl font-oswald font-black'> </h1>
+                    <h1 className=' text-left  w-[100%] text-4xl font-oswald font-bold'>T-MAK CORPORATION</h1>
+                    <h2 className=' text-left  w-[100%] text-2xl'>MALI / BURKINA FASO / CÔTE D&apos;IVOIRE</h2>
+                    <h2 className=' text-left  w-[100%] text-2xl font-oswald font-bold'> <PhoneFilled /> : +223 70 74 10 98</h2>
+                    <h2 className=' text-left  w-[100%] text-2xl font-oswald font-bold'> <MailFilled /> :  n.traore@t-mak.org</h2>
+                  </div>
                 </div>
               </div>
             </div>

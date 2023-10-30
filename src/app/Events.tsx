@@ -7,7 +7,7 @@ const Events = () => {
     <div>
         <div className="flex flex-col md:flex-row bg-white text-white shadow-md p-3 md:p-6">
           <div className="md:w-1/2 p-[5vw] text-black">
-            <h2 className="text-3xl md:text-6xl font-bold text-center md:text-left font-oswald ">Évènements a venir !!</h2>
+            <h2 className="text-3xl md:text-6xl font-bold text-center md:text-left font-oswald ">Évènements à venir !!</h2>
             <p className="my-4 text-center md:text-left ">
               Si vous êtes passionné par le monde de la minéralogie et que les événements
               communautaires vous intéressent, nos activités à venir sont faites pour vous. 
@@ -24,7 +24,7 @@ const Events = () => {
               rel="noopener noreferrer"
               className="bg-black w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "
             >
-              Decouvrez les évènements a venir
+              Découvrez les évènements à venir
             </button></Link>
 
           </div>

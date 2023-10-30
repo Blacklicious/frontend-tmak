@@ -37,7 +37,7 @@ const Newsletter: React.FC = () => {
 
   return (
     <div className="bg-gray-100 px-8 py-4 md:py-10 md:px-44 shadow-md rounded-md w-full text-black">
-      <h2 className="text-2xl mb-4">Joindre la T-MAK Newsletter</h2>
+      <h2 className="text-2xl mb-4">Joindre la T-MAK Newsletters</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <input 
@@ -61,7 +61,7 @@ const Newsletter: React.FC = () => {
           </label>
         </div>
         <button type="submit" className="bg-blue-600 text-white p-2 rounded w-full hover:bg-blue-700">
-          Subscribe
+          S&apos;inscrire
         </button>
       </form>
     </div>

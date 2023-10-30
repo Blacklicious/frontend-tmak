@@ -26,7 +26,7 @@ yarn-error.log*
 
 # local env files
 .env*.local
-
+.env
 # Ignore nextjs-env folder
 next-env/
 
@@ -36,3 +36,12 @@ next-env/
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+Dockerfile
+.eslintrc.json
+next-env.d.ts
+next.config.js
+package-lock.json
+postcss.config.js
+tailwind.config.js
+tsconfig.json
+```

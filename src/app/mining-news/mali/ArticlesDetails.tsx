@@ -39,7 +39,7 @@ const ArticlesDetails: React.FC<{ selectedComponent: any }> = ({ selectedCompone
         <iframe
           className="w-full object-cover"
           width="560"
-          height="315"
+          height="615"
           src={`${selectedComponent.link}`}
           title="YouTube video"
           allowFullScreen

@@ -1,9 +1,6 @@
 import React from 'react'
 import Link from '../../node_modules/next/link';
-import { Card } from '../../node_modules/antd';
 import Image from '../../node_modules/next/image';
-
-const { Meta } = Card;
 
 const MiningNews = () => {
   return (
@@ -14,49 +11,61 @@ const MiningNews = () => {
           <p className="text-md mb-5 px-[8vw] ">
             Vous êtes en quête des informations les plus fiables et actuelles sur le secteur minier en Afrique ?
              Chez T-MAK Corporation, nous sommes la référence en matière de couverture d&apos;actualités minières
-             sur l&apos;ensemble du continent africain.</p>
-          <div className="grid  sm:grid-cols-3 lg:grid-cols-5 gap-4 ">
-          <Link href="/mining-news/mali" className='justify-center'>
-            <Card
-              hoverable
-              style={{ width: 200 }}
-              cover={<Image width={300} height={500} alt="Mali News" src="/mining news button/mali minings news.PNG"
-              className='bg-black/90 p-8' />}
-            >
-              <Meta title="MALI MINING NEWS" description="" />
-            </Card></Link>
-            <Card
-              hoverable
-              style={{ width: 200 }}
-              cover={<Image width={300} height={500} src="/mining news button/CI mining news.PNG" alt="Cote Ivoire Mining News"  className='bg-black/90 p-8'/>}
-            >
-              <Meta title="COTE D'IVOIRE MINING NEWS" description="" />
-            </Card>
-            <Card
-              hoverable
-              style={{ width: 200 }}
-              cover={<Image width={300} height={500} src="/mining news button/guineaminingnews.PNG" alt="Guinea Mining News"  className='bg-black/90 p-8'/>}
-            >
-              <Meta title="GUINÉE MINING NEWS" description="" />
-            </Card>
-            <Card
-              hoverable
-              style={{ width: 200 }}
-              cover={<Image width={300} height={500} src="/mining news button/bkminingnews.PNG" alt="Burkina Faso Mining News"  className='bg-black/90 p-8'/>}
-            >
-              <Meta title="BURKINA MINING NEWS" description="" />
-            </Card>
-            <Card
-              hoverable
-              style={{ width: 200 }}
-              cover={<Image width={300} height={500} src="/mining news button/niger.png" alt="Niger Mining News"  className='bg-black/90 p-8'/>}
-            >
-              <Meta title="NIGER MINING NEWS" description="" />
-            </Card>
+             sur l&apos;ensemble du continent africain.
+          </p>
+            
+          <div className="justify-center"> 
+            <Link href="/mining-news/mali" className='flex flex-wrap justify-center text-sm text-center'>
+              <div className="m-4 hover:shadow-lg transition-shadow duration-300 ease-in-out" style={{ width: '250px' }}>
+                <div className="relative bg-black/90 p-8">
+                  <Image width={300} height={500} src="/mining-news-button/maliminingsnews.PNG" alt="Mali News" />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-bold">MALI MINING NEWS</h3>
+                  <p></p>
+                </div>
+              </div>
+              <div className="m-4 hover:shadow-lg transition-shadow duration-300 ease-in-out" style={{ width: '250px' }}>
+                <div className="relative bg-black/90 p-8">
+                  <Image width={300} height={500} src="/mining-news-button/ciminingnews.PNG" alt="Cote Ivoire Mining News" />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-bold">COTE D&apos;IVOIRE MINING NEWS</h3>
+                  <p></p>
+                </div>
+              </div>
+              <div className="m-4 hover:shadow-lg transition-shadow duration-300 ease-in-out" style={{ width: '250px' }}>
+                <div className="relative bg-black/90 p-8">
+                  <Image width={300} height={500} src="/mining-news-button/guineaminingnews.PNG" alt="Guinea Mining News" />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-bold">GUINÉE MINING NEWS</h3>
+                  <p></p>
+                </div>
+              </div>
+              <div className="m-4 hover:shadow-lg transition-shadow duration-300 ease-in-out" style={{ width: '250px' }}>
+                <div className="relative bg-black/90 p-8">
+                  <Image width={300} height={500} src="/mining-news-button/bkminingnews.PNG" alt="Burkina Faso Mining News" />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-bold">BURKINA MINING NEWS</h3>
+                  <p></p>
+                </div>
+              </div>
+              <div className="m-4 hover:shadow-lg transition-shadow duration-300 ease-in-out" style={{ width: '250px' }}>
+                <div className="relative bg-black/90 p-8">
+                  <Image width={300} height={500} src="/mining-news-button/nigerminingnews.png" alt="Niger Mining News" />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-bold">NIGER MINING NEWS</h3>
+                  <p></p>
+                </div>
+              </div>
+            </Link >
           </div>
         </div>
-    </div>
-  )
+      </div>
+  );
 }
 
 export default MiningNews

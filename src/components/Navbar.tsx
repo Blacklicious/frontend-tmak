@@ -60,20 +60,20 @@ const Navbar: React.FC = () => {
   // Now, userData is an object containing the user info.
   return (
     <nav className=" w-[100vw] shadow-md px-4 text-black bg-white border-black border-b-8">
-      <div className="flex flex-wrap md:flex-row p-2 bg-white-300 items-center justify-between">
+      <div className="flex flex-wrap md:flex-row bg-white-300 items-center justify-between">
         <div className="flex items-center shrink">
             <Link href="/" className="flex items-center">
-                    <Image  width={80} height={500}  src="/TMAKLOGO.jpeg" alt="Tmak Corporation Logo" className="h-20 w-30 "/>
+              <Image  width={80} height={500}  src="/TMAKLOGO.jpeg" alt="Tmak Corporation Logo" className="h-20 w-30 "/>
             </Link>
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:block shrink bg-white/90">
+        <div className="invisible md:visible  bg-white/90 w-0 md:w-[80vw]">
           <div className=" flex items-center justify-center md:h-[80px] lg:text-xl font-semibold text-black">
             <Link href="/" className="font hover:font-black hover:text-gray-800 hover:border-t-[10px] hover:border-yellow-500 h-[100%] w-28 xl:w-36 flex items-center justify-center ">Accueil</Link>
-            <Link href="/about" className=" hover:font-black hover:text-gray-800 hover:border-t-[10px] hover:border-yellow-500 h-[100%] w-28 xl:w-40 flex items-center justify-center"> Notre Expertise </Link>
-            <Link href="/mining-news" className=" hover:font-black hover:text-gray-800 hover:border-t-[10px] hover:border-yellow-500 h-[100%] w-28 xl:w-36 flex items-center justify-center"> Mining News</Link>
-            <Link href="/coming-events" className="  hover:font-black hover:text-gray-800 hover:border-t-[10px] hover:border-yellow-500 h-[100%] w-28 xl:w-36 flex items-center justify-center"> Evenements</Link>
+            <Link href="/about" className=" hover:font-black hover:text-gray-800 hover:border-t-[10px] hover:border-yellow-500 h-[100%] w-28 md:w-40 flex items-center justify-center"> Notre Expertise </Link>
+            <Link href="/mining-news" className=" hover:font-black hover:text-gray-800 hover:border-t-[10px] hover:border-yellow-500 h-[100%] w-28 md:w-36 flex items-center justify-center"> Mining News</Link>
+            <Link href="/coming-events" className="  hover:font-black hover:text-gray-800 hover:border-t-[10px] hover:border-yellow-500 h-[100%] w-28 md:w-36 flex items-center justify-center"> Évènements</Link>
             <Link href="/contact" className=" hover:font-black hover:text-gray-800 hover:border-t-[10px] hover:border-yellow-500 h-[100%] w-28 xl:w-36 flex items-center justify-center"> Contacts</Link>
             <div className="user-info">
               {isLoading ? (
@@ -111,13 +111,20 @@ const Navbar: React.FC = () => {
                     )}
                   </div>
                 ) : (
-                  <div className= 'bg-gray-200 hover:border-t-[10px] hover:border-black hover:bg-yellow-580  h-20 w-16 text-4xl px-3 py-2'>
-                    <Link href="/signin">
+                  <div className= 'bg-gray-200 hover:border-t-[10px] hover:border-yellow-500  h-20 w-16 xl:w-28 text-4xl xl:text-5xl px-3 pt-5'>
+                    <Link href="/signin" className='flex items-baseline justify-center'>
                       <UserOutlined />
                     </Link>
                   </div>
                 )
               )}
+            </div>
+            {/* a div where i can select the a a laguage french or english */}
+            <div>
+              <select className="bg-yellow-500 hover:bg-white text-black text-xl rounded-none hover:border-black hover:border-t-[10px] h-20 w-20 text-center">
+                <option value="fr">FR</option>
+                <option value="en">EN</option>
+              </select>
             </div>
           </div>
         </div>
