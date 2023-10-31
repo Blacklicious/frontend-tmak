@@ -37,7 +37,7 @@ const Newsletter: React.FC = () => {
 
   return (
     <div className="bg-gray-100 px-8 py-4 md:py-10 md:px-44 shadow-md rounded-md w-full text-black">
-      <h2 className="text-2xl mb-4">Joindre la T-MAK Newsletters</h2>
+      <h2 className="text-2xl mb-4">Joindre la T-MAK Newsletter</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <input 
@@ -45,7 +45,7 @@ const Newsletter: React.FC = () => {
             value={email} 
             onChange={(e) => setEmail(e.target.value)} 
             className="w-full p-2 border rounded" 
-            placeholder="votre address email" 
+            placeholder="votre adresse email" 
             required
           />
         </div>
@@ -57,7 +57,7 @@ const Newsletter: React.FC = () => {
             onChange={() => setConsent(!consent)} 
           />
           <label htmlFor="consent" className="ml-2 font-oswald font font-bold">
-            je donne mon consentement pour rejoindre la newsletters.
+            je donne mon consentement pour rejoindre la newsletter.
           </label>
         </div>
         <button type="submit" className="bg-blue-600 text-white p-2 rounded w-full hover:bg-blue-700">

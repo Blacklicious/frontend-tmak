@@ -49,26 +49,32 @@ const Actuality = () => {
   return (
     <div>
       {/* Our Work Section */}
-        <section className=" w-[100vw]">
-          <div className='  p-4 flex flex-wrap items-center justify-center w-[100%] bg-white'>
-            <h1 className='text-3xl text-center md:text-6xl  p-5  w-full h-full text-black  rounded-xl font font-black font-oswald '>NOTRE ACTUALITÉ</h1>
-            <div className="flex flex-col lg:flex-row  w-full p-3 justify-between bg-black">
-
+        <section className=" w-full ">
+          <div className='  p-2 md:p-4 flex flex-wrap items-center justify-center w-full bg-white'>
+            <h1 className='text-3xl text-center md:text-6xl  p-6  w-full text-black  rounded-xl font font-black font-oswald '>NOTRE ACTUALITÉ</h1>
+            <div className="flex flex-col lg:flex-row  w-full p-4 justify-between bg-black rounded-xl ">
               {/* Column 2 */}
-              <div className="w-full lg:w-[60%] items-center justify-center ">
+              <div className="w-full md:pr-2 items-center h-full">
                 {/* the list of articles to select from in a carousel */}
-                <div className="flex overflow-x-auto rounded-xl bg-white my-3 p-1">
+                <div className=" flex flex-col overflow-y-auto md:flex-row  md:overflow-x-auto rounded-xl bg-white mb-3 h-[35vh] md:h-[33vh] w-[100%] ">
                   {articles.filter(article => article.rubrique === "T-MAK actualité").map(article => (
-                    <div key={article.id} onClick={() => setSelectedArticle(article)} className='text-black hover:shadow-lg rounded-md w-[40%] sm:w-[22%] h-full m-2 p-1 bg-gray-100 shadow-md' >
-                      <Image src={article.file} alt={article.title} height={300} width={300}  />
-                      <div className='text-sm'>{article.title}</div>
+                    <div key={article.id} onClick={() => setSelectedArticle(article)} className='text-black hover:shadow-lg w-[98%] xl:w-[22%] h-[30vh] m-2 p-1 bg-gray-100 rounded-md shadow-md flex flex-row md:flex-col' >
+                     <div className="relative h-[15vh] w-[50%] md:w-[100%] sm:h-[10vh] md:h-[21vh] rounded-md mr-3" >
+                        <Image 
+                            src={article.file} 
+                            alt={article.title} 
+                            layout="fill" 
+                            objectFit="cover"
+                        />
+                      </div>
+                    <div className='text-xl md:text-lg  text-extrabold font-oswald flex items-center px-3'>{article.title}</div>
                     </div>
                   ))}
                 </div>
                 {/* the selected article image comes here */}
-                <div className='rounded-xl'>
+                <div className='rounded-xl mb-3 lg:mb-0'>
                   {selectedArticle ? (
-                    <div className="relative lg:h-[45vh] ">
+                    <div className="relative h-[30vh] lg:h-[68vh] ">
                       <Image 
                         className='rounded-xl'
                         layout="fill" // This will make the image take the full dimensions of the parent div
@@ -84,20 +90,15 @@ const Actuality = () => {
                 </div>
               </div>
               {/* Column 1 */}
-              <div className="w-full lg:w-[38%] p-3 text-black bg-white align-center rounded-xl">
+              <div className="w-full lg:w-[50%] p-3 text-black bg-white align-center rounded-xl overflow-y-auto  h-[50vh] lg:h-[102vh]">
                 <div>
                   {selectedArticle ? (
-                    <div className='p-3'>
-                      <h3 className=" text-xl md:text-3xl mb-4">{selectedArticle.title}</h3>
-                      <div className='text-md'>
+                    <div className='p-3 flex flex-col '>
+                      <h3 className=" text-4xl lg:text-5xl mb-8 font-oswald">{selectedArticle.title}</h3>
+                      <div className='text-sm md:text-xl'> {/* Added overflow-y-auto and a max height */}
                         <p>
-                          {showFullContent ? selectedArticle.content : truncateContent(selectedArticle.content, 250)}
+                          {selectedArticle.content}
                         </p>
-                        {selectedArticle.content.split(' ').length > 90 && (
-                          <button className="w-full bg-blue-400 hover:bg-blue-500 rounded-md my-2" onClick={() => setShowFullContent(!showFullContent)}>
-                            {showFullContent ? 'Lire moins' : 'Lire plus'}
-                          </button>
-                        )}
                         <p>{selectedArticle.date}</p>
                       </div>
                     </div>

@@ -79,14 +79,14 @@ const Contact: React.FC = () => {
     <div className='bg-white'>
       <section className="mb-32 text-center h-[100vh]">
         <div className="py-5 md:px-12">
-          <div className="container mx-auto xl:px-32">
-            <div className="grid items-center lg:grid-cols-2">
-              <div className="mb-12 md:mt-6 lg:mt-20 lg:mb-0">
-                <div className="relative z-[1] block rounded-lg bg-[hsla(0,0%,100%,0.55)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] backdrop-blur-[30px] dark:bg-[hsla(0,0%,5%,0.7)] dark:shadow-black/20 md:px-12 lg:-mr-14">
-                  <h2 className="mb-12 text-3xl font-bold">Contactez-nous</h2>
+          <div className="container mx-auto xl:px-32 text-black">
+            <div className="grid items-center lg:grid-cols-2 p-4">
+              <div className="mb-8 md:mt-6 lg:mt-20 lg:mb-0 ">
+                <div className="relative z-[1] block rounded-lg bg-[hsla(0,0%,100%,0.55)] px-6 p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] backdrop-blur-[30px] dark:bg-[hsla(0,0%,5%,0.7)] dark:shadow-black/20 md:px-12 lg:-mr-14">
+                  <div className="mb-4 text-3xl font-bold text-white">Contactez-nous</div>
                   <form onSubmit={handleSubmit} >
                     {/* add dropdown to select professional or personnal default beeing personnal */}
-                    <Select defaultValue="personal" className=" mb-2 w-full"  value={formData.category}  onChange={handleCategoryChange} >
+                    <Select defaultValue="personal" className=" mb-2 w-full "  value={formData.category}  onChange={handleCategoryChange} >
                       <Option value="personal">Personal</Option>
                       <Option value="professional">Professional</Option>
                     </Select>              
@@ -167,13 +167,13 @@ const Contact: React.FC = () => {
                 </div>
               </div>
               <div className="md:mb-12 lg:mb-0">
-                <div className="relative bg-yellow-500/90 h-[25vh] rounded-lg shadow-lg dark:shadow-black/20 p-8 mt-40">
-                  <div className=' text-left  w-[100%] flex flex-col justify-center py-8  pl-10 text-black rounded-md '>
-                    <h1 className=' text-left  w-[100%] text-7xl font-oswald font-black'> </h1>
-                    <h1 className=' text-left  w-[100%] text-4xl font-oswald font-bold'>T-MAK CORPORATION</h1>
-                    <h2 className=' text-left  w-[100%] text-2xl'>MALI / BURKINA FASO / CÔTE D&apos;IVOIRE</h2>
-                    <h2 className=' text-left  w-[100%] text-2xl font-oswald font-bold'> <PhoneFilled /> : +223 70 74 10 98</h2>
-                    <h2 className=' text-left  w-[100%] text-2xl font-oswald font-bold'> <MailFilled /> :  n.traore@t-mak.org</h2>
+                <div className="relative bg-yellow-500/90 h-[20vh] md:h-[25vh] rounded-lg shadow-lg dark:shadow-black/20 p-8 flex items-center ">
+                  <div className=' text-left  w-[100%] flex flex-col justify-center  pl-10 text-black rounded-md '>
+                    <h1 className=' text-left  w-[100%] text-2xl md:text-7xl font-oswald font-black'> </h1>
+                    <h1 className=' text-left  w-[100%] text-xl md:text-4xl font-oswald font-bold'>T-MAK CORPORATION</h1>
+                    <div className=' text-left  w-[100%] text-xl md:text-2xl'>MALI / BURKINA FASO / CÔTE D&apos;IVOIRE</div>
+                    <div className=' text-left  w-[100%] text-xl md:text-2xl font-oswald font-bold'> <PhoneFilled /> 223 70 74 10 98</div>
+                    <div className=' text-left  w-[100%] text-xl md:text-2xl font-oswald font-bold'> <MailFilled />  n.traore@t-mak.org</div>
                   </div>
                 </div>
               </div>

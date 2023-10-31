@@ -72,7 +72,7 @@ const Navbar: React.FC = () => {
           <div className=" flex items-center justify-center md:h-[80px] lg:text-xl font-semibold text-black">
             <Link href="/" className="font hover:font-black hover:text-gray-800 hover:border-t-[10px] hover:border-yellow-500 h-[100%] w-28 xl:w-36 flex items-center justify-center ">Accueil</Link>
             <Link href="/about" className=" hover:font-black hover:text-gray-800 hover:border-t-[10px] hover:border-yellow-500 h-[100%] w-28 md:w-40 flex items-center justify-center"> Notre Expertise </Link>
-            <Link href="/mining-news" className=" hover:font-black hover:text-gray-800 hover:border-t-[10px] hover:border-yellow-500 h-[100%] w-28 md:w-36 flex items-center justify-center"> Mining News</Link>
+            <Link href="#mining-news-section" className=" hover:font-black hover:text-gray-800 hover:border-t-[10px] hover:border-yellow-500 h-[100%] w-28 md:w-36 flex items-center justify-center"> Mining News</Link>
             <Link href="/coming-events" className="  hover:font-black hover:text-gray-800 hover:border-t-[10px] hover:border-yellow-500 h-[100%] w-28 md:w-36 flex items-center justify-center"> Évènements</Link>
             <Link href="/contact" className=" hover:font-black hover:text-gray-800 hover:border-t-[10px] hover:border-yellow-500 h-[100%] w-28 xl:w-36 flex items-center justify-center"> Contacts</Link>
             <div className="user-info">
@@ -145,12 +145,12 @@ const Navbar: React.FC = () => {
           }} 
           className="flex flex-col mx-auto justify-center items-center md:hidden  bg-gray-50  rounded-md "
         >
-          <Link onClick={() => setMobileMenuOpen(false)} className="w-[85vw] h-10 text-center py-2 rounded-md shadow-md  bg-white my-4 text-black " href="/">Home</Link>
-          <Link onClick={() => setMobileMenuOpen(false)} className="w-[85vw] h-10 text-center py-2 rounded-md shadow-md  bg-white mb-4 text-black " href="/about">About</Link>
-          <Link onClick={() => setMobileMenuOpen(false)} className="w-[85vw] h-10 text-center py-2 rounded-md shadow-md  bg-white mb-4 text-black " href="/mining-news">Mining News </Link>
-          <Link onClick={() => setMobileMenuOpen(false)} className="w-[85vw] h-10 text-center py-2 rounded-md shadow-md  bg-white mb-4 text-black " href="/coming-events">Évements</Link>
-          <Link onClick={() => setMobileMenuOpen(false)} className="w-[85vw] h-10 text-center py-2 rounded-md shadow-md  bg-white mb-4 text-black " href="/contact">Contact</Link>
-          {/* ... (Rest of the mobile links) */}
+          <Link onClick={() => setMobileMenuOpen(false)} className="w-[85vw] h-10 text-center py-2 rounded-md shadow-md  bg-white my-4 text-black " href="/">Acceuil</Link>
+          <Link onClick={() => setMobileMenuOpen(false)} className="w-[85vw] h-10 text-center py-2 rounded-md shadow-md  bg-white mb-4 text-black " href="/about">Notre Expertise </Link>
+          <Link onClick={() => setMobileMenuOpen(false)} className="w-[85vw] h-10 text-center py-2 rounded-md shadow-md  bg-white mb-4 text-black " href="#mining-news-section">Mining News </Link>
+          <Link onClick={() => setMobileMenuOpen(false)} className="w-[85vw] h-10 text-center py-2 rounded-md shadow-md  bg-white mb-4 text-black " href="/coming-events">Évèments</Link>
+          <Link onClick={() => setMobileMenuOpen(false)} className="w-[85vw] h-10 text-center py-2 rounded-md shadow-md  bg-white mb-4 text-black " href="/contact">Contacts</Link>
+          
           {/* User info for mobile */}
           {isLoading ? (
             <div className="loading">
@@ -196,10 +196,18 @@ const Navbar: React.FC = () => {
               </div>
             ) : (
               <Link className="w-[85vw] h-10 text-center py-2 rounded-md bg-white ring ring-gray-300 shadow-lg mb-4 mx-3 text-black" href="/signin">
-                Zone Membre
+                Membre
               </Link>
             )
           )}
+          {/* a div where i can select the a a laguage french or english */}
+          <div>
+            <select className="bg-yellow-500 hover:bg-white text-black text-md hover:border-black hover:border-t-[10px] h-10 w-[85vw] rounded-md mb-4 text-center">
+              <option value="fr">FR</option>
+              <option value="en">EN</option>
+            </select>
+          </div>
+          
         </div>
       </div> 
     </nav>

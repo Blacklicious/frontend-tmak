@@ -32,7 +32,7 @@ export default function Home() {
             <nav role="navigation" aria-labelledby="block-footer-menu" id="block-footer" className="  w-full md:w-3/4">
               <ul className="text-xl grid grid-cols-2 sm:grid-cols-5 social-follow justify-center w-[100%] p-6  border-b-2 border-gray-600">
                 <li>
-                    <a href="https://www.facebook.com/miningnewsmagazine" target="_blank" rel="noreferrer" className='flex items-center justify-center'>
+                    <a href="https://www.facebook.com/tmakeventmali" target="_blank" rel="noreferrer" className='flex items-center justify-center'>
                         <FacebookOutlined className='text-4xl m-3'/> Facebook
                     </a>
                 </li>
@@ -43,7 +43,7 @@ export default function Home() {
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.linkedin.com/company/mining-news-magazine/" target="_blank" rel="noreferrer" className='flex items-center justify-center'>
+                    <a href="https://www.linkedin.com/company/t-mak/?viewAsMember=true" target="_blank" rel="noreferrer" className='flex items-center justify-center'>
                         <LinkedinOutlined className='text-4xl m-3'/> LinkedIn
                     </a>
                 </li>
