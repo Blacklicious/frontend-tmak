@@ -2,7 +2,7 @@
 import Navbar from '@/components/Navbar';
 import Head from 'next/head';
 import React from 'react';
-import Mali from './mali/page';
+import Mali from './ml/page';
 
 const MiningNews: React.FC = () => {
 

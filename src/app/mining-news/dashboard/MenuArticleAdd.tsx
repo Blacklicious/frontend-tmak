@@ -119,8 +119,10 @@ const MenuArticleAdd = () => {
 								onChange={handleChange}
 							>
 								<option value="" disabled>Select Rubrique</option>
-								<option value="T-MAK actualité">T-MAK actualité</option>
-								<option value="Mali Mining news">Mali Mining news</option>
+								<option value="T-MAK actualité fr">T-MAK actualité - fr</option>
+								<option value="T-MAK actualité en">T-MAK actualité - en</option>
+								<option value="Mali Mining news fr">Mali Mining news - fr</option>
+								<option value="Mali Mining news en">Mali Mining news - en</option>
 							</select>
 						</div>
 		

@@ -2,13 +2,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import {  Button } from 'antd';  // Import Checkbox and Button from antd
-
+import Image from 'next/image';
 // Define the article type
 interface VideoType {
   id: string;
   title: string;
   content: string;
   file: string;
+  thumbnail: string;
   date: string;
   // ...add other fields if needed
 }
@@ -95,7 +96,7 @@ const MenuVideoDisplay = () => {
             className={`card bg-white p-2 rounded-lg h-full w-[260px] m-4 text-sm ${selectedVideos.has(video.id) ? 'border-4 border-blue-500 shadow-lg' : ''}`}
             onClick={() => showCheckboxes && toggleSelectVideo(video.id)}
           >  
-            <iframe src={video.file} title={video.title} className="w-full h-[250px] rounded"></iframe>
+            <Image  width={300} height={500} src={video.thumbnail} title={video.title} alt={video.title} className="w-full h-[250px] rounded"/>
             
             <h4 className="text-xl font-semibold mt-2">{video.title}</h4>
             <p>

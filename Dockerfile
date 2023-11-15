@@ -7,11 +7,12 @@ WORKDIR /app
 # Copy only the package.json and package-lock.json first to leverage Docker cache
 COPY package*.json ./
 
+# Copy the rest of the code
+COPY . .
+
 # Install dependencies
 RUN npm install
 RUN npm install sharp
-# Copy the rest of the code
-COPY . .
 
 # Set the environment variable for the backend URL
 ENV NEXT_PUBLIC_BACKEND_URL=https://api.nzirani.com

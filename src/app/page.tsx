@@ -8,23 +8,21 @@ import Partenaire from './Partenaire';
 import Head from 'next/head';
 import { FacebookOutlined, LinkedinOutlined, InstagramOutlined, YoutubeOutlined } from '@ant-design/icons';
 import Image from 'next/image';
+import Services from './Services';
 
 export default function Home() {
   return (
     <div>
-      <Head>
-
-      </Head>
-
       <main className=" flex flex-col items-center justify-between bg-yellow-500 ">
         < Hero />
+        < Services />
         < Actuality />
         < MiningNews />
-        <div className=' p-6 w-full '>
+        < Events />
+        <div className=' p-2 w-full '>
+          < Partenaire />
           < Newsletter />
         </div>
-        < Events />
-        < Partenaire />
       </main>
       <footer className="global-footer bg-gray-800 text-white p-6 w-[100vw]">
         <div className="  py-4 ">

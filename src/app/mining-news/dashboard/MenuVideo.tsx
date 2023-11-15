@@ -12,7 +12,7 @@ const MenuVideo = () => {
         <div className="flex flex-col p-1 ">
           {/* Row for Filtering */}
           <div className=" px-5 flex flex-wrap w-full justify-between items-center py-2 ">
-            <div className="text-3xl font-semibold w-[60%] flex items-center "> Videos</div>
+            <div className="text-3xl font-semibold w-[60%] flex items-center "> Emissions</div>
             {/* You can add your filter form or controls here */}
             <button 
               onClick={() => setShowVideoAdd(!showVideoAdd)}

@@ -126,3 +126,6 @@ body {
 html {
   scroll-behavior: smooth;
 }
+.selected {
+  fill: yellow; /* Or any highlight color you prefer */
+}

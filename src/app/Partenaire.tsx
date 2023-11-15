@@ -22,7 +22,7 @@ const logos = [
 
 const Partenaire: React.FC = () => {
   return (
-    <div className="relative overflow-hidden bg-white w-[98vw] h-full rounded-md m-4 shadow-md">
+    <div className="relative overflow-hidden bg-white w-[100%] h-full  shadow-md rounded-t-lg">
       <div className='text-3xl md:text-6xl text-black font-semibold flex justify-center m-10 font-oswald'>
         NOS PARTENAIRES
       </div>

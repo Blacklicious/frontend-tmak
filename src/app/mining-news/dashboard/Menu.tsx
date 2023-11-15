@@ -5,7 +5,7 @@ import MenuArticle from './MenuArticle';
 import MenuMagazine from './MenuMagazine';
 import MenuPodcast from './MenuPodcast';
 import MenuVideo from './MenuVideo';
-import MenuSetting from './MenuSetting';
+import MenuData from './MenuData';
 
 
 
@@ -22,7 +22,7 @@ const MenuMain: React.FC = () => {
       case 'Videos':
         return <MenuVideo />;
       case 'Settings':
-        return <MenuSetting />;
+        return <MenuData />;
       default:
         return <MenuArticle/>;
     }
@@ -44,7 +44,7 @@ const MenuMain: React.FC = () => {
           <i className="fa fa-video-camera"></i>  Emissions
         </button>
         <button onClick={() => setActiveComponent('Settings')} className="flex-grow text-center text-sm md:text-lg rounded-md md:mx-1 py-1 h-18 border border-gray-300 bg-white">
-          <i className="fa fa-cog"></i>  Paramètre
+          <i className="fa fa-table"></i>  Base de données
         </button>
       </div>
       

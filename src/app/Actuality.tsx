@@ -27,7 +27,7 @@ const Actuality = () => {
       try {
         const response = await axios.get(`${backendUrl}/posts/api/articles`);
         console.log("response.data", response.data);
-        const filteredArticles = response.data.filter((article: { rubrique: string }) => article.rubrique === 'T-MAK actualité');
+        const filteredArticles = response.data.filter((article: { rubrique: string }) => article.rubrique === 'T-MAK actualité fr');
         setArticles(filteredArticles);
         setSelectedArticle(filteredArticles[0]);
       } catch (error) {
@@ -49,25 +49,29 @@ const Actuality = () => {
   return (
     <div>
       {/* Our Work Section */}
-        <section className=" w-full ">
+        <section className=" w-[100vw] ">
           <div className='  p-2 md:p-4 flex flex-wrap items-center justify-center w-full bg-white'>
-            <h1 className='text-3xl text-center md:text-6xl  p-6  w-full text-black  rounded-xl font font-black font-oswald '>NOTRE ACTUALITÉ</h1>
+            <h1 className='text-3xl text-center md:text-6xl  p-6  w-full text-black  rounded-xl font font-black font-oswald '>NOTRE ACTUALITE</h1>
             <div className="flex flex-col lg:flex-row  w-full p-4 justify-between bg-black rounded-xl ">
               {/* Column 2 */}
-              <div className="w-full md:pr-2 items-center h-full">
+              <div className="w-full  lg:w-[55%]  items-center h-full md:mr-3  ">
                 {/* the list of articles to select from in a carousel */}
-                <div className=" flex flex-col overflow-y-auto md:flex-row  md:overflow-x-auto rounded-xl bg-white mb-3 h-[35vh] md:h-[33vh] w-[100%] ">
-                  {articles.filter(article => article.rubrique === "T-MAK actualité").map(article => (
-                    <div key={article.id} onClick={() => setSelectedArticle(article)} className='text-black hover:shadow-lg w-[98%] xl:w-[22%] h-[30vh] m-2 p-1 bg-gray-100 rounded-md shadow-md flex flex-row md:flex-col' >
-                     <div className="relative h-[15vh] w-[50%] md:w-[100%] sm:h-[10vh] md:h-[21vh] rounded-md mr-3" >
+                <div className="flex flex-col md:flex-row overflow-y-auto md:overflow-x-auto w-[100%]rounded-xl bg-white rounded-lg mb-3 h-[35vh] md:h-[33vh]">
+                  {articles.filter(article => article.rubrique === "T-MAK actualité fr").map(article => (
+                    <div 
+                        key={article.id} 
+                        onClick={() => setSelectedArticle(article)} 
+                        className='text-black hover:shadow-lg w-[100%] md:w-[500px] h-[30vh] m-2 p-1 bg-gray-100 rounded-md shadow-md flex flex-row md:flex-col'
+                    >
+                      <div className="relative h-[15vh] w-[100%] md:w-[300px] lg:w-[300px] sm:h-[10vh] md:h-[21vh] rounded-md ">
                         <Image 
-                            src={article.file} 
-                            alt={article.title} 
-                            layout="fill" 
-                            objectFit="cover"
+                          src={article.file} 
+                          alt={article.title} 
+                          layout="fill" 
+                          objectFit="cover"
                         />
                       </div>
-                    <div className='text-xl md:text-lg  text-extrabold font-oswald flex items-center px-3'>{article.title}</div>
+                      <div className='text-xl md:text-lg text-extrabold font-oswald flex items-center px-3'>{article.title}</div>
                     </div>
                   ))}
                 </div>

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import axios from 'axios';  // 1. Import axios
 import { Input, Select } from 'antd';
-import { UserOutlined , PhoneFilled, MailFilled, ShopFilled} from '@ant-design/icons';
+import { UserOutlined , PhoneFilled, MailFilled, ShopFilled, YoutubeOutlined, InstagramOutlined, LinkedinOutlined, FacebookOutlined} from '@ant-design/icons';
 
 
 const { TextArea } = Input;
@@ -12,7 +12,7 @@ const { Option } = Select;
 const Contact: React.FC = () => {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
   const [submitted, setSubmitted] = useState(false);
-  const [category, setCategory] = useState('personal'); // default being personal
+  const [category, setCategory] = useState('professional'); // default being personal
   const [formData, setFormData] = useState({
     category: '',
     origin: 'TMAK Corporation',
@@ -43,16 +43,16 @@ const Contact: React.FC = () => {
   };
 
 	React.useEffect(() => {
-		navigator.geolocation.getCurrentPosition((position) => {
-			const { latitude, longitude } = position.coords;
-			setFormData({
-				...formData,
-				location: `Lat: ${latitude}, Lon: ${longitude}`
-			});
-		}, (error) => {
-			console.error("Error getting location", error);
-		});
-	}, [formData]);
+    navigator.geolocation.getCurrentPosition((position) => {
+      const { latitude, longitude } = position.coords;
+      setFormData(prevFormData => ({
+        ...prevFormData,
+        location: `Lat: ${latitude}, Lon: ${longitude}`
+      }));
+    }, (error) => {
+      console.error("Error getting location", error);
+    });
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -86,9 +86,9 @@ const Contact: React.FC = () => {
                   <div className="mb-4 text-3xl font-bold text-white">Contactez-nous</div>
                   <form onSubmit={handleSubmit} >
                     {/* add dropdown to select professional or personnal default beeing personnal */}
-                    <Select defaultValue="personal" className=" mb-2 w-full "  value={formData.category}  onChange={handleCategoryChange} >
-                      <Option value="personal">Personal</Option>
-                      <Option value="professional">Professional</Option>
+                    <Select defaultValue="professional" className=" mb-2 w-full text-black"  value={formData.category}  onChange={handleCategoryChange} >
+                      <Option value="professional">Professionnel</Option>
+                      <Option value="personal">Personnel</Option>
                     </Select>              
                     <div className="mb-2 relative">
                       <UserOutlined className="absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-400" />
@@ -125,7 +125,7 @@ const Contact: React.FC = () => {
                             name="business"
                             className="w-full p-2 pl-10 border rounded" 
                             value={formData.business} 
-                            placeholder="votre Entreprise" 
+                            placeholder="Votre entreprise" 
                             onChange={handleChange}
                           />
                         </div>
@@ -135,7 +135,7 @@ const Contact: React.FC = () => {
                             name="job"
                             className="w-full p-2 pl-10 border rounded" 
                             value={formData.job} 
-                            placeholder="position dans l'entreprise" 
+                            placeholder="Position dans l'entreprise" 
                             onChange={handleChange}
                           />
                         </div>
@@ -160,7 +160,7 @@ const Contact: React.FC = () => {
                     </div>
                     <button
                       type="submit"
-                      className="inline-block w-full bg-blue-300 hover:bg-blue-400 rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] lg:mb-0">
+                      className="inline-block w-full h-12 bg-black hover:bg-yellow-500 rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-yellow-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] lg:mb-0">
                       Envoyer
                     </button>
                   </form>
@@ -181,6 +181,47 @@ const Contact: React.FC = () => {
           </div>
         </div>
       </section>
+      <div className="global-footer bg-gray-800 text-white p-6 w-[100vw]">
+        <div className="  py-4 ">
+          <div className="flex flex-wrap justify-center">
+            <nav role="navigation" aria-labelledby="block-footer-menu" id="block-footer" className="  w-full md:w-3/4">
+              <ul className="text-xl grid grid-cols-2 sm:grid-cols-5 social-follow justify-center w-[100%] p-6  border-b-2 border-gray-600">
+                <li>
+                    <a href="https://www.facebook.com/tmakeventmali" target="_blank" rel="noreferrer" className='flex items-center justify-center'>
+                        <FacebookOutlined className='text-4xl m-3'/> Facebook
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/yourcompany" target="_blank" rel="noreferrer" className='flex items-center justify-center m-3' >
+                        
+                    <Image src="/logos/twitter-x(1).svg" alt="Twitter" width={50} height={25} style={{fontWeight: 'bold', color: 'white'}} /> Twitter
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/company/t-mak/?viewAsMember=true" target="_blank" rel="noreferrer" className='flex items-center justify-center'>
+                        <LinkedinOutlined className='text-4xl m-3'/> LinkedIn
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/yourcompany" target="_blank" rel="noreferrer" className='flex items-center justify-center'>
+                        <InstagramOutlined className='text-4xl m-3'/> Instagram
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/@t-makmali2915" target="_blank" rel="noreferrer" className='flex items-center justify-center'>
+                        <YoutubeOutlined className='text-4xl m-3'/> Youtube
+                    </a>
+                </li>
+              </ul>
+              <ul className="grid grid-cols-3 text-center p-6 text-md ">
+                <li>© 2023 T-MAK Corporation</li>
+                <li><a href="/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/terms-service">Terms of Service</a></li>
+              </ul>
+            </nav>         
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

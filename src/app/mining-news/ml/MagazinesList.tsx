@@ -7,6 +7,7 @@ interface MagazineType {
   id: string;
   title: string;
   content: string;
+  thumbnail: string;
   file: string;
   date: string;
   // ...any other properties you expect
@@ -47,15 +48,17 @@ const Magazine: React.FC<{ setSelectedComponent: Function }> = ({ setSelectedCom
         const dateObject = new Date(magazine.date);
         const formattedDate = dateObject.toISOString().split('T')[0];
         return (
-          <div key={magazine.id} onClick={() => handleMagazineClick(magazine)} className="card rounded-md flex flex-col w-full md:w-48 h-56">
+          <div key={magazine.id} onClick={() => handleMagazineClick(magazine)} className="card rounded-md flex flex-col w-[100%] md:w-[280px] ">
             <div>
               <div className="relative">
-                <iframe
-                  src={magazine.file}
+                <div className="w-full h-[175px] rounded ">
+                  <Image 
+                  src={magazine.thumbnail}
                   title={magazine.title}
-                  className="w-full h-[175px] rounded z-[-1]"
-                >
-                </iframe>
+                  layout="fill"
+                  objectFit='cover'
+                   alt={''}   />
+                </div>
                 <div
                   className="absolute inset-0 z-1"
                   onClick={() => handleMagazineClick(magazine)}

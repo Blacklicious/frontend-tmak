@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Button } from 'antd';  // Import Checkbox and Button from antd
+import Image from 'next/image';
 
 // Define the article type
 interface MagzineType {
@@ -9,6 +10,7 @@ interface MagzineType {
   title: string;
   content: string;
   file: string;
+  thumbnail: string;
   date: string;
   // ...add other fields if needed
 }
@@ -93,7 +95,7 @@ const MenuMagazineDisplay = () => {
             className={`card bg-white p-2 rounded-lg h-full w-[260px] m-4 text-sm ${selectedMagazines.has(magazine.id) ? 'border-4 border-blue-500 shadow-lg' : ''}`}
             onClick={() => showCheckboxes && toggleSelectMagazine(magazine.id)}
           >  
-            <iframe src={magazine.file} title={magazine.title} className="w-full h-[250px] rounded"></iframe>
+            <Image  width={300} height={500} src={magazine.thumbnail} title={magazine.title} className="w-full h-[250px] rounded" alt={magazine.title} />
             
             <h4 className="text-xl font-semibold mt-2">{magazine.title}</h4>
             <p>

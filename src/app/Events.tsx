@@ -4,31 +4,34 @@ import Image from '../../node_modules/next/image';
 
 const Events = () => {
   return (
-    <div>
-        <div className="flex flex-col md:flex-row bg-white text-white shadow-md p-3 md:p-6">
-          <div className="md:w-1/2 p-[5vw] text-black">
-            <h2 className="text-3xl md:text-6xl font-bold text-center md:text-left font-oswald ">Évènements à venir !!</h2>
-            <p className="my-4 text-center md:text-left ">
-              Si vous êtes passionné par le monde de la minéralogie et que les événements
-              communautaires vous intéressent, nos activités à venir sont faites pour vous. 
-              Préparez-vous à rencontrer des professionnels partageant les mêmes centres d&apos;intérêt
-               et à élargir votre réseau. La section &apos;ÉVÉNEMENTS À VENIR&apos; de notre site internet
-                est votre destination privilégiée pour rester informé sur les dernières actualités et les
-               événements les plus marquants dans l&apos;industrie minière. Que ce soit pour des conférences,
-                des ateliers, ou des salons professionnels, ne manquez pas l&apos;opportunité de vous impliquer
-               et de rester à la pointe du secteur. Consultez cette section régulièrement pour découvrir les 
-               événements qui pourraient façonner votre avenir professionnel dans le monde minier.
-            </p>
+    <div className='bg-black p-3'>
+        <div className="flex flex-col lg:flex-row bg-white text-white shadow-md p-2 md:p-6 rounded-lg">
+          <div className="lg:w-1/2 p-[5vw] text-black flex flex-col items-center justify-center">
             <Link 
               href="/coming-events" ><button
               rel="noopener noreferrer"
-              className="bg-black w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "
+              className="bg-black w-[100%] mb-6 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded text-4xl"
             >
               Découvrez les évènements à venir
             </button></Link>
+            <div className="text-3xl md:text-5xl font-bold text-center md:text-center justify-center font-oswald  ">T-MAK organise la FOIRE DE LA CAN ⚽ pour la cohésion sociale au Mali.  </div>
+            <p className="my-4 text-center md:text-center p-3 mb-8 ">
+              Si vous êtes passionné par le monde de la minéralogie et que les événements
+              communautaires vous intéressent, nos activités à venir sont faites pour vous. 
+              La Foire de la Can est l&apos;événement phare de l&apos;année au Mali, rassemblant 
+              des exposants de tout le pays pour célébrer la richesse de la culture malienne. 
+              Cette foire nationale, d&apos;envergure internationale, met en valeur l&apos;artisanat, 
+              la musique, la cuisine, et bien plus encore, offrant une véritable immersion 
+              dans les traditions et la diversité du Mali. Venez découvrir l&apos;âme de cette nation
+              à travers des expositions, des spectacles en direct, des dégustations culinaires, 
+              et des opportunités uniques de rencontrer des artistes, des entrepreneurs, et des
+              artisans locaux. La Foire de la Can est l&apos;occasion parfaite de célébrer la fierté 
+              malienne et de créer des liens entre les communautés. Rejoignez-nous pour une expérience 
+              inoubliable au cœur du Mali.
+            </p>
 
           </div>
-          <div className="md:w-1/2">
+          <div className="lg:w-1/2">
             <Image
               src="/foiredelacan.jpeg"
               alt="Coming Events"

@@ -41,22 +41,31 @@ const ArticleList: React.FC<{ setSelectedComponent: Function }> = ({ setSelected
 
   
   return (
-    <div className='flex flex-wrap justify-center text-black'>
+    <div className='flex flex-wrap px-1 lg:p-8  text-black '>
       {articles.map((article) => {
         const dateObject = new Date(article.date);
         const formattedDate = dateObject.toISOString().split('T')[0];
         return (
-          <div key={article.id} onClick={() => handleArticleClick(article)} className="rounded-md flex flex-col w-[110px] lg:w-48 h-40 lg:h-56 m-2 bg-gray-100">
-            <div className="image-container">
-            <Image className="image" src={article.file} alt={article.title} priority={true}  height={500} width={300} />
-            </div>
-            <div className='px-1 text-sm font-bold'>
-              {truncateToNWords(article.title, 10)}
-            </div>
-            <div className='px-1 text-xs'>
-              {formattedDate} {/* Using the formatted date */}
-            </div>
-          </div>  
+          <div key={article.id} onClick={() => handleArticleClick(article)} className="card rounded-md flex flex-col w-[100%] md:w-[240px] ">
+            <div>
+              <div className='relative'>
+                <div className="w-full h-[175px] rounded ">
+                  <Image 
+                  src={article.file}
+                  title={article.title}
+                  layout="fill"
+                  objectFit='cover'
+                    alt={''}   />
+                </div>
+              </div>
+              <div className='px-1 text-lg md:text-xs lg:text-md font-bold'>
+                {truncateToNWords(article.title, 10)}
+              </div>
+              <div className='px-1 text-xs lg:text-sm'>
+                {formattedDate} {/* Using the formatted date */}
+              </div>
+            </div>  
+          </div>
         )
       })}
     </div>

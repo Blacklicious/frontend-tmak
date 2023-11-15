@@ -34,12 +34,12 @@ const Hero = () => {
             {/* Heading and Paragraph */}
             <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center md:p-[16vw]">
                 <div className="px-6 md:px-15 text-center">
-                    <div className="text-4xl lg:text-7xl font-bold font-oswald mb-4">
-                    &quot;CRÉER UN HÉRITAGE DURABLE POUR LES GÉNÉRATIONS FUTURES.&quot;
+                    <div className="text-4xl xl:text-7xl font-bold font-oswald mb-4">
+                    &quot;CREER UN HERITAGE DURABLE POUR LES GENERATIONS FUTURES.&quot;
                     </div>
-                    <p className="text-right md:text-md md:px-10">
-                        Notre PDG, Nouhoum TRAORÉ
-                    </p>
+                    <div className="text-right text-xs md:text-md md:pr-28">
+                        Nouhoum TRAORE, PDG de T-MAK Corporation 
+                    </div>
                 </div>
             </div>
 

@@ -36,16 +36,16 @@ const Newsletter: React.FC = () => {
   };
 
   return (
-    <div className="bg-gray-100 px-8 py-4 md:py-10 md:px-44 shadow-md rounded-md w-full text-black">
-      <h2 className="text-2xl mb-4">Joindre la T-MAK Newsletter</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="bg-gray-100 px-4 py-4 md:py-10 md:px-44 shadow-md rounded-b-md w-full text-black text-2xl text-center">
+      <div className="text-sm md:text-2xl m-4">Rejoindre la T-MAK Newsletter. Soyez toujours à jour sur l&apos;actualités des mines en Afrique. </div>
+      <form onSubmit={handleSubmit} className='flex flex-wrap justify-center w-[100%] text-xl'>
         <div className="mb-4">
           <input 
             type="email" 
             value={email} 
             onChange={(e) => setEmail(e.target.value)} 
-            className="w-full p-2 border rounded" 
-            placeholder="votre adresse email" 
+            className=" p-2 border rounded w-[80vw] md:w-[35vw] mr-4 text-center" 
+            placeholder="Votre adresse email" 
             required
           />
         </div>
@@ -56,11 +56,11 @@ const Newsletter: React.FC = () => {
             checked={consent} 
             onChange={() => setConsent(!consent)} 
           />
-          <label htmlFor="consent" className="ml-2 font-oswald font font-bold">
+          <label htmlFor="consent" className="ml-2 font-oswald font font-bold text-xs md:text-xl">
             je donne mon consentement pour rejoindre la newsletter.
           </label>
         </div>
-        <button type="submit" className="bg-blue-600 text-white p-2 rounded w-full hover:bg-blue-700">
+        <button type="submit" className="bg-black text-white font-bold p-2 rounded w-[60vw] hover:bg-yellow-500">
           S&apos;inscrire
         </button>
       </form>

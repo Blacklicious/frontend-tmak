@@ -14,6 +14,7 @@ const MenuMagazineAdd = () => {
 		publisher: string;
 		location: string;
 		file: File | null;
+		thumbnail: File | null; // Add this line for thumbnail
 		link: string;
 		status: string;
 	}>({
@@ -24,6 +25,7 @@ const MenuMagazineAdd = () => {
 		publisher: 'TMAK Corporation',
 		location: '',
 		file: null,
+		thumbnail: null,
 		link: '',
 		status: 'inactive',
 	});
@@ -41,6 +43,14 @@ const MenuMagazineAdd = () => {
 		setFormData({
 			...formData,
 			file,
+		});
+	};
+
+	const handleThumbnailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const file = e.target.files ? e.target.files[0] : null;
+		setFormData({
+		  ...formData,
+		  thumbnail: file,
 		});
 	};
 
@@ -97,7 +107,7 @@ const MenuMagazineAdd = () => {
   };
 
   return (
-    <div className="bg-gray-100 " >
+    <div className="bg-gray-100 p-3" >
 			{/* You can add your input form for articles here */}
 			<form className=" flex flex-col md:flex-wrap  justify-center" onSubmit={handleSubmit}>
 				<div className='w-full '>
@@ -119,8 +129,10 @@ const MenuMagazineAdd = () => {
 								onChange={handleChange}
 							>
 								<option value="" disabled>Select Rubrique</option>
-								<option value="T-MAK actualité">T-MAK actualité</option>
-								<option value="Mali Mining news">Mali Mining news</option>
+								<option value="T-MAK actualité fr">T-MAK actualité - fr</option>
+								<option value="T-MAK actualité en">T-MAK actualité - en</option>
+								<option value="Mali Mining news fr">Mali Mining news - fr</option>
+								<option value="Mali Mining news en">Mali Mining news - en</option>
 							</select>
 						</div>
 		
@@ -135,12 +147,28 @@ const MenuMagazineAdd = () => {
 							/>
 						</div>
 					</div>
-					<input
-						className="w-full  h-14 border-2 px-2 my-3 flex items-center justify-center text-xl py-2 space-x-5 bg-white "
-						type="file"
-						name="file"
-						onChange={handleFileChange}
-					/>
+					<div className='flex flex-wrap justify-between bg-gray-300 p-4 rounded-md'>
+						<div className='w-[48%] text-xl '>
+							<div className='px-3 font-bold'>Ajoutez le mag en PDF :</div>
+							<input
+								className="w-[100%]  h-14 border-2 px-2 flex items-center justify-center text-xl py-2 space-x-5 bg-white rounded-md"
+								type="file"
+								name="file"
+								onChange={handleFileChange}
+							/>
+						</div>
+						<div className='w-[48%] text-xl' >
+							{/* Add new file input for the thumbnail image */}
+							<div className='px-3 font-bold'>Ajoutez votre thumbnail:</div>
+							<input
+							className="w-[100%]  h-14 border-2 px-2 flex items-center justify-center text-xl py-2 space-x-5 bg-white rounded-md"
+							type="file"
+							name="thumbnail"
+							onChange={handleThumbnailChange} // use the new handler here
+							/>
+						</div>
+					</div>
+					
 				</div>
 				<div  className='w-full'>
 					<textarea

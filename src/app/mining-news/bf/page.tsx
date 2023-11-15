@@ -1,11 +1,11 @@
-import Head from 'next/head';
-import React from 'react';
+import Head from 'next/head'
+import React from 'react'
 
-const ComingEvents: React.FC = () => {
+const BFNews = () => {
   return (
     <div>
       <Head>
-        <title>Coming Events</title>
+      <title>Burkina Faso Mining News </title>
       </Head>
       
       <div className="  bg-yellow-500 p-4 shadow-md w-[100vw] h-[90vh]">
@@ -15,10 +15,6 @@ const ComingEvents: React.FC = () => {
       </div>
     </div>
   );
-};
+}
 
-export default ComingEvents;
-
-
-
-
+export default BFNews

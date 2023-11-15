@@ -1,11 +1,13 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Image from 'next/image';
 
 interface PodcastType {
   id: string;
   title: string;
   content: string;
+  thumbnail: string;
   file: string;
   date: string;
   // ...any other properties you expect
@@ -48,8 +50,15 @@ const Podcasts: React.FC<{ setSelectedComponent: Function }> = ({ setSelectedCom
         {/* Podcasts List */}
         <div className="bg-gray-300 w-full md:w-2/6 overflow-y-auto">
           {podcasts.map((podcast) => (
-            <div key={podcast.id} onClick={() => handlePodcastClick(podcast)} className="card">
-              {podcast.title}
+            <div key={podcast.id} onClick={() => handlePodcastClick(podcast)} className="rounded-lg hover:shadow-lg flex flex-col w-[48%] md:w-[24%]  my-4 bg-gray-100">
+              <div className="w-full h-[175px] rounded ">
+                <Image 
+                src={podcast.thumbnail}
+                title={podcast.title}
+                layout="fill"
+                objectFit='cover'
+                alt={podcast.title}   />
+              </div>
             </div>
           ))}
         </div>
