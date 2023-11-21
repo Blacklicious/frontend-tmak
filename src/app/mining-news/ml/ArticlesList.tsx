@@ -9,12 +9,12 @@ interface ArticleType {
   content: string;
   file: string;
   date: string;
-  // ...any other properties you expect
 }
 
 const ArticleList: React.FC<{ setSelectedComponent: Function }> = ({ setSelectedComponent }) => {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
   const [articles, setArticles] = useState<ArticleType[]>([]);
+  const [sortOrder, setSortOrder] = useState('newest');
 
   // Fetch articles when component mounts
   useEffect(() => {
@@ -38,11 +38,27 @@ const ArticleList: React.FC<{ setSelectedComponent: Function }> = ({ setSelected
   function truncateToNWords(text: string, n: number): string {
     return text.split(/\s+/).slice(0, n).join(' ');
   }
-
+  const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSortOrder(event.target.value);
+  }
+  const sortedArticles = [...articles].sort((a, b) => {
+    if (sortOrder === 'newest') {
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    } else {
+      return new Date(a.date).getTime() - new Date(b.date).getTime();
+    }
+  });
   
   return (
     <div className='flex flex-wrap px-1 lg:p-8  text-black '>
-      {articles.map((article) => {
+      <div className='w-[100%]'>
+        <label htmlFor="sortOrder">Trier par : </label>
+        <select id="sortOrder" value={sortOrder} onChange={handleSortChange}>
+          <option value="newest">Le plus récent</option>
+          <option value="oldest">Le plus ancien</option>
+        </select>
+      </div>
+      {sortedArticles.map((article) => {
         const dateObject = new Date(article.date);
         const formattedDate = dateObject.toISOString().split('T')[0];
         return (

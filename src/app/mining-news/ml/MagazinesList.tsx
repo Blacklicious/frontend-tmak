@@ -10,12 +10,14 @@ interface MagazineType {
   thumbnail: string;
   file: string;
   date: string;
+  creation: string;
   // ...any other properties you expect
 }
 
-const Magazine: React.FC<{ setSelectedComponent: Function }> = ({ setSelectedComponent }) => {
+const MagazinesList: React.FC<{ setSelectedComponent: Function }> = ({ setSelectedComponent }) => {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
   const [magazines, setMagazines] =  useState<MagazineType[]>([]);
+  const [sortOrder, setSortOrder] = useState('newest');
 
   // Fetch magazines when component mounts
   useEffect(() => {
@@ -40,18 +42,35 @@ const Magazine: React.FC<{ setSelectedComponent: Function }> = ({ setSelectedCom
     return text.split(/\s+/).slice(0, n).join(' ');
   }
 
+  const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSortOrder(event.target.value);
+  }
+  const sortedMagazines = [...magazines].sort((a, b) => {
+    if (sortOrder === 'newest') {
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    } else {
+      return new Date(a.date).getTime() - new Date(b.date).getTime();
+    }
+  });
 
 
   return (
     <div className='flex flex-wrap text-black'>
-      {magazines.map((magazine) => {
-        const dateObject = new Date(magazine.date);
+      <div className='w-[100%]'>
+        <label htmlFor="sortOrder">Trier par : </label>
+        <select id="sortOrder" value={sortOrder} onChange={handleSortChange}>
+          <option value="newest">Le plus récent</option>
+          <option value="oldest">Le plus ancien</option>
+        </select>
+      </div>
+      {sortedMagazines.map((magazine) => {
+        const dateObject = new Date(magazine.creation);
         const formattedDate = dateObject.toISOString().split('T')[0];
         return (
           <div key={magazine.id} onClick={() => handleMagazineClick(magazine)} className="card rounded-md flex flex-col w-[100%] md:w-[280px] ">
             <div>
               <div className="relative">
-                <div className="w-full h-[175px] rounded ">
+                <div className="w-full h-[380px] rounded ">
                   <Image 
                   src={magazine.thumbnail}
                   title={magazine.title}
@@ -80,4 +99,4 @@ const Magazine: React.FC<{ setSelectedComponent: Function }> = ({ setSelectedCom
   );
 };
 
-export default Magazine;
+export default MagazinesList;

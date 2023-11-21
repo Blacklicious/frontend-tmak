@@ -1,11 +1,31 @@
 'use client';
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Input } from 'antd';
+import { Input, Button } from 'antd';
+import dynamic from 'next/dynamic';
+// Other imports...
+
+const ReactQuill = dynamic(
+  () => import('react-quill'), // replace 'react-quill' with your Quill component if you have one
+  { ssr: false }
+);
+
 
 
 const MenuArticleAdd = () => {
 	const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+	const [content, setContent] = useState('');
+	const [loading, setLoading] = useState(false);
+
+
+	const handleContentChange = (value: any) => {
+		setFormData(prevFormData => ({
+			...prevFormData,
+			content: value
+		}));
+	};
+
+
 	const [formData, setFormData] = useState<{
 		title: string;
 		content: string;
@@ -36,6 +56,7 @@ const MenuArticleAdd = () => {
 		});
 	  };
 
+
 	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const file = e.target.files ? e.target.files[0] : null;
 		setFormData({
@@ -63,15 +84,19 @@ const MenuArticleAdd = () => {
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+		setLoading(true);
+		if (!formData.file) {
+			alert('Vous avez oubliez de rajoutez une image pour votre article.');
+			setLoading(false);
+			return;
+		}
+    
 		// Set publisher to the session user's username before sending
-		const token = localStorage.getItem('access_token');
+		const token = sessionStorage.getItem('access_token');
 		const form = new FormData();
-		// Assuming you store user info as a JSON string in localStorage
-		const user = JSON.parse(localStorage.getItem('User') || '{}');
+		// Assuming you store user info as a JSON string in sessionStorage
+		const user = JSON.parse(sessionStorage.getItem('User') || '{}');
     form.append('author', String(user.id));  // Directly appending here
-
-
     for (const [key, value] of Object.entries(formData)) {
 		if (value !== null) {
 		  form.append(key, value);
@@ -93,7 +118,9 @@ const MenuArticleAdd = () => {
 			window.location.reload(); // Refresh the page
 		} catch (error) {
 			alert('An error occurred while adding the article.');
-		}
+		} finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -101,7 +128,7 @@ const MenuArticleAdd = () => {
 			{/* You can add your input form for articles here */}
 			<form className=" flex flex-col md:flex-wrap  justify-center" onSubmit={handleSubmit}>
 				<div className='w-full '>
-					< Input
+					< Input required
 						className="w-full h-14 border-2 px-2 my-3"
 						type="text"
 						name="title"
@@ -145,13 +172,8 @@ const MenuArticleAdd = () => {
 					/>
 				</div>
 				<div  className='w-full'>
-					<textarea
-						className="w-full h-60 border-2 py-2 px-2 my-3"
-						name="content"
-						placeholder="Article"
-						value={formData.content}
-						onChange={handleChange}
-					/>
+					<ReactQuill className='bg-white h-[30vh]' value={formData.content} onChange={handleContentChange} />
+
 					<Input
 					className="w-full h-14 border-2 px-2 my-3"
 					type="url"
@@ -161,7 +183,9 @@ const MenuArticleAdd = () => {
 					onChange={handleChange}
 				/>
 				</div>
-				<button className="w-full my-4 text-lg bg-blue-400 rounded-md h-12 " type="submit">Publier</button>
+				<Button className="w-full my-4 text-lg bg-blue-400 rounded-md h-12 "type="primary" htmlType="submit"  disabled={loading}>
+        	{loading ? 'Loading...' : 'Publier'}
+      	</Button>
 			</form>
   </div>
   )

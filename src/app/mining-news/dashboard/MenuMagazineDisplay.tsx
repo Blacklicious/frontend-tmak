@@ -54,7 +54,7 @@ const MenuMagazineDisplay = () => {
 
   const deleteSelectedMagazines = async () => {
     // Implement the logic to delete the selected magazines
-    const token = localStorage.getItem('access_token'); // Retrieve the token from local storage
+    const token = sessionStorage.getItem('access_token'); // Retrieve the token from session storage
 
     Array.from(selectedMagazines).forEach(async (id) => {
       try {
@@ -95,7 +95,7 @@ const MenuMagazineDisplay = () => {
             className={`card bg-white p-2 rounded-lg h-full w-[260px] m-4 text-sm ${selectedMagazines.has(magazine.id) ? 'border-4 border-blue-500 shadow-lg' : ''}`}
             onClick={() => showCheckboxes && toggleSelectMagazine(magazine.id)}
           >  
-            <Image  width={300} height={500} src={magazine.thumbnail} title={magazine.title} className="w-full h-[250px] rounded" alt={magazine.title} />
+            <Image  width={300} height={500} src={magazine.thumbnail} title={magazine.title} className="w-full h-[350px] rounded" alt={magazine.title} />
             
             <h4 className="text-xl font-semibold mt-2">{magazine.title}</h4>
             <p>

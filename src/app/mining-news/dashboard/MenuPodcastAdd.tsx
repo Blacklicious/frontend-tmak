@@ -1,10 +1,12 @@
 'use client';
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import { Input, Button } from 'antd';
 
 const MenuPodcastAdd = () => {
 	const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+	const [loading, setLoading] = useState(false);
+
 	const [formData, setFormData] = useState<{
 		title: string;
 		content: string;
@@ -69,13 +71,24 @@ const MenuPodcastAdd = () => {
 
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+		setLoading(true);
     e.preventDefault();
-
+		// Check if a file has been selected
+		if (!formData.thumbnail) {
+			alert('Vous avez oubliez de rajoutez le thumbnail du podcast.');
+			setLoading(false);
+			return;
+		}
+		if (!formData.file) {
+			alert('Vous avez oubliez de rajoutez le fichier mp3 du podcast.');
+			setLoading(false);
+			return;
+		}
 		// Set publisher to the session user's username before sending
-		const token = localStorage.getItem('access_token');
+		const token = sessionStorage.getItem('access_token');
 		const form = new FormData();
-		// Assuming you store user info as a JSON string in localStorage
-		const user = JSON.parse(localStorage.getItem('User') || '{}');
+		// Assuming you store user info as a JSON string in sessionStorage
+		const user = JSON.parse(sessionStorage.getItem('User') || '{}');
     form.append('author', String(user.id));  // Directly appending here
 
 
@@ -100,6 +113,8 @@ const MenuPodcastAdd = () => {
 			window.location.reload(); // Refresh the page
 		} catch (error) {
 			alert('An error occurred while adding the article.');
+		} finally {
+		setLoading(false);
 		}
   };
 
@@ -146,8 +161,8 @@ const MenuPodcastAdd = () => {
 					
 					<div className='flex flex-wrap justify-between bg-gray-300 p-4 rounded-md'>
 						<div className='w-[48%] text-xl '>
-							<div className='px-3 font-bold'>Ajoutez le mag en PDF :</div>
-							<input
+							<div className='px-3 font-bold'>Ajoutez le podcast en MP3 :</div>
+							<input required
 								className="w-[100%]  h-14 border-2 px-2 flex items-center justify-center text-xl py-2 space-x-5 bg-white rounded-md"
 								type="file"
 								name="file"
@@ -157,7 +172,7 @@ const MenuPodcastAdd = () => {
 						<div className='w-[48%] text-xl' >
 							{/* Add new file input for the thumbnail image */}
 							<div className='px-3 font-bold'>Ajoutez votre thumbnail:</div>
-							<input
+							<input required
 							className="w-[100%]  h-14 border-2 px-2 flex items-center justify-center text-xl py-2 space-x-5 bg-white rounded-md"
 							type="file"
 							name="thumbnail"
@@ -176,9 +191,11 @@ const MenuPodcastAdd = () => {
 						onChange={handleChange}
 					/>
 				</div>
-				<button className="w-full mt-6 text-lg bg-blue-400 rounded-md h-12 " type="submit">Publier</button>
-			</form>
-  </div>
+				<Button className="w-full my-4 text-lg bg-blue-400 rounded-md h-12 " type="primary" htmlType="submit"  disabled={loading}>
+					{loading ? 'Loading...' : 'Publier'}
+				</Button>
+			</form>	
+  	</div>
   )
 }
 

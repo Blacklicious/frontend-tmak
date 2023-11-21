@@ -51,7 +51,7 @@ const Actuality = () => {
       {/* Our Work Section */}
         <section className=" w-[100vw] ">
           <div className='  p-2 md:p-4 flex flex-wrap items-center justify-center w-full bg-white'>
-            <h1 className='text-3xl text-center md:text-6xl  p-6  w-full text-black  rounded-xl font font-black font-oswald '>NOTRE ACTUALITE</h1>
+            <h1 className='text-5xl text-center md:text-6xl  p-6  w-full text-black  rounded-xl font font-black font-oswald '>NOTRE ACTUALITE</h1>
             <div className="flex flex-col lg:flex-row  w-full p-4 justify-between bg-black rounded-xl ">
               {/* Column 2 */}
               <div className="w-full  lg:w-[55%]  items-center h-full md:mr-3  ">
@@ -98,11 +98,15 @@ const Actuality = () => {
                 <div>
                   {selectedArticle ? (
                     <div className='p-3 flex flex-col '>
-                      <h3 className=" text-4xl lg:text-5xl mb-8 font-oswald">{selectedArticle.title}</h3>
-                      <div className='text-sm md:text-xl'> {/* Added overflow-y-auto and a max height */}
-                        <p>
-                          {selectedArticle.content}
-                        </p>
+                      <h3 className=" text-xl lg:text-5xl mb-8 font-oswald">{selectedArticle.title}</h3>
+                      <div className=''> {/* Added overflow-y-auto and a max height */}
+                          <div 
+                            className='text-justify' 
+                            style={{ whiteSpace: 'pre-wrap' }}
+                            dangerouslySetInnerHTML={{ __html: selectedArticle.content }}
+                          >
+                            
+                          </div>
                         <p>{selectedArticle.date}</p>
                       </div>
                     </div>

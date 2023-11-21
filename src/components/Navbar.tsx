@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import {UserOutlined, MenuOutlined } from '@ant-design/icons';
 
+
 interface UserInfo {
   username: string;
   // Other properties...
@@ -21,7 +22,7 @@ const Navbar: React.FC = () => {
   
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const localUserData = localStorage.getItem('User');
+      const localUserData = sessionStorage.getItem('User');
       setUserInfo(localUserData ? JSON.parse(localUserData) as UserInfo : null);
       setIsLoading(false);  // Set loading to false after fetching data
     }
@@ -33,13 +34,13 @@ const Navbar: React.FC = () => {
       try {
         const res = await axios.post(`${backendUrl}/accounts/api/logout/`, {}, {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+            Authorization: `Bearer ${sessionStorage.getItem('access_token')}`,
           },
         });
         console.log('API response:', res);
 
-        localStorage.removeItem('access_token');
-        localStorage.removeItem('User');
+        sessionStorage.removeItem('access_token');
+        sessionStorage.removeItem('User');
 
         console.log('Local storage cleared, redirecting...');
         // After logout is successful, navigate:
@@ -47,8 +48,8 @@ const Navbar: React.FC = () => {
           window.location.href = '/signin';
         }
       } catch (error) {
-        localStorage.removeItem('access_token');
-        localStorage.removeItem('User');
+        sessionStorage.removeItem('access_token');
+        sessionStorage.removeItem('User');
         console.error('Error during logout:', error);
         window.location.href = '/signin';
       }
@@ -64,6 +65,7 @@ const Navbar: React.FC = () => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      
     };
   }, []);
   
@@ -104,7 +106,7 @@ const Navbar: React.FC = () => {
                       <UserOutlined />
                     </button>
                     {isOpen && (
-                      <div className="absolute right-0 mt-2 py-2 w-38 bg-white rounded-md shadow-xl z-10 flex flex-col text-center text-xl">
+                      <div className="absolute right-0 mt-2 py-2 w-38 bg-white rounded-md shadow-xl z-10 flex flex-col text-center text-xl" >
                         {items.map((item, index) => {
                           if (item === 'Déconnexion') {
                             return (
@@ -118,7 +120,7 @@ const Navbar: React.FC = () => {
                             );
                           }
                           return (
-                            <Link key={index} href={`/mining-news/${item.toLowerCase().replace(' ', '-')}`} className="block px-4 py-2 text-gray-800 hover:bg-yellow-500 hover:text-white">
+                            <Link key={index} href={`/mining-news/${item.toLowerCase().replace(' ', '-')}`} className="block px-4 py-2 text-gray-800 hover:bg-yellow-500 hover:text-white" onClick={() => setIsOpen(false)} >
                                 {item}
                             </Link>
                           );

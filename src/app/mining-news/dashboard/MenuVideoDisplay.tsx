@@ -55,7 +55,7 @@ const MenuVideoDisplay = () => {
 
   const deleteSelectedVideos = async () => {
     // Implement the logic to delete the selected videos
-    const token = localStorage.getItem('access_token'); // Retrieve the token from local storage
+    const token = sessionStorage.getItem('access_token'); // Retrieve the token from local storage
 
     Array.from(selectedVideos).forEach(async (id) => {
       try {

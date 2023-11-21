@@ -1,11 +1,13 @@
 'use client';
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import { Input, Button } from 'antd';
 
 
 const MenuMagazineAdd = () => {
 	const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+	const [loading, setLoading] = useState(false);
+
 	const [formData, setFormData] = useState<{
 		title: string;
 		content: string;
@@ -47,6 +49,7 @@ const MenuMagazineAdd = () => {
 	};
 
 	const handleThumbnailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		
 		const file = e.target.files ? e.target.files[0] : null;
 		setFormData({
 		  ...formData,
@@ -71,14 +74,28 @@ const MenuMagazineAdd = () => {
 	}, [formData]);
 
 
-	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
 
-		// Set publisher to the session user's username before sending
-		const token = localStorage.getItem('access_token');
+	// Set publisher to the session user's username before sending
+	const token = sessionStorage.getItem('access_token');
+
+
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+		setLoading(true);	
+    e.preventDefault();
+		// Check if a file has been selected
+		if (!formData.thumbnail) {
+			alert('Vous avez oubliez de rajoutez le thumbnail du magazine.');
+			setLoading(false);
+			return;
+		}
+		if (!formData.file) {
+			alert('Vous avez oubliez de rajoutez le pdf du magazine.');
+			setLoading(false);
+			return;
+		}
 		const form = new FormData();
-		// Assuming you store user info as a JSON string in localStorage
-		const user = JSON.parse(localStorage.getItem('User') || '{}');
+		// Assuming you store user info as a JSON string in sessionStorage
+		const user = JSON.parse(sessionStorage.getItem('User') || '{}');
     form.append('author', String(user.id));  // Directly appending here
 
 
@@ -103,11 +120,13 @@ const MenuMagazineAdd = () => {
 			window.location.reload(); // Refresh the page
 		} catch (error) {
 			alert('An error occurred while adding the Magazine.');
-		}
+		} finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div className="bg-gray-100 p-3" >
+    <div className="bg-gray-100" >
 			{/* You can add your input form for articles here */}
 			<form className=" flex flex-col md:flex-wrap  justify-center" onSubmit={handleSubmit}>
 				<div className='w-full '>
@@ -150,7 +169,7 @@ const MenuMagazineAdd = () => {
 					<div className='flex flex-wrap justify-between bg-gray-300 p-4 rounded-md'>
 						<div className='w-[48%] text-xl '>
 							<div className='px-3 font-bold'>Ajoutez le mag en PDF :</div>
-							<input
+							<input required
 								className="w-[100%]  h-14 border-2 px-2 flex items-center justify-center text-xl py-2 space-x-5 bg-white rounded-md"
 								type="file"
 								name="file"
@@ -160,36 +179,37 @@ const MenuMagazineAdd = () => {
 						<div className='w-[48%] text-xl' >
 							{/* Add new file input for the thumbnail image */}
 							<div className='px-3 font-bold'>Ajoutez votre thumbnail:</div>
-							<input
-							className="w-[100%]  h-14 border-2 px-2 flex items-center justify-center text-xl py-2 space-x-5 bg-white rounded-md"
-							type="file"
-							name="thumbnail"
-							onChange={handleThumbnailChange} // use the new handler here
+							<input required
+								className="w-[100%]  h-14 border-2 px-2 flex items-center justify-center text-xl py-2 space-x-5 bg-white rounded-md"
+								type="file"
+								name="thumbnail"
+								onChange={handleThumbnailChange} // use the new handler here
 							/>
 						</div>
 					</div>
-					
 				</div>
 				<div  className='w-full'>
 					<textarea
 						className="w-full h-60 border-2 py-2 px-2 my-3"
 						name="content"
-						placeholder="description"
+						placeholder="description du Magazine"
 						value={formData.content}
 						onChange={handleChange}
 					/>
 					<input
-					className="w-full h-14 border-2 px-2 my-3"
-					type="url"
-					name="link"
-					placeholder="lien youtube"
-					value={formData.link}
-					onChange={handleChange}
-				/>
+						className="w-full h-14 border-2 px-2 my-3"
+						type="url"
+						name="link"
+						placeholder="lien youtube"
+						value={formData.link}
+						onChange={handleChange}
+					/>
 				</div>
-				<button className="w-full my-4 text-lg bg-blue-400 rounded-md h-12 " type="submit">Publier</button>
+				<Button className="w-full my-4 text-lg bg-blue-400 rounded-md h-12 " type="primary" htmlType="submit"  disabled={loading}>
+					{loading ? 'Loading...' : 'Publier'}
+				</Button>
 			</form>
-  </div>
+  	</div>
   )
 }
 

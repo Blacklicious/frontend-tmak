@@ -30,12 +30,12 @@ const MenuDataLeadList = () => {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
   useEffect(() => {
-    const localUserData = typeof window !== 'undefined' ? localStorage.getItem('User') : null;
+    const localUserData = typeof window !== 'undefined' ? sessionStorage.getItem('User') : null;
     setUserInfo(localUserData ? JSON.parse(localUserData) as UserInfo : null);
 
     const fetchLeads = async () => {
       try {
-        const token = typeof window !== 'undefined' ? localStorage.getItem('access_token') : null;
+        const token = typeof window !== 'undefined' ? sessionStorage.getItem('access_token') : null;
         const response = await axios.get(`${backendUrl}/accounts/api/leads/`, {
           headers: {
             'Authorization': `Bearer ${token}`,  // Authentication token

@@ -9,7 +9,7 @@ import MenuData from './MenuData';
 
 
 
-const MenuMain: React.FC = () => {
+const Menu: React.FC = () => {
   const [activeComponent, setActiveComponent] = useState('');
   const renderComponent = () => {
     switch (activeComponent) {
@@ -55,4 +55,4 @@ const MenuMain: React.FC = () => {
   );
 };
 
-export default MenuMain
+export default Menu;

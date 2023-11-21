@@ -17,6 +17,7 @@ const Podcasts: React.FC<{ setSelectedComponent: Function }> = ({ setSelectedCom
 
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
   const [podcasts, setPodcasts] = useState<PodcastType[]>([]);
+  const [sortOrder, setSortOrder] = useState('newest');
 
   // Fetch Podcastss when component mounts
   useEffect(() => {
@@ -41,6 +42,17 @@ const Podcasts: React.FC<{ setSelectedComponent: Function }> = ({ setSelectedCom
     return text.split(/\s+/).slice(0, n).join(' ');
   }
 
+  const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSortOrder(event.target.value);
+  }
+  const sortedPodcasts = [...podcasts].sort((a, b) => {
+    if (sortOrder === 'newest') {
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    } else {
+      return new Date(a.date).getTime() - new Date(b.date).getTime();
+    }
+  });
+
 
   return (
     <div>
@@ -48,20 +60,25 @@ const Podcasts: React.FC<{ setSelectedComponent: Function }> = ({ setSelectedCom
       </div> 
       <div className="flex flex-col md:flex-row  h-full">
         {/* Podcasts List */}
-        <div className="bg-gray-300 w-full md:w-2/6 overflow-y-auto">
-          {podcasts.map((podcast) => (
-            <div key={podcast.id} onClick={() => handlePodcastClick(podcast)} className="rounded-lg hover:shadow-lg flex flex-col w-[48%] md:w-[24%]  my-4 bg-gray-100">
-              <div className="w-full h-[175px] rounded ">
-                <Image 
-                src={podcast.thumbnail}
-                title={podcast.title}
-                layout="fill"
-                objectFit='cover'
-                alt={podcast.title}   />
-              </div>
-            </div>
-          ))}
+        <div className='w-[100%]'>
+          <label htmlFor="sortOrder">Trier par : </label>
+          <select id="sortOrder" value={sortOrder} onChange={handleSortChange}>
+            <option value="newest">Le plus récent</option>
+            <option value="oldest">Le plus ancien</option>
+          </select>
         </div>
+        {sortedPodcasts.map((podcast) => (
+          <div key={podcast.id} onClick={() => handlePodcastClick(podcast)} className="rounded-lg hover:shadow-lg flex flex-col w-[48%] md:w-[24%]  my-4 bg-gray-100">
+            <div className="w-full h-[175px] rounded ">
+              <Image 
+              src={podcast.thumbnail}
+              title={podcast.title}
+              layout="fill"
+              objectFit='cover'
+              alt={podcast.title}   />
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

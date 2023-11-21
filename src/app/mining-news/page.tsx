@@ -5,7 +5,6 @@ import React from 'react';
 import Mali from './ml/page';
 
 const MiningNews: React.FC = () => {
-
   return (
     <div>
       <Head>

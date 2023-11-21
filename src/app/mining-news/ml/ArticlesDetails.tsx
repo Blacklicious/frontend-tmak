@@ -57,8 +57,14 @@ const ArticlesDetails: React.FC<{ selectedComponent: any }> = ({ selectedCompone
         />
       )}
       <div className='px-4 md:px-[18%]'>
-        <h1 className='text-center w-full font font-bold text-2xl md:text-3xl my-6 md:my-10  '>{selectedComponent.title}</h1>
-        <p className=' text-center '>{selectedComponent.content}</p>
+        <h1 className='text-center w-full font font-bold text-2xl md:text-5xl my-6 md:my-10  '>{selectedComponent.title}</h1>
+        <div 
+          className='text-justify' 
+          style={{ whiteSpace: 'pre-wrap' }}
+          dangerouslySetInnerHTML={{ __html: selectedComponent.content }}
+        >
+          
+        </div>
       </div>
     </div>
   );

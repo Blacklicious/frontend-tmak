@@ -41,20 +41,19 @@ const VideosDetails: React.FC<{ selectedComponent: any }> = ({ selectedComponent
         <iframe
           className="w-full object-cover"
           width="560"
-          height="315"
+          height="615"
           src={`${selectedComponent.link}`}
           title="YouTube video"
           allowFullScreen
         ></iframe>
       )}
       {!selectedComponent.link && (
-        <Image
-          className="image"
+        <iframe
+          className="w-full object-cove"
           width="560"
-          height="315"
+          height="615"
           src={`${selectedComponent.file}`}
           title={`${selectedComponent.title}`}
-          alt={`${selectedComponent.title}`}
         />
       )}
       <h1 className='text-center w-full font font-bold text-2xl md:text-3xl pt-10 md:px-20 '>{selectedComponent.title}</h1>

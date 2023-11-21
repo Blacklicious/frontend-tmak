@@ -1,6 +1,5 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-
+import React from 'react';
+  
 
 const MagazinesDetails: React.FC<{ selectedComponent: any }> = ({ selectedComponent }) => {
   if (!selectedComponent) {
@@ -13,7 +12,7 @@ const MagazinesDetails: React.FC<{ selectedComponent: any }> = ({ selectedCompon
       console.log('Web Share API is supported tg');
   
       try {
-        const articleUrl = `${window.location.origin}/articles/${selectedComponent.id}`; 
+        const articleUrl = `${window.location.origin}/magazines/${selectedComponent.id}`; 
         await navigator.share({
           title: selectedComponent.title,
           text: selectedComponent.content,

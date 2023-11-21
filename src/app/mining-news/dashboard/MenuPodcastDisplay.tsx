@@ -55,7 +55,7 @@ const MenuPodcastDisplay = () => {
 
   const deleteSelectedPodcasts = async () => {
     // Implement the logic to delete the selected mPodcasts
-    const token = localStorage.getItem('access_token'); // Retrieve the token from local storage
+    const token = sessionStorage.getItem('access_token'); // Retrieve the token from session storage
 
     Array.from(selectedPodcasts).forEach(async (id) => {
       try {

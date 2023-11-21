@@ -54,7 +54,7 @@ const MenuArticleDisplay = () => {
 
   const deleteSelectedArticles = async () => {
     // Implement the logic to delete the selected articles
-    const token = localStorage.getItem('access_token'); // Retrieve the token from local storage
+    const token = sessionStorage.getItem('access_token'); // Retrieve the token from session storage
 
     Array.from(selectedArticles).forEach(async (id) => {
       try {

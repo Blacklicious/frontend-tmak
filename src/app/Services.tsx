@@ -5,7 +5,7 @@ const Services = () => {
   return (
     <div className='bg-white p-2 md:p-4'>
       <div className="  rounded-lg w-[100%] flex flex-col items-center justify-center md:justify-between bg-black border-8 border-yellow-500 p-12 pb-10 px-4">
-      <h2 className="  text-3xl md:text-6xl text-center font-bold font-oswald mb-4 w-[100%]">NOS SERVICES </h2>  
+      <h2 className="  text-5xl md:text-6xl text-center font-bold text-white font-oswald mb-4 w-[100%]">NOS SERVICES </h2>  
       <div className='flex flex-col xl:flex-row items-top md:px-8'>
           <div className="w-[100%] xl:w-[50%] xl:px-4 mb-5 flex flex-col items-center justify-center">
             <div className=" bg-gray-100 font-bold mt-6 rounded-lg border-2 text-black px-3 py-2 text-sm md:text-xl text-center w-[100%]">&laquo; Avec T-MAK, Gagnez la confiance de vos partenaires avec la communication. &raquo;</div>
