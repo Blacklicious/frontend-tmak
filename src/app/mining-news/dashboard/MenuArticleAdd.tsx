@@ -118,7 +118,8 @@ const MenuArticleAdd = () => {
 			alert('Article successfully added!');
 			window.location.reload(); // Refresh the page
 		} catch (error) {
-			alert('An error occurred while adding the article.');
+			alert('Utilisateur non identifer, veuillez vous connecter');
+        	sessionStorage.removeItem('access_token'); // Remove the token
 		} finally {
       setLoading(false);
     }

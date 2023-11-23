@@ -34,11 +34,11 @@ const ArticlesDetails: React.FC<{ selectedComponent: any }> = ({ selectedCompone
   }
 
   return (
-    <div className='bg-white rounded-md p-3 text-black'>
-      <button className="bg-black hover:bg-yellow-500 my-2 text-white font-bold rounded-md w-full h-12 mt-3" onClick={handleShare}>Partagez</button>
+    <div className='bg-white p-6 rounded-lg text-black'>
+      <button className="bg-black hover:bg-yellow-500 my-4 text-white font-bold rounded-md w-full h-12 " onClick={handleShare}>Partagez</button>
       {selectedComponent.link && (
         <iframe
-          className="w-full object-cover"
+          className="w-full object-cover rounded-lg"
           width="560"
           height="615"
           src={`${selectedComponent.link}`}
@@ -48,16 +48,18 @@ const ArticlesDetails: React.FC<{ selectedComponent: any }> = ({ selectedCompone
       )}
       {!selectedComponent.link && (
         <Image
-          className="image"
+          className="image ring ring-yellow-500  rounded-t-xl"
           width="560"
           height="315"
           src={`${selectedComponent.file}`}
           title={`${selectedComponent.title}`}
           alt={`${selectedComponent.title}`}
         />
+        
       )}
+      <h1 className='text-center w-full font font-bold text-2xl md:text-4xl p-6 mb-6 bg-black ring ring-yellow-500 ring-6 text-white rounded-b-xl'>{selectedComponent.title}</h1>
+        
       <div className='px-4 md:px-[18%]'>
-        <h1 className='text-center w-full font font-bold text-2xl md:text-5xl my-6 md:my-10  '>{selectedComponent.title}</h1>
         <div 
           className='text-justify' 
           style={{ whiteSpace: 'pre-wrap' }}
