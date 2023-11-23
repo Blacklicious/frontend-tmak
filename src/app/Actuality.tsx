@@ -56,14 +56,14 @@ const Actuality = () => {
               {/* Column 2 */}
               <div className="w-full  lg:w-[55%]  items-center h-full md:mr-3  ">
                 {/* the list of articles to select from in a carousel */}
-                <div className="flex flex-col md:flex-row overflow-y-auto md:overflow-x-auto w-[100%]rounded-xl bg-white rounded-lg mb-3 h-[35vh] md:h-[33vh]">
+                <div className="flex flex-col md:flex-row overflow-y-auto md:overflow-x-auto w-[100%]rounded-xl bg-white rounded-lg mb-3 h-[30vh] md:h-[auto]">
                   {articles.filter(article => article.rubrique === "T-MAK actualité fr").map(article => (
                     <div 
                         key={article.id} 
                         onClick={() => setSelectedArticle(article)} 
-                        className='text-black hover:shadow-lg w-[100%] md:w-[500px] h-[30vh] m-2 p-1 bg-gray-100 rounded-md shadow-md flex flex-row md:flex-col'
+                        className='text-black hover:shadow-lg w-[100%] md:w-[500px] h-[auto] m-2 p-1 bg-gray-100 rounded-md shadow-md flex flex-row md:flex-col'
                     >
-                      <div className="relative h-[15vh] w-[100%] md:w-[300px] lg:w-[300px] sm:h-[10vh] md:h-[21vh] rounded-md ">
+                      <div className="relative h-[15vh] w-[100%] md:w-[300px] lg:w-[300px] sm:h-[10vh] md:h-[31vh] rounded-md ]">
                         <Image 
                           src={article.file} 
                           alt={article.title} 

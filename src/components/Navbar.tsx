@@ -77,16 +77,16 @@ const Navbar: React.FC = () => {
 
   // Now, userData is an object containing the user info.
   return (
-    <nav ref={dropdownRef} className=" w-[100vw] shadow-md px-4 text-black bg-white border-black border-b-8">
+    <nav ref={dropdownRef} className=" shadow-md px-4 text-black bg-white border-black border-b-8">
       <div   className="flex flex-wrap md:flex-row bg-white-300 items-center justify-between">
-        <div className="flex items-center shrink">
+        <div className="flex items-center w-[20%]">
             <Link href="/" className="flex items-center">
               <Image  width={80} height={500}  src="/TMAKLOGO.jpeg" alt="Tmak Corporation Logo" className="h-20 w-30 "/>
             </Link>
         </div>
 
         {/* Desktop Menu */}
-        <div className="invisible md:visible  bg-white/90 w-0 md:w-[80vw]">
+        <div className="invisible md:visible  bg-white/90 w-0 md:w-[80%]">
           <div className=" flex items-center justify-center md:h-[80px] lg:text-xl font-semibold text-black">
             <Link href="/" className="font hover:font-black hover:text-gray-800 hover:border-t-[10px] hover:border-yellow-500 h-[100%] w-28 xl:w-36 flex items-center justify-center ">ACCUEIL</Link>
             <Link href="/about" className=" hover:font-black hover:text-gray-800 hover:border-t-[10px] hover:border-yellow-500 h-[100%] w-28 md:w-56 flex items-center justify-center "> NOTRE EXPERTISE </Link>
@@ -148,8 +148,8 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className='h-[8vh] w-[18%] flex justify-center items-center  md:hidden '>
-          <button onClick={() => setMobileMenuOpen(!isMobileMenuOpen)} className="active:ring-3 bg-gray-200/70 w-full h-full text-3xl rounded-lg shadow-lg flex justify-center items-center">
+        <div className='h-[8vh] w-[80%] flex justify-end items-center  md:hidden p-2'>
+          <button onClick={() => setMobileMenuOpen(!isMobileMenuOpen)} className="active:ring-3 bg-gray-200/70 w-[25%] h-full text-3xl rounded-lg shadow-lg flex justify-center items-center">
             <MenuOutlined />
           </button>
         </div>

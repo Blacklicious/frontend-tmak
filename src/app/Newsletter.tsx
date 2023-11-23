@@ -37,7 +37,7 @@ const Newsletter: React.FC = () => {
 
   return (
     <div className="bg-gray-100 px-4 py-4 md:py-10 md:px-44 shadow-md rounded-b-md w-full text-black text-2xl text-center">
-      <div className="text-sm md:text-2xl m-4">Rejoindre la T-MAK Newsletter. Soyez toujours à jour sur l&apos;actualités des mines en Afrique. </div>
+      <div className="text-sm md:text-2xl m-4">Rejoignez la T-MAK Newsletter pour rester informé de l&apos;actualité minière en Afrique. </div>
       <form onSubmit={handleSubmit} className='flex flex-wrap justify-center w-[100%] text-xl'>
         <div className="mb-4">
           <input 

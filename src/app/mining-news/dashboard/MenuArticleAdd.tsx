@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Input, Button } from 'antd';
 import dynamic from 'next/dynamic';
+import 'react-quill/dist/quill.snow.css'; // or 'react-quill/dist/quill.bubble.css' based on your theme preference
 // Other imports...
 
 const ReactQuill = dynamic(
@@ -171,10 +172,10 @@ const MenuArticleAdd = () => {
 						onChange={handleFileChange}
 					/>
 				</div>
-				<div  className='w-full'>
-					<ReactQuill className='bg-white h-[30vh]' value={formData.content} onChange={handleContentChange} />
-
-					<Input
+				<div  className='w-full mb-14 '>
+					<ReactQuill className='bg-white h-[50vh]' value={formData.content} onChange={handleContentChange} />
+				</div>
+				<Input
 					className="w-full h-14 border-2 px-2 my-3"
 					type="url"
 					name="link"
@@ -182,7 +183,6 @@ const MenuArticleAdd = () => {
 					value={formData.link}
 					onChange={handleChange}
 				/>
-				</div>
 				<Button className="w-full my-4 text-lg bg-blue-400 rounded-md h-12 "type="primary" htmlType="submit"  disabled={loading}>
         	{loading ? 'Loading...' : 'Publier'}
       	</Button>
