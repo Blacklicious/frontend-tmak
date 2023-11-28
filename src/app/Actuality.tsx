@@ -61,7 +61,7 @@ const Actuality = () => {
                     <div 
                         key={article.id} 
                         onClick={() => setSelectedArticle(article)} 
-                        className='text-black hover:shadow-lg w-[100%] md:w-[500px] h-[auto] m-2 p-1 bg-gray-100 rounded-md shadow-md flex flex-row md:flex-col'
+                        className='text-black hover:shadow-lg w-[100%] md:w-[500px] h-full m-2 p-1 bg-gray-100 rounded-md shadow-md flex flex-row md:flex-col'
                     >
                       <div className="relative h-[15vh] w-[100%] md:w-[300px] lg:w-[300px] sm:h-[10vh] md:h-[31vh] rounded-md ]">
                         <Image 
@@ -78,13 +78,14 @@ const Actuality = () => {
                 {/* the selected article image comes here */}
                 <div className='rounded-xl mb-3 lg:mb-0'>
                   {selectedArticle ? (
-                    <div className="relative h-[30vh] lg:h-[68vh] ">
+                    <div className="relative h-[30vh] lg:h-[64vh] ">
                       <Image 
                         className='rounded-xl'
                         layout="fill" // This will make the image take the full dimensions of the parent div
                         src={selectedArticle.file} 
                         alt={selectedArticle.title} 
                         objectFit="cover" // This should prevent distortion
+                        sizes="100vw"
                       />
                     </div>
                     

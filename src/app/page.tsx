@@ -11,7 +11,7 @@ import Footer from './Footer';
 
 export default function Home() {
   return (
-      <div className=" bg-yellow-500 ">
+      <div>
         < Hero />
         < Services />
         < Actuality />

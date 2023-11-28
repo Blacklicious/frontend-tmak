@@ -120,7 +120,7 @@ const Navbar: React.FC = () => {
                             );
                           }
                           return (
-                            <Link key={index} href={`/mining-news/${item.toLowerCase().replace(' ', '-')}`} className="block px-4 py-2 text-gray-800 hover:bg-yellow-500 hover:text-white" onClick={() => setIsOpen(false)} >
+                            <Link key={index} href={`/${item.toLowerCase().replace(' ', '-')}`} className="block px-4 py-2 text-gray-800 hover:bg-yellow-500 hover:text-white" onClick={() => setIsOpen(false)} >
                                 {item}
                             </Link>
                           );
@@ -204,7 +204,7 @@ const Navbar: React.FC = () => {
                         );
                       }
                       return (
-                        <Link key={index} onClick={() => setIsOpen(false)}  href={`mining-news/${item.toLowerCase().replace(' ', '-')}`} className="w-[85vw] h-10 text-center py-2 rounded-md shadow-md bg-white mb-4">
+                        <Link key={index} onClick={() => setIsOpen(false)}  href={`/${item.toLowerCase().replace(' ', '-')}`} className="w-[85vw] h-10 text-center py-2 rounded-md shadow-md bg-white mb-4">
                             {item}
                         </Link>
                       );

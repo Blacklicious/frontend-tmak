@@ -4,6 +4,7 @@ import axios from 'axios';
 import Image from 'next/image';
 
 interface ArticleType {
+  creation: string;
   rubrique: string;
   id: string;
   title: string;
@@ -18,7 +19,7 @@ const ArticleList: React.FC<{ setSelectedComponent: Function }> = ({ setSelected
   const [sortOrder, setSortOrder] = useState('newest');
 
   const [filterMaliMining, setFilterMaliMining] = useState(true);
-  const [filterTMakActualite, setFilterTMakActualite] = useState(true);
+  const [filterTMakActualite, setFilterTMakActualite] = useState(false);
 
 
   // Fetch articles when component mounts
@@ -65,9 +66,9 @@ const ArticleList: React.FC<{ setSelectedComponent: Function }> = ({ setSelected
   })
   .sort((a, b) => {
     if (sortOrder === 'newest') {
-      return new Date(b.date).getTime() - new Date(a.date).getTime();
+      return new Date(b.creation).getTime() - new Date(a.creation).getTime();
     } else {
-      return new Date(a.date).getTime() - new Date(b.date).getTime();
+      return new Date(a.creation).getTime() - new Date(b.creation).getTime();
     }
   });
   
@@ -82,19 +83,10 @@ const ArticleList: React.FC<{ setSelectedComponent: Function }> = ({ setSelected
               <option value="oldest">Le plus ancien</option>
             </select>
           </div>
-          <div className='mx-4'>
-            <input type="checkbox" checked={filterMaliMining} onChange={() => setFilterMaliMining(!filterMaliMining)} />
-            <label className='ml-2'>Mali Mining News</label>
-          </div>
-          <div className='mx-4'>
-            <input type="checkbox" checked={filterTMakActualite} onChange={() => setFilterTMakActualite(!filterTMakActualite)} />
-            <label className='ml-2'>T-MAK Actualité</label>
-          </div>
         </div>
         <div className='flex flex-wrap'>
           {sortedAndFilteredArticles.map((article) => {
-            const dateObject = new Date(article.date);
-            const formattedDate = dateObject.toISOString().split('T')[0];
+            const dateObject = new Date(article.creation);
             return (
               <div key={article.id} onClick={() => handleArticleClick(article)} className="card rounded-md flex flex-col w-[100%] md:w-[240px] mb-4">
                 <div className='relative'>
@@ -109,10 +101,10 @@ const ArticleList: React.FC<{ setSelectedComponent: Function }> = ({ setSelected
                   </div>
                 </div>
                 <div className='px-1 text-lg md:text-md font-bold'>
-                  {truncateToNWords(article.title, 10)}
+                  {truncateToNWords(article.title, 50)}
                 </div>
                 <div className='px-1 text-xs lg:text-sm'>
-                  {formattedDate} {/* Using the formatted date */}
+                  {article.creation} {/* Using the formatted date */}
                 </div>
               </div>  
             )

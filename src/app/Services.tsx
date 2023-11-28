@@ -44,7 +44,13 @@ const Services = () => {
             </ul>
           </div>
           <div className="w-[100%] xl:w-[50%] xl:h-full bg-yellow-500 mt-6  rounded-lg">
-              <Image className='rounded-lg shadow-lg h-[100%]' src="/tmak-casquette.jpeg" alt="Casquette T-MAK" objectFit='contain' width={1000} height={1000}  />
+            <Image
+              src="/tmak-casquette.jpeg"
+              alt="T-Mak Casquette"
+              width="500"
+              height="300"
+              className='rounded-lg w-[100%] h-[auto]]'
+            />
           </div>
         </div>
       </div>

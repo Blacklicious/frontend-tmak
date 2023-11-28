@@ -40,7 +40,7 @@ const Signin: React.FC = () => {
         setLoading(false);
       }
       // Redirect to the main page using Next.js router and then force reload
-      window.location.href = '/mining-news/dashboard';
+      window.location.href = '/dashboard';
 
     } catch (error) {
       console.log('Error logging in:', error);
