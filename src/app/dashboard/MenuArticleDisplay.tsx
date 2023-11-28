@@ -144,16 +144,12 @@ const MenuArticleDisplay = () => {
         {sortedAndFilteredArticles.map((article) => {
           const dateObject = new Date(article.creation);
           return (
-            <div key={article.id}  className={`card bg-gray-200 my-4 md:mx-4 p-2 rounded-lg h-full w-[100%] md:w-[44%] lg:w-[29%] text-sm ${selectedArticles.has(article.id) ? 'border-4 border-blue-500 shadow-lg' : ''}`}
-                onClick={() => showCheckboxes && toggleSelectArticle(article.id)}
+            <div key={article.id}  className={`card bg-gray-200 my-4 md:mx-4 p-2 rounded-lg h-full w-[100%] md:w-[44%] lg:w-[29%] text-sm ${selectedArticles.has(article.id) ? 'border-[5px] border-black shadow-lg' : ''} ${article.rubrique === 'T-MAK actualité fr' ? 'border-yellow-500 border-2' : ''}`}
+            onClick={() => showCheckboxes && toggleSelectArticle(article.id)}
               >  
                 <Image width={300} height={500}  src={article.file} alt={article.title} className=" w-full  h-[250px] object-cover rounded" />
                 <h4 className="text-xl font-semibold mt-2">{article.title}</h4>
-                <p>
-                  {article.content.split(" ").slice(0, 20).join(" ")}
-                  {article.content.split(" ").length > 20 ? "..." : ""}
-                </p>
-                <h4 className=" font-semibold mt-2">{article.creation}</h4>
+                <h4 className=" font-semibold mt-2 text-right px-2">{article.creation}</h4>
               </div>
             )}
           )    

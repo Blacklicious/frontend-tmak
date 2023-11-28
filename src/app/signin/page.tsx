@@ -48,26 +48,25 @@ const Signin: React.FC = () => {
   };
   
   return (
-    <div>
-      <div className=' flex items-center justify-center p-4 h-[75vh] md:h-[90vh] text-black'>
-        <div >
-          <form className=' bg-gray-100/95 h-[40vh] md:h-[30vh] md:w-[70vw] flex flex-col items-center justify-center  space-y-5 px-8 rounded-lg' onSubmit={handleSubmit}>
-            <Input className='mt-8 w-[70vw] md:w-[40vw] h-10 bg-white px-5 rounded-md' type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="nom d'utilisateur" />
+    <div className='w-[100%] h-[100%]'>
+      <div className=' flex items-center justify-center p-4 w-[100%] h-[100%] md:h-[90%] text-black'>
+        <div className='h-[100%] py-4' >
+          <form className='pb-6  bg-gray-100/95 h-[40%] md:h-[30vh] w-[100%] md:w-[70vw] flex flex-col items-center justify-center  space-y-5 px-8 rounded-lg' onSubmit={handleSubmit}>
+            <Input className='mt-8 w-[100%] md:w-[40vw] h-10 bg-white px-5 rounded-md' type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="nom d'utilisateur" />
            
             <Input.Password
-              className='w-[70vw] md:w-[40vw] h-10 bg-white px-5 rounded-md' 
+              className='w-[100%] md:w-[40vw] h-10 bg-white px-5 rounded-md' 
               value={password} onChange={(e) => setPassword(e.target.value)} 
               type="password"
               placeholder="Mot de Passe"
               iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
             />
-            <Button className='w-[70vw] md:w-[40vw] h-10 bg-blue-400 border hover:bg-blue-500 shadow-md rounded-md' type="primary" htmlType="submit" disabled={loading}>
+            <Button className='w-[100%] md:w-[40vw] h-10 bg-blue-400 border hover:bg-blue-500 shadow-md rounded-md' type="primary" htmlType="submit" disabled={loading}>
               {loading ? 'Loading...' : 'Connectez-vous'}
             </Button>
-            <div className='w-[70vw] text-center'>Vous n&apos;avez pas de compte contactez &quot;votre superviseur&quot; </div>
+            <div className='w-[100%] mb-4 text-center'>Vous n&apos;avez pas de compte contactez &quot;votre superviseur&quot; </div>
             {/* <Link  href="/signup" ><button className='w-[40vw] h-10 bg-blue-400 border hover:bg-blue-500 shadow-md rounded-md'>Inscrivez-vous</button></Link> */}
           </form>
-
         </div>
         
       </div>

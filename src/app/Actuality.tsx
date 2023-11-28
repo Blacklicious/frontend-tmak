@@ -4,6 +4,7 @@ import Image from '../../node_modules/next/image';
 
 
 interface Article {
+  creation: ReactNode;
   title: string;
   rubrique: string;
   // Add other properties as needed, like content, date, file, id
@@ -56,12 +57,12 @@ const Actuality = () => {
               {/* Column 2 */}
               <div className="w-full  lg:w-[55%]  items-center h-full md:mr-3  ">
                 {/* the list of articles to select from in a carousel */}
-                <div className="flex flex-col md:flex-row overflow-y-auto md:overflow-x-auto w-[100%]rounded-xl bg-white rounded-lg mb-3 h-[30vh] md:h-[auto]">
+                <div className="flex flex-col md:flex-row overflow-y-auto md:overflow-x-auto w-[100%]rounded-xl bg-white rounded-lg mb-3 h-[30vh] md:h-[290px]">
                   {articles.filter(article => article.rubrique === "T-MAK actualité fr").map(article => (
                     <div 
                         key={article.id} 
                         onClick={() => setSelectedArticle(article)} 
-                        className='text-black hover:shadow-lg w-[100%] md:w-[500px] h-full m-2 p-1 bg-gray-100 rounded-md shadow-md flex flex-row md:flex-col'
+                        className='text-black hover:shadow-lg w-[100%] md:w-[500px] h-[250px] m-2 p-1 bg-gray-100 rounded-md shadow-md flex flex-row md:flex-col'
                     >
                       <div className="relative h-[15vh] w-[100%] md:w-[300px] lg:w-[300px] sm:h-[10vh] md:h-[31vh] rounded-md ]">
                         <Image 
@@ -78,7 +79,7 @@ const Actuality = () => {
                 {/* the selected article image comes here */}
                 <div className='rounded-xl mb-3 lg:mb-0'>
                   {selectedArticle ? (
-                    <div className="relative h-[30vh] lg:h-[64vh] ">
+                    <div className="relative h-[30vh] lg:h-[600px] ">
                       <Image 
                         className='rounded-xl'
                         layout="fill" // This will make the image take the full dimensions of the parent div
@@ -95,11 +96,11 @@ const Actuality = () => {
                 </div>
               </div>
               {/* Column 1 */}
-              <div className="w-full lg:w-[50%] p-3 text-black bg-white align-center rounded-xl overflow-y-auto  h-[50vh] lg:h-[102vh]">
+              <div className="w-full lg:w-[50%] p-3 text-black bg-white align-center rounded-xl overflow-y-auto  h-[50vh] lg:h-[900px]">
                 <div>
                   {selectedArticle ? (
                     <div className='p-3 flex flex-col '>
-                      <h3 className=" text-xl lg:text-5xl mb-8 font-oswald">{selectedArticle.title}</h3>
+                      <h3 className=" text-xl lg:text-5xl mb-8 md:mb-4 font-oswald">{selectedArticle.title}</h3>
                       <div className=''> {/* Added overflow-y-auto and a max height */}
                           <div 
                             className='text-justify' 
@@ -108,7 +109,7 @@ const Actuality = () => {
                           >
                             
                           </div>
-                        <p>{selectedArticle.date}</p>
+                        <p>{selectedArticle.creation}</p>
                       </div>
                     </div>
                   ) : (
